@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Madimi One';
+	src: url('../../../../assets/font/MadimiOne-Regular.ttf') format('truetype');
+}
+
+@import '../../../../styles/variables_styles.scss';
+@import '../../../../styles/color_styles.scss';
+
+.header-wrapper {
+	background-color: var(--primary-color);
+	padding: $padding;
+}
+
+.logo {
+	width: 50px;
+	cursor: pointer;
+	transition: all 820ms ease-in-out;
+
+	&:hover {
+		scale: 1.1;
+		transition: all 820ms ease-in-out;
+		backdrop-filter: brightness(-1.5);
+	} 
+}
+
+h1 {
+		text-transform: uppercase;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

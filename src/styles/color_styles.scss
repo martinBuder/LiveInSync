@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+	--font-color: #000;
+	--primary-color: #d6d6b1;
+	--secondary-color: #f7f7d7;
+	
+}
+
+[data-theme="dark"] {
+	--font-color: #fff;
+	--primary-color: #141301;
+	--secondary-color: #252403;
+}
+

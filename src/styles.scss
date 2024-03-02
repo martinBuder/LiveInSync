@@ -1,1 +1,25 @@
+@import './styles/variables_styles.scss';
+
 /* You can add global styles to this file, and also import other style files */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@mixin displey-flex ($fd: row, $jc: space-between, $ai: center, $gap: $single) {
+	display: flex;
+	flex-direction: $fd;
+	justify-content: $jc;
+	align-items: $ai;
+	gap: $gap
+}
+
+.space-between-row-items {
+	@include displey-flex()
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
