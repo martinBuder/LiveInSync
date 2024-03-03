@@ -1,4 +1,6 @@
 @import './styles/variables_styles.scss';
+@import './styles/color_styles.scss';
+
 
 /* You can add global styles to this file, and also import other style files */
 * {
@@ -13,6 +15,10 @@
 	justify-content: $jc;
 	align-items: $ai;
 	gap: $gap
+}
+
+body {
+	color: var(--font-color);
 }
 
 .space-between-row-items {

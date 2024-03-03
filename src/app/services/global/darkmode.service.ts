@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { AfterViewInit, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,14 +6,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class DarkmodeService {
-  private darkmodeState: BehaviorSubject<boolean> = new BehaviorSubject(this.detectDarkmode()); 
+  private darkmodeState!: BehaviorSubject<boolean>; 
 
-	constructor() {
-		this.darkmodeState.subscribe((state:boolean) => {
+	constructor() { 
+    this.darkmodeState = new BehaviorSubject(this.detectDarkmode()); 
+    this.darkmodeState.subscribe((state:boolean) => {    
+      console.log(state);
+       
   	  if(state) this.setDarkmode()
 	    else this.setLightmode()
     })
   }
+
 
 	public toogleDarkmode(): void {
 		this.darkmodeState.next(!this.darkmodeState.getValue());
@@ -22,11 +26,12 @@ export class DarkmodeService {
   public detectDarkmode():boolean {
     if (typeof window !== 'undefined') {
       const mediaMatch = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      console.log(mediaMatch);
+      
       return mediaMatch;
     }
     return false;
-    // const mediaMatch = window.matchMedia('(prefers-color-scheme)').matches;
-    // return typeof mediaMatch === 'boolean' ? mediaMatch : false;
+   
 	}
 
 	private setLightmode():void {
@@ -35,6 +40,7 @@ export class DarkmodeService {
       document.body.classList.remove('darkmode');
       document.body.setAttribute('data-theme', 'light');
     }
+
 	}
 
 	private setDarkmode():void {
@@ -42,7 +48,7 @@ export class DarkmodeService {
       document.body.classList.add('darkmode');
       document.body.classList.remove('lightmod');
       document.body.setAttribute('data-theme', 'dark');
-    }
+    }    
 	}
 }
 

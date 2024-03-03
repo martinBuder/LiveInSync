@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LogoImgComponent } from "../../common/logo/logo.component";
 import { HeaderMenuComponent } from "../main-menu/main-menu.component";
+import { DarkmodeService } from '../../../services/global/darkmode.service';
 
 @Component({
     selector: 'app-header',
@@ -10,5 +11,10 @@ import { HeaderMenuComponent } from "../main-menu/main-menu.component";
     imports: [LogoImgComponent, HeaderMenuComponent]
 })
 export class HeaderComponent {
+
+    constructor(    private darkmodeService: DarkmodeService
+        ) {
+
+    }
 
 }
