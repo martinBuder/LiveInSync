@@ -19,6 +19,7 @@ export class AppComponent {
 
   constructor(
     public translate: TranslateService,
+    private darkmodeService: DarkmodeService
     ) {
     
 

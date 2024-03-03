@@ -5,6 +5,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -19,5 +20,5 @@ export const appConfig: ApplicationConfig = {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }).providers! ]
+    }).providers!, provideAnimationsAsync() ]
 }

@@ -2,6 +2,11 @@
 	<div class="logo">
 		<app-logo-img></app-logo-img>
 	</div>
-	<h1>life in sync</h1>
-	<app-main-menu></app-main-menu>
+	<h1 class="app-name">life in sync</h1>
+	<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'"></app-button>
+	<ng-container *ngIf="menuOpen">
+		<div class="menu-wrapper">
+			<app-setting-menu></app-setting-menu>
+		</div>
+	</ng-container>
 </div>

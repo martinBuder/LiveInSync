@@ -1,0 +1,6 @@
+<div class="nav-list">
+	<div class="list-item">
+		<div class="dark-toogle">{{ 'setting.darkmode' | translate }}</div>
+		<mat-slide-toggle [checked]="darkmodeService.detectDarkmode()" (change)="darkmodeService.toogleDarkmode()" color="primary"></mat-slide-toggle>
+	</div>
+</div>

@@ -2,14 +2,16 @@
 :root {
 	--font-color: #000;
 	--primary-color: #d6d6b1;
-	--secondary-color: #f7f7d7;
-	
+	--secondary-color: #dcdcb0;
+	--tertiary-color: #f8f8e5;
+	--highlight-color: #141414;
 }
 
 [data-theme="dark"] {
 	--font-color: #fff;
-	--primary-color: #141301;
-	--secondary-color: #252403;
+	--primary-color: #0a0114;
+	--secondary-color: #110420;
+	--tertiary-color: #2a0456;
 	--highlight-color: #f7f7d7;
 }
 

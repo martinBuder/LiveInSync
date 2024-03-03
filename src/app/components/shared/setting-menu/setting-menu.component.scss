@@ -1,0 +1,15 @@
+@import '../../../../styles/variables_styles.scss';
+@import '../../../../styles/color_styles.scss';
+@import '../../../../styles/mixins.scss';
+
+
+.nav-list {
+	background-color: var(--tertiary-color);
+	padding: $padding;
+}
+
+.list-item {
+	@include display-flex();
+	flex-wrap: no-wrap;
+}
+

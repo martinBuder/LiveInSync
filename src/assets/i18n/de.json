@@ -1,5 +1,17 @@
 {
-	"general": {
+	"header": {
 		"test": "Das ist ein Test"
+	},
+	"text": {
+		"test":"Das ist ein Test"
+	},
+	"label": {
+		"test":"Das ist ein Test"
+	},
+	"setting": {
+		"darkmode": "DunkelModus"
+		
+
 	}
+
 }

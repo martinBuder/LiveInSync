@@ -10,9 +10,7 @@ export class DarkmodeService {
 
 	constructor() { 
     this.darkmodeState = new BehaviorSubject(this.detectDarkmode()); 
-    this.darkmodeState.subscribe((state:boolean) => {    
-      console.log(state);
-       
+    this.darkmodeState.subscribe((state:boolean) => {          
   	  if(state) this.setDarkmode()
 	    else this.setLightmode()
     })
@@ -25,9 +23,7 @@ export class DarkmodeService {
 
   public detectDarkmode():boolean {
     if (typeof window !== 'undefined') {
-      const mediaMatch = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      console.log(mediaMatch);
-      
+      const mediaMatch = window.matchMedia('(prefers-color-scheme: dark)').matches;    
       return mediaMatch;
     }
     return false;

@@ -1,0 +1,9 @@
+.btn-container {
+	cursor: pointer;
+}
+
+.icon-btn {
+	&:hover {
+		scale: 1.2;
+	}
+}
