@@ -1,10 +1,11 @@
 @import '../../../../styles/variables_styles.scss';
 @import '../../../../styles/color_styles.scss';
 @import '../../../../styles/mixins.scss';
+@import '../../../../styles/animations.scss';
 
 
 .nav-list {
-	background-color: var(--tertiary-color);
+	background-color: var(--odd-back-color);
 	padding: $padding;
 }
 

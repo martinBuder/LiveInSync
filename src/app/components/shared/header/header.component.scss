@@ -8,7 +8,8 @@
 	border-bottom: 0.2px solid var(--primary-border-color);
 
 	.menu-wrapper {
-		@include position-absolute-br();
+		@include position-absolute-right($top: 60px);
+		margin-right: $padding;
 	}
 }
 

@@ -1,0 +1,24 @@
+.slide-down {
+	height: 100%;
+	max-height: 0;
+	overflow: hidden;
+	animation: slideDown 300ms ease-in-out forwards;
+}
+
+@keyframes slideDown{
+	to {
+		max-height: 1000px;
+	}
+}
+
+.slide-up {
+	max-height: 0;
+	overflow: hidden;
+	animation: slideDown 200ms ease-in backwards;
+}
+
+@keyframes slideDown{
+	to {
+		max-height: 1000px;
+	}
+}

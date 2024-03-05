@@ -8,8 +8,10 @@
 	gap: $gap
 }
 
-@mixin position-absolute-br($bottom: calc($padding * -3), $right: $padding) {
+@mixin position-absolute-right($top: 0, $right: 0) {
 	position: absolute;
-	bottom: $bottom;
+	top: $top;
 	right: $right;
+	border: 0.2px solid var(--secondary-border-color);
+	z-index: 5;
 }

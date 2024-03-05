@@ -14,12 +14,18 @@ import { CommonModule } from '@angular/common';
         SettingMenuComponent, 
         ButtonComponent, 
         CommonModule
-    ]
+    ],
 })
 export class HeaderComponent {
 
-    menuOpen: boolean = false;
+    public menuOpen: boolean = false;
 
     constructor() {}
+
+    public closeMenu() {
+        console.log('here');
+        
+        this.menuOpen = false;
+    }
 
 }

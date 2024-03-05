@@ -6,7 +6,7 @@
 	<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'"></app-button>
 	<ng-container *ngIf="menuOpen">
 		<div class="menu-wrapper">
-			<app-setting-menu></app-setting-menu>
+			<app-setting-menu (closing)="closeMenu()"></app-setting-menu>
 		</div>
 	</ng-container>
 </div>
