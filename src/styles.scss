@@ -48,12 +48,44 @@ $LifeInSync-theme: mat.define-light-theme((
 	box-sizing: border-box;
 }
 
+html, body { height: 100%; }
+
 body {
 	color: var(--font-color);
-	background-color: var(--secondary-color);
+ font-family: "Oswald", sans-serif;
+ font-optical-sizing: auto;
+ font-weight: 300;
+ font-style: normal;
+	background-color: var(--site-background-color);
 }
 
-.space-between-row-items {
+.header {
+	text-transform: uppercase;
+	font-family: "Madimi One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: var(--header-font-color)
+}
+
+
+.long-text {
+	font-family: "Petrona", serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.card {
+	border-radius: 5px;
+	border: 0.2px solid var(--primary-border-color);
+	background-color: var(--card-back-color);
+	padding: $padding;
+	@include display-flex($fd: row, $jc: flex-start, $ai: flex-start);
+}
+
+
+
+.space-between-cols {
 	@include display-flex()
 }
 
@@ -61,5 +93,4 @@ img {
 	width: 100%;
 	height: auto;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

@@ -1,11 +1,11 @@
 @import '../../../../styles/variables_styles.scss';
 @import '../../../../styles/mixins.scss';
-@import '../../../../styles/font_family.scss';
 
 .header-wrapper {
-	background-color: var(--primary-color);
+	background-color: var(--card-back-color);
 	padding: $padding;
 	position: relative;
+	border-bottom: 0.2px solid var(--primary-border-color);
 
 	.menu-wrapper {
 		@include position-absolute-br();
@@ -24,10 +24,3 @@
 	} 
 }
 
-.app-name {
-		text-transform: uppercase;
-  font-family: "Madimi One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-		color: var(--highlight-color)
-}

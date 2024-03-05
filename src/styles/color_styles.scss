@@ -1,17 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+// LIGHTMODE COLORS 
+// #000; #2a343d; #262e31; #fbfeff; #ecf0f1; #dee3e6; #d7dce0;
+
+// DARKMODE COLORS 
+// #fff; #ecf0f1; #d0d5d8; #52575a; #303c45; #3a4650; #191026;
+ 
 :root {
 	--font-color: #000;
-	--primary-color: #d6d6b1;
-	--secondary-color: #dcdcb0;
-	--tertiary-color: #f8f8e5;
-	--highlight-color: #141414;
+	--header-font-color: #2a343d;
+	--site-background-color: #fbfeff;
+	--card-back-color: #ecf0f1;
+	--primary-border-color: #2a343d; 
+	--secondary-border-color: #262e31; 
+	--odd-back-color: #dee3e6;
+	--even-back-color: #d7dce0;
 }
 
 [data-theme="dark"] {
 	--font-color: #fff;
-	--primary-color: #0a0114;
-	--secondary-color: #110420;
-	--tertiary-color: #2a0456;
-	--highlight-color: #f7f7d7;
+	--header-font-color: #d0d5d8;
+	--site-background-color: #192026;
+	--card-back-color: #2a343d;
+	--primary-border-color: #d0d5d8; 
+	--secondary-border-color: #ecf0f1; 
+	--odd-back-color: #303c45;
+	--even-back-color: #3a4650;
 }
 

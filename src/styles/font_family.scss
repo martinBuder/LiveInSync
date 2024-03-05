@@ -2,3 +2,13 @@
 	font-family: 'Madimi One';
 	src: url('../assets/font/MadimiOne-Regular.ttf') format('truetype');
 }
+
+@font-face {
+	font-family: 'Oswald';
+	src: url('../assets/font/Oswald-VariableFont_wght.ttf') format('truetype');
+
+	@font-face {
+		font-family: 'Petrona';
+		src: url('../assets/font/Petrona-VariableFont_wght.ttf') format('truetype');
+	}
+}
