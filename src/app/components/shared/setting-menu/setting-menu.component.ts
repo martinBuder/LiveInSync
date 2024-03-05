@@ -12,10 +12,13 @@ import { DarkmodeService } from '../../../services/global/darkmode.service';
 })
 export class SettingMenuComponent {
 
-  darkmodeValue!:boolean;
-
   constructor(protected darkmodeService: DarkmodeService) {
-    this.darkmodeValue = darkmodeService.detectDarkmode()
+  }
+
+  protected isDarkmode(): boolean {
+    const theme = document.body.getAttribute('data-theme');
+    if(theme === 'dark') return true;
+    else return false;
   }
 
 

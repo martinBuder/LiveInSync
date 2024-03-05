@@ -1,4 +1,4 @@
-import { AfterViewInit, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class DarkmodeService {
     this.darkmodeState = new BehaviorSubject(this.detectDarkmode()); 
     this.darkmodeState.subscribe((state:boolean) => {          
   	  if(state) this.setDarkmode()
-	    else this.setLightmode()
+	    else this.setLightmode();
     })
   }
 
