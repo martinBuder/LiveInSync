@@ -12,8 +12,11 @@ import { DarkmodeService } from '../../../services/global/darkmode.service';
 })
 export class SettingMenuComponent {
 
+  darkmodeValue!:boolean;
 
   constructor(protected darkmodeService: DarkmodeService) {
+    this.darkmodeValue = darkmodeService.detectDarkmode()
   }
+
 
  }

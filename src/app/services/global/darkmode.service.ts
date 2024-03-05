@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class DarkmodeService {
-  private darkmodeState!: BehaviorSubject<boolean>; 
+  public darkmodeState!: BehaviorSubject<boolean>; 
 
 	constructor() { 
     this.darkmodeState = new BehaviorSubject(this.detectDarkmode()); 
