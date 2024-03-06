@@ -3,7 +3,7 @@
 		<app-logo-img></app-logo-img>
 	</div>
 	<h1 class="header">life in sync</h1>
-	<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'"></app-button>
+	<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'" [matIcon]="'tune'"></app-button>
 	<ng-container *ngIf="menuOpen">
 		<div class="menu-wrapper">
 			<app-setting-menu (closing)="closeMenu()"></app-setting-menu>

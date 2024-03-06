@@ -1,3 +1,7 @@
 <div class="card">
-	<h2 class="header">Todos</h2>
+	<div class="header-wrapper space-between-cols">
+		<h2 class="header">Todos</h2>
+		<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="openAdd()"></app-button>
+	</div>
+	<app-list></app-list>
 </div>

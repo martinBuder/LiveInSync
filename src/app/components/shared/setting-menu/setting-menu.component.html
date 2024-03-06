@@ -1,4 +1,7 @@
 <div class="nav-list slide-down" id="settingMenuClose" appClickOutsideDirective (clickOutside)="utilService.closeThis(closeWindow, 'settingMenuClose')" >
+	<div class="close-item">
+		<app-button [btnClass]="'icon-btn'" [matIcon]="'close'" (buttonClicked)="utilService.closeThis(closeWindow, 'settingMenuClose')"></app-button>
+	</div>
 	<div class="list-item">
 		<div class="dark-toogle">{{ 'setting.darkmode' | translate }}</div>
 		<mat-slide-toggle [checked]="isDarkmode()" (change)="darkmodeService.toogleDarkmode()" color="primary"></mat-slide-toggle>

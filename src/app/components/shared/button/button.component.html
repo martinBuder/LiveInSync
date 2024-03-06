@@ -1,7 +1,7 @@
-<div class="btn-container">
+<div class="btn-container" (click)="onButtonClick()">
 	<ng-container *ngIf="btnClass === 'icon-btn'">
 		<div [class]="btnClass">
-			<mat-icon>tune</mat-icon>
+			<mat-icon> {{ matIcon }} </mat-icon>
 		</div>	
 	</ng-container>
 </div>

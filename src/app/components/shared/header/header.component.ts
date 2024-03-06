@@ -22,9 +22,7 @@ export class HeaderComponent {
 
     constructor() {}
 
-    public closeMenu() {
-        console.log('here');
-        
+    public closeMenu() {       
         this.menuOpen = false;
     }
 

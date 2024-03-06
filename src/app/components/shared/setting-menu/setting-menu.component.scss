@@ -9,8 +9,15 @@
 	padding: $padding;
 }
 
+.close-item {
+	@include display-flex($jc: flex-end);
+	@include border-bottom();
+}
+
 .list-item {
 	@include display-flex();
-	flex-wrap: no-wrap;
+	@include border-bottom();
+	@include backdrop();
+ flex-wrap: no-wrap;
 }
 

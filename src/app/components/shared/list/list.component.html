@@ -1,0 +1,7 @@
+<ng-container *ngFor="let item of itemsArray; let i = index; let even = even">
+	<div class="item" [ngStyle]="{'background-color': even ? 'var(--even-back-color)' : 'var(--odd-back-color)'}">
+		<div class="title">{{ item.title }} </div>
+		<app-button [btnClass]="'icon-btn'" [matIcon]="'edit_note'" (buttonClicked)="openEdit(i)"></app-button>
+	</div>
+</ng-container>
+

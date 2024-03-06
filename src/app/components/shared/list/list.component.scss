@@ -1,0 +1,11 @@
+@import  '../../../../styles/color_styles.scss';
+@import  '../../../../styles/variables_styles.scss';
+@import  '../../../../styles/mixins.scss';
+
+
+
+.item {
+ width: 100%;
+	padding: $padding/2 $padding;
+	@include display-flex();
+}

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -11,4 +11,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ButtonComponent {
   @Input() btnClass !: string;
+  @Input() matIcon ?: string;
+  @Output() buttonClicked = new EventEmitter<void>();
+
+  protected onButtonClick() {
+    this.buttonClicked.emit();
+  }
 }

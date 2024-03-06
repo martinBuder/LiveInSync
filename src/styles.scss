@@ -80,10 +80,11 @@ body {
 	border: 0.2px solid var(--primary-border-color);
 	background-color: var(--card-back-color);
 	padding: $padding;
-	@include display-flex($fd: row, $jc: flex-start, $ai: flex-start);
+	@include display-flex($fd: column, $jc: flex-start, $ai: flex-start);
 }
 
 .space-between-cols {
+	width: 100%;
 	@include display-flex()
 }
 

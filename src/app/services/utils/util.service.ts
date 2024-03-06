@@ -7,7 +7,7 @@ export class UtilService {
 
   constructor() { }
 
-  public closeThis(nextStep: Function, elementId: string):void {
+  public closeThis(nextStep: Function, elementId: string):void {   
     const element = document.getElementById(elementId);
     if (element) element.classList.add('slide-up');
     setTimeout(() => {

@@ -1,9 +1,14 @@
+@import '../../../../styles/mixins.scss';
+
 .btn-container {
 	cursor: pointer;
 }
 
 .icon-btn {
-	&:hover {
-		scale: 1.2;
-	}
+	border-radius: 100%;
+	width: 40px;
+	aspect-ratio: 1/1;
+	@include display-flex($jc: center);
+	@include transition();
+	@include backdrop();
 }
