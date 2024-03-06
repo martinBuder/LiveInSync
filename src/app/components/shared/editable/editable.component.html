@@ -1,0 +1,30 @@
+<div class="edit-wrapper slide-down" id="editableClose">
+	<app-input
+		[shouldFocus]="true"
+		[inputTitle]="'label.title' | translate"></app-input>
+	<app-input
+	 [needTextarea]="true"
+		[inputTitle]="'label.description' | translate"
+		></app-input>
+
+
+	<div class="btn-wrapper">
+		<app-button 
+			[btnClass]="'label-icon-btn'" 
+			[matIcon]="'cancel'" 
+			[label]="'label.cancel' | translate"
+			(buttonClicked)="utilService.closeThis(closeWindow, 'editableClose')"
+			></app-button>
+		<app-button 
+			[btnClass]="'label-icon-btn'" 
+			[matIcon]="'delete'" 
+			[label]="'label.delete' | translate"
+						(buttonClicked)="delete()"
+			></app-button>	
+		<app-button 
+			[btnClass]="'label-icon-btn'" 
+			[matIcon]="'save'" 
+			[label]="'label.save' | translate"
+			(buttonClicked)="save()"></app-button>
+	</div>
+</div>

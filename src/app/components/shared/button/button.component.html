@@ -1,7 +1,16 @@
 <div class="btn-container" (click)="onButtonClick()">
+	<!-- ~ ICON BUTTON -->
 	<ng-container *ngIf="btnClass === 'icon-btn'">
 		<div [class]="btnClass">
 			<mat-icon> {{ matIcon }} </mat-icon>
 		</div>	
 	</ng-container>
+	<!-- ~ TEXT ICON BUTTON -->
+	<ng-container *ngIf="btnClass === 'label-icon-btn'">
+		<div [class]="btnClass" [ngClass]="{'save-btn': matIcon === 'save'}">
+			<div class="btn-label">{{ label }}</div>
+			<mat-icon> {{ matIcon }} </mat-icon>
+		</div>	
+	</ng-container>
+
 </div>

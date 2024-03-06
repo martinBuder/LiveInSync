@@ -1,12 +1,16 @@
 {
 	"header": {
-		"test": "Das ist ein Test"
+		"todo": "todo"
 	},
 	"text": {
-		"test":"Das ist ein Test"
+		"noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicken Sie auf das Plus-Symbol um den ersten Eintrag hinzuzufügen."
 	},
 	"label": {
-		"test":"Das ist ein Test"
+		"cancel":"Abbrechen",
+		"delete":"Löschen",
+		"save":"Speichern",
+		"title": "Titel",
+		"description": "Beschreibung"
 	},
 	"setting": {
 		"darkmode": "DunkelModus"

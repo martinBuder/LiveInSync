@@ -76,10 +76,8 @@ body {
 }
 
 .card {
-	border-radius: 5px;
-	border: 0.2px solid var(--primary-border-color);
+	@include border();
 	background-color: var(--card-back-color);
-	padding: $padding;
 	@include display-flex($fd: column, $jc: flex-start, $ai: flex-start);
 }
 

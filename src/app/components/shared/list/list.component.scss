@@ -2,10 +2,31 @@
 @import  '../../../../styles/variables_styles.scss';
 @import  '../../../../styles/mixins.scss';
 
+.header-wrapper {
+	margin-bottom: $single *2;
 
+	app-button {
+		margin-right: $padding;
+	}
+}
 
 .item {
  width: 100%;
-	padding: $padding/2 $padding;
+	padding: calc($padding/2) $padding;
 	@include display-flex();
+
+	&:last-child {
+		border-radius: 0 0 $border-radius $border-radius;
+	}
+}
+
+.header-wrapper + .item {
+	border-radius: $border-radius $border-radius 0 0;
+}
+
+app-editable {
+	display: block;
+	width: 100%;
+	height: min-content;
+	border-radius: $border-radius $border-radius 0 0
 }

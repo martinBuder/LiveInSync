@@ -21,6 +21,12 @@
 	transition: $which $time $process;
 }
 
+@mixin border($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $radius: $border-radius, $padding: $padding) {
+	border: $size $style $color;
+	border-radius: $radius;
+	padding: $padding;
+}
+
 @mixin border-bottom($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $padding: $single) {
 	border-bottom: $size $style $color;
 	padding: $padding;

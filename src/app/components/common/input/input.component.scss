@@ -1,0 +1,36 @@
+@import '../../../../styles/variables_styles.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/color_styles.scss';
+
+
+
+.input-wrapper {
+	@include border($padding: 2px);
+	position: relative;
+	height: $single * 5;
+	margin-top: 25px;
+
+	&:has(textarea) {
+		height: min-content;
+	}
+
+	&:has(:focus) {
+		border-color: var(--focus-color);
+	}
+}
+
+.title {
+	position: absolute;
+	top: -25px;
+	left: calc($padding /2);
+}
+
+input, textarea {
+	@include display-flex();
+	outline: none;
+	background-color: none;
+	height: 100%;
+	width: 100%;
+	font-size: $inputFont;
+	padding: 4px;
+}

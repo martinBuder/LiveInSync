@@ -1,0 +1,20 @@
+@import '../../../../styles/variables_styles.scss';
+@import '../../../../styles/mixins.scss';
+
+
+.edit-wrapper {
+	padding: $padding;
+	@include display-flex($fd:column, $gap: $single*2);
+	
+	* {
+		width: 100%;
+	}
+
+	.btn-wrapper {
+		width: 50%;
+		@include display-flex();
+		align-self: flex-end;
+		margin: $single*2 0;
+	}
+}
+

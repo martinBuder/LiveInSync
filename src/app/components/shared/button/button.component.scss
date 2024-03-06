@@ -1,4 +1,6 @@
 @import '../../../../styles/mixins.scss';
+@import '../../../../styles/color_styles.scss';
+
 
 .btn-container {
 	cursor: pointer;
@@ -11,4 +13,23 @@
 	@include display-flex($jc: center);
 	@include transition();
 	@include backdrop();
+}
+
+.label-icon-btn {
+	@include display-flex();
+	@include border();
+	@include backdrop();
+	padding: calc($padding / 2) $padding;
+}
+
+.save-btn{
+	background-color: var(--highlight-color);
+
+	&:hover {
+		filter: brightness(1.2);
+	}
+
+	&:active {
+		filter: brightness(0.8);
+	}
 }

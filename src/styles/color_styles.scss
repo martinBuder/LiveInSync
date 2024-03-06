@@ -1,8 +1,3 @@
-// LIGHTMODE COLORS 
-// #000; #2a343d; #262e31; #fbfeff; #ecf0f1; #dee3e6; #d7dce0;
-
-// DARKMODE COLORS 
-// #fff; #ecf0f1; #d0d5d8; #52575a; #303c45; #3a4650; #191026;
  
 :root {
 	--font-color: #000;
@@ -13,6 +8,9 @@
 	--secondary-border-color: #262e31; 
 	--odd-back-color: #dee3e6;
 	--even-back-color: #d7dce0;
+	--highlight-color: #c5cfd0; 
+	--focus-color: #5c87cb;
+
 }
 
 [data-theme="dark"] {
@@ -24,5 +22,7 @@
 	--secondary-border-color: #ecf0f1; 
 	--odd-back-color: #303c45;
 	--even-back-color: #3a4650;
+	--highlight-color: #262e31; 
+	--focus-color: #5c87cb;
 }
 

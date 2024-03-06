@@ -1,0 +1,19 @@
+<div class="input-wrapper">
+	<div class="title">{{ inputTitle }}</div>
+
+	<ng-container *ngIf="!needTextarea && shouldFocus">
+		<input [type]="inputType" [value]="inputValue" autofocus>
+	</ng-container>
+
+	<ng-container *ngIf="!needTextarea && !shouldFocus">
+		<input [type]="inputType" [value]="inputValue">
+	</ng-container>
+
+	<ng-container *ngIf="withIcon && !needTextarea">
+		<mat-icon>{{ matIcon }}</mat-icon>
+	</ng-container>
+	
+	<ng-container *ngIf="needTextarea">
+		<textarea [value]="inputValue" rows="3"></textarea>
+	</ng-container>
+</div>
