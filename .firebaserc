@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mb-lifeinsync": {
+      "hosting": {
+        "lifeinsync": [
+          "mb-lifeinsync"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mb-lifeinsync"
+  }
+}

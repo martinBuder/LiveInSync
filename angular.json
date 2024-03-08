@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LifeInSync": {
+    "lifeinsync": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "LifeInSync:build:production"
+              "buildTarget": "lifeinsync:build:production"
             },
             "development": {
-              "buildTarget": "LifeInSync:build:development"
+              "buildTarget": "lifeinsync:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "LifeInSync:build"
+            "buildTarget": "lifeinsync:build"
           }
         },
         "test": {
@@ -99,6 +99,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "lifeinsync:build:production",
+              "serveTarget": "lifeinsync:serve:production"
+            },
+            "development": {
+              "buildTarget": "lifeinsync:build:development",
+              "serveTarget": "lifeinsync:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
