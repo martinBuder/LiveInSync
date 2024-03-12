@@ -16,7 +16,7 @@
 			[btnClass]="'label-icon-btn'" 
 			[matIcon]="'cancel'" 
 			[label]="'label.cancel' | translate"
-			(buttonClicked)="utilService.closeThis(closeWindow, 'editableClose')"
+			(buttonClicked)="cancel()"
 			></app-button>
 		<app-button 
 			[btnClass]="'label-icon-btn'" 
@@ -31,3 +31,7 @@
 			(buttonClicked)="save()"></app-button>
 	</div>
 </div>
+<ng-container *ngIf="shouldChangedDialogOpen">
+	<app-changed-input (close)="this.utilService.closeThis(this.closeWindow, 'editableClose')" (return)="shouldChangedDialogOpen = false"></app-changed-input>
+</ng-container>
+

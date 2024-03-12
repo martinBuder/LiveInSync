@@ -12,5 +12,11 @@
 			<mat-icon> {{ matIcon }} </mat-icon>
 		</div>	
 	</ng-container>
+	<!-- ~ TEXT BUTTON -->
+	<ng-container *ngIf="btnClass === 'text-btn'">
+		<div [class]="btnClass">
+			<div class="btn-label">{{ label }}</div>
+		</div>	
+	</ng-container>
 
 </div>

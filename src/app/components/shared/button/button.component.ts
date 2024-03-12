@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-  @Input() btnClass !: 'icon-btn' | 'label-icon-btn';
+  @Input() btnClass !: 'icon-btn' | 'label-icon-btn' | 'text-btn';
   @Input() matIcon ?: string;
   @Input() label ?: string;
   @Output() buttonClicked = new EventEmitter<void>();

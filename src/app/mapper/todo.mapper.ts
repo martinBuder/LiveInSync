@@ -11,7 +11,8 @@ import { ReactiveFormsModule, Validators } from '@angular/forms';
   ]
 })
 export class TodoMapper {
-    static form =  {
+    
+  static form =  {
       title: [
           '',
           [Validators.maxLength(256), Validators.required, Validators.minLength(1)]
@@ -19,7 +20,7 @@ export class TodoMapper {
         description: ['', [Validators.maxLength(1256), Validators.minLength(1)]],
         done: [false],
         read: [false],
-      }
+  }
   
 
  }

@@ -91,3 +91,23 @@ img {
 	height: auto;
 }
 
+.dialog-outside {
+	position: absolute;
+	top: 0;
+	left: 0; 
+	width: 100%;
+	height: 100svh;
+	@include display-flex($jc: center);
+}
+
+.dialog {
+	background-color: var(--site-background-color);
+	width: 35%;
+
+	.btn-wrapper {
+		width: 100%;
+		margin: $padding 0;
+		@include display-flex($jc: center, $gap: $padding * 2);
+	}
+}
+

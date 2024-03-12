@@ -15,11 +15,16 @@
 	@include backdrop();
 }
 
-.label-icon-btn {
+.label-icon-btn, .text-btn {
 	@include display-flex();
 	@include border();
 	@include backdrop();
 	padding: calc($padding / 2) $padding;
+}
+
+.text-btn {
+	width: 75px;
+	@include display-flex($jc: center)
 }
 
 .save-btn{

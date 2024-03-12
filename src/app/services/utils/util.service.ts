@@ -15,6 +15,11 @@ export class UtilService {
     }, 200)
   }
 
+  public toggleDialogOpen(booleanItem: boolean) {
+    booleanItem = !booleanItem
+  }
+
+
   
     
 }
