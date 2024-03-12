@@ -3,7 +3,7 @@
 	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="openAdd()"></app-button>
 </div>
 <ng-container *ngIf="isAddActivated">
-	<app-editable style="background-color: var(--odd-back-color)" [(openClose)]="isAddActivated"></app-editable>
+	<app-editable style="background-color: var(--odd-back-color)" [(openClose)]="isAddActivated" [groupedForm]="groupedForm"></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
 	<ng-container *ngFor="let item of itemsArray; let i = index; let even = even">
@@ -13,7 +13,7 @@
 				<app-button [btnClass]="'icon-btn'" [matIcon]="'edit_note'" (buttonClicked)="openEdit(i)" ></app-button>
 			</ng-container>
 			<ng-container *ngIf="isEditableActivated[i]">
-				<app-editable [(openClose)]="isEditableActivated[i]"></app-editable>
+				<app-editable [(openClose)]="isEditableActivated[i]" [groupedForm]="groupedForm"></app-editable>
 			</ng-container>
 		</div>
 	</ng-container>

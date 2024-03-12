@@ -1,13 +1,16 @@
 <div class="edit-wrapper slide-down" id="editableClose">
 	<app-input
 		[shouldFocus]="true"
-		[inputTitle]="'label.title' | translate"></app-input>
+		[inputTitle]="'label.title' | translate"
+		[groupedForm]="groupedForm"
+		[formField]="'title'"
+		></app-input>
 	<app-input
 	 [needTextarea]="true"
 		[inputTitle]="'label.description' | translate"
+		[groupedForm]="groupedForm"
+		[formField]="'description'"
 		></app-input>
-
-
 	<div class="btn-wrapper">
 		<app-button 
 			[btnClass]="'label-icon-btn'" 
@@ -19,7 +22,7 @@
 			[btnClass]="'label-icon-btn'" 
 			[matIcon]="'delete'" 
 			[label]="'label.delete' | translate"
-						(buttonClicked)="delete()"
+			(buttonClicked)="delete()"
 			></app-button>	
 		<app-button 
 			[btnClass]="'label-icon-btn'" 

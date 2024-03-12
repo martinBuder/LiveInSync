@@ -1,8 +1,8 @@
-<div class="input-wrapper">
+<div [formGroup]="groupedForm" class="input-wrapper">
 	<div class="title">{{ inputTitle }}</div>
 
 	<ng-container *ngIf="!needTextarea && shouldFocus">
-		<input [type]="inputType" [value]="inputValue" autofocus>
+		<input [type]="inputType" [value]="inputValue" autofocus [formControlName]="formField">
 	</ng-container>
 
 	<ng-container *ngIf="!needTextarea && !shouldFocus">
@@ -14,6 +14,6 @@
 	</ng-container>
 	
 	<ng-container *ngIf="needTextarea">
-		<textarea [value]="inputValue" rows="3"></textarea>
+		<textarea [value]="inputValue" rows="3" [formControlName]="formField"></textarea>
 	</ng-container>
 </div>

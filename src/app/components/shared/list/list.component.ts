@@ -4,18 +4,20 @@ import { Observable } from 'rxjs';
 import { ButtonComponent } from '../button/button.component';
 import { EditableComponent } from '../editable/editable.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, EditableComponent, TranslateModule],
+  imports: [CommonModule, ButtonComponent, EditableComponent, TranslateModule, ReactiveFormsModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
 
   // @Input() itemsArray !: Observable<any>
+  @Input() groupedForm !: FormGroup;
   @Input() itemsArray !: Array<any>;
   @Input() listHeader !: string; 
   protected isAddActivated: boolean = false;

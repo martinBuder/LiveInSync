@@ -4,15 +4,17 @@ import { InputComponent } from '../../common/input/input.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilService } from '../../../services/utils/util.service';
 import { MatIconModule } from '@angular/material/icon';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-editable',
   standalone: true,
-  imports: [ButtonComponent, InputComponent, TranslateModule, MatIconModule],
+  imports: [ButtonComponent, InputComponent, TranslateModule, MatIconModule, ReactiveFormsModule],
   templateUrl: './editable.component.html',
   styleUrl: './editable.component.scss'
 })
 export class EditableComponent {
+  @Input() groupedForm !: FormGroup;
   @Input() item?: any;
   @Input() openClose !:boolean;
   @Output() closing = new EventEmitter<void>();
@@ -26,6 +28,9 @@ export class EditableComponent {
   }
 
   protected save():void {
+
+    console.log(this.groupedForm.value);
+    
 
   }
 
