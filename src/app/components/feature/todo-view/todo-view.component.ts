@@ -25,7 +25,7 @@ export class TodoViewComponent {
 
   }
 
-  protected openAdd() {
+  protected openAdd():void {
     
   }
 

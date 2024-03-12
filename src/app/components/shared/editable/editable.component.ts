@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ChangedInputComponent } from '../../dialogs/changed-input/changed-input.component';
 import { CommonModule } from '@angular/common';
+import { FirebaseService } from '../../../services/global/firebase.service';
 
 @Component({
   selector: 'app-editable',
@@ -19,23 +20,33 @@ export class EditableComponent {
   @Input() groupedForm !: FormGroup;
   @Input() item?: any;
   @Input() openClose !:boolean;
+  @Input() listTitle !: string;
   @Output() closing = new EventEmitter<void>();
   @Output() openCloseChange = new EventEmitter<boolean>();
 
   protected shouldChangedDialogOpen : boolean = false;
 
 
-  constructor(protected utilService: UtilService) {}
+  constructor(protected utilService: UtilService,
+    private firebaseService: FirebaseService) {}
 
   protected delete():void {
 
   }
 
-  protected save():void {
-
-    console.log(this.groupedForm.value);
+  protected async save():Promise<void> {
+    const todo = {
+      title: this.groupedForm.value.title,
+      description: this.groupedForm.value.description,
+      done: this.groupedForm.value.done,
+      read: this.groupedForm.value.read,
+    }
     
-
+    const token = this.utilService.generateSimpleToken(10);
+    
+    await this.firebaseService.setItemToFirebase(this.listTitle, token, todo);
+    this.groupedForm.reset();
+    this.utilService.closeThis(this.closeWindow, 'editableClose')
   }
 
   protected cancel(): void {
@@ -47,5 +58,7 @@ export class EditableComponent {
     this.openClose = !this.openClose;
     this.openCloseChange.emit(this.openClose);
   }
+
+
 
 }

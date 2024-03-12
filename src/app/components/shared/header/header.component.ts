@@ -22,7 +22,7 @@ export class HeaderComponent {
 
     constructor() {}
 
-    public closeMenu() {       
+    public closeMenu():void {       
         this.menuOpen = false;
     }
 

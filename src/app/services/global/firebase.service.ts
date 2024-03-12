@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, deleteDoc, doc, onSnapshot, query, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,9 @@ export class FirebaseService {
       * @param fireCollection, that we use
       * @param projectArray, that we need for *ngFor 
       */   
-     getListFromFirebase(fireCollection: any, fireArray: string) {      
+     getListFromFirebase(fireCollection: any): Observable<any> {   
+      
+      return new Observable((subscriber) => {
        onSnapshot(query(fireCollection),
        (querySnapshot) => {
          let projectArray: any = [];
@@ -35,13 +38,12 @@ export class FirebaseService {
            const itemJson: any = doc.data();
            itemJson['id'] = doc.id;          
            projectArray.push(itemJson);    
-           this[fireArray] = projectArray
          });   
-         if(fireArray === 'channelMessages' || fireArray === 'threadMessages')           
-         projectArray.sort((a: any, b: any) => b.timestamp - a.timestamp);
-         console.log(projectArray);
-         });
-      
+         subscriber.next(projectArray);
+        },(error) => {
+          subscriber.error(error); 
+        });
+        });
          
      }
  
