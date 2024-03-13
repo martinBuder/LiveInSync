@@ -21,6 +21,7 @@ export class EditableComponent implements OnInit{
   @Input() groupedForm !: FormGroup;
   @Input() item ?: any;
   @Input() listTitle !: string;
+  @Input() fireListHeader !: string;
   @Output() closeEdit = new EventEmitter<void>();
   
 
@@ -34,11 +35,11 @@ export class EditableComponent implements OnInit{
     }
 
   ngOnInit(): void {
-      this.fireCollection = collection(this.firestore, this.listTitle); 
+      this.fireCollection = collection(this.firestore, this.fireListHeader); 
     }
 
   protected delete():void {
-    this.firebaseService.deleteFireItem(this.listTitle, this.item.id);
+    this.firebaseService.deleteFireItem(this.fireListHeader, this.item.id);
     this.utilService.closeThis(this.closeWindow, 'editableClose');
   }
 
@@ -53,7 +54,7 @@ export class EditableComponent implements OnInit{
     this.utilService.closeThis(this.closeWindow, 'editableClose');
     if (!this.item) {
       const token = this.utilService.generateSimpleToken(10);
-      this.firebaseService.setItemToFirebase(this.listTitle, token, todo);
+      this.firebaseService.setItemToFirebase(this.fireListHeader, token, todo);
     } else {
       this.firebaseService.updateFireItem(this.fireCollection, this.item.id, todo);
     }
