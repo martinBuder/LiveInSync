@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 import { ButtonComponent } from '../button/button.component';
 import { EditableComponent } from '../editable/editable.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -18,38 +17,36 @@ import { Firestore, collection } from '@angular/fire/firestore';
 })
 export class ListComponent implements OnInit{
 
-  // @Input() 
   @Input() groupedForm !: FormGroup;
   @Input() listHeader !: string; 
   protected isAddActivated: boolean = false;
   protected isEditableActivated: boolean[] = [];
   protected itemsArray : Array<any> = [];
+  private fireCollection !: any;
 
 
-  constructor( private firestore: Firestore, private firebaseService: FirebaseService) {
- 
-  }
+  constructor( private firestore: Firestore, private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
-    const fireCollection = collection(this.firestore, this.listHeader);
-    const subscription = this.firebaseService.getListFromFirebase(fireCollection).subscribe({
+    this.fireCollection = collection(this.firestore, this.listHeader);
+    this.firebaseService.getListFromFirebase(this.fireCollection).subscribe({
       next: (data) => {
-        this.itemsArray = data; // Zuweisen der empfangenen Daten zu itemsArray
-        console.log(this.itemsArray);
-      },
+        this.itemsArray = data;
+        this.closeAllEdits();
+     },
       error: (error) => console.error(error)
-    });
-    
-
-  }
-
-  openAdd():void {
-    this.isAddActivated = !this.isAddActivated;
+    }); 
   }
 
   openEdit(i: number):void {
     this.isEditableActivated[i] = !this.isEditableActivated[i];
+    this.groupedForm.patchValue(this.itemsArray[i])
   }
 
-
+  closeAllEdits() {
+    this.isAddActivated = false;
+    for (let i = 0; i < this.isEditableActivated.length; i++) {
+      this.isEditableActivated[i] = false;
+    }
+  }
 }

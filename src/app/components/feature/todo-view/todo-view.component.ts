@@ -20,7 +20,6 @@ export class TodoViewComponent {
     formBuilder: FormBuilder
   ) {
     this.formGroup = formBuilder.group(TodoMapper.form);
-    console.log(this.formGroup.value);
     
 
   }

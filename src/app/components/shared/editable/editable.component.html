@@ -32,6 +32,6 @@
 	</div>
 </div>
 <ng-container *ngIf="shouldChangedDialogOpen">
-	<app-changed-input (close)="this.utilService.closeThis(this.closeWindow, 'editableClose')" (return)="shouldChangedDialogOpen = false"></app-changed-input>
+	<app-changed-input (close)="utilService.closeThis(closeWindow, 'editableClose')" (return)="shouldChangedDialogOpen = false"></app-changed-input>
 </ng-container>
 

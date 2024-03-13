@@ -29,7 +29,6 @@ export class FirebaseService {
       * @param projectArray, that we need for *ngFor 
       */   
      getListFromFirebase(fireCollection: any): Observable<any> {   
-      
       return new Observable((subscriber) => {
        onSnapshot(query(fireCollection),
        (querySnapshot) => {
@@ -87,7 +86,7 @@ export class FirebaseService {
       /**
       * update the profile in firebase
       * 
-      * @param id profile-id
+      * @param id item-id
       */
       async updateFireItem(fireCollection: any, id: string, item: any) {
        const itemRef = doc(fireCollection, id)
@@ -99,7 +98,7 @@ export class FirebaseService {
     * 
     * @param id 
     */
-   deleteUser(fireList:any, id:string) {
+   deleteFireItem(fireList:any, id:string) {
      let fireCollection = collection(this.firestore, fireList);
      let userDoc = doc(fireCollection, id)
      deleteDoc(userDoc);

@@ -1,19 +1,19 @@
 <div class="header-wrapper space-between-cols">
 	<h2 class="header">{{ listHeader }}</h2>
-	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="openAdd()"></app-button>
+	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="isAddActivated = true"></app-button>
 </div>
 <ng-container *ngIf="isAddActivated">
-	<app-editable style="background-color: var(--odd-back-color)" [(openClose)]="isAddActivated" [groupedForm]="groupedForm" [listTitle]="listHeader"></app-editable>
+	<app-editable style="background-color: var(--odd-back-color)" (closeEdit)="isAddActivated = false" [groupedForm]="groupedForm" [listTitle]="listHeader"></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
 	<ng-container *ngFor="let item of itemsArray; let i = index; let even = even">
-		<div class="item" (buttonClicked)="openEdit(i)" [ngStyle]="{'background-color': even ? 'var(--even-back-color)' : 'var(--odd-back-color)'}">
+		<div class="item" [ngStyle]="{'background-color': even ? 'var(--even-back-color)' : 'var(--odd-back-color)'}">
 			<ng-container *ngIf="!isEditableActivated[i]">
 				<div class="title">{{ item.title }} </div>
 				<app-button [btnClass]="'icon-btn'" [matIcon]="'edit_note'" (buttonClicked)="openEdit(i)" ></app-button>
 			</ng-container>
 			<ng-container *ngIf="isEditableActivated[i]">
-				<app-editable [(openClose)]="isEditableActivated[i]" [groupedForm]="groupedForm"[listTitle]="listHeader"></app-editable>
+				<app-editable (closeEdit)="isEditableActivated[i] = false" [groupedForm]="groupedForm" [item]="item" [listTitle]="listHeader"></app-editable>
 			</ng-container>
 		</div>
 	</ng-container>
