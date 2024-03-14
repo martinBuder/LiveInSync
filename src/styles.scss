@@ -106,8 +106,25 @@ img {
 
 	.btn-wrapper {
 		width: 100%;
-		margin: $padding 0;
-		@include display-flex($jc: center, $gap: $padding * 2);
+		margin: var(--padding) 0;
+		@include display-flex($jc: center, $gap: calc(calc(var(--padding)*2)));
+	}
+}
+
+.ellipsis-text {
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+@media (max-width: 420px) {
+	h1 {
+		font-size: 24px;
+	}
+	
+	.dialog {
+		width: 95%;
+		margin-top: -50%;
 	}
 }
 

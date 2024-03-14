@@ -1,7 +1,7 @@
 @import './variables_styles.scss';
 @import './color_styles.scss';
 
-@mixin display-flex ($fd: row, $jc: space-between, $ai: center, $gap: $single) {
+@mixin display-flex ($fd: row, $jc: space-between, $ai: center, $gap: var(--single)) {
 	display: flex;
 	flex-direction: $fd;
 	justify-content: $jc;
@@ -21,15 +21,15 @@
 	transition: $which $time $process;
 }
 
-@mixin border($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $radius: $border-radius, $padding: $padding) {
+@mixin border($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $radius: $border-radius, $padding: var(--padding)) {
 	border: $size $style $color;
 	border-radius: $radius;
-	padding: $padding;
+	padding: $padding
 }
 
-@mixin border-bottom($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $padding: $single) {
+@mixin border-bottom($size: 0.2px, $style: solid, $color: var(--secondary-border-color), $padding: var(--padding)) {
 	border-bottom: $size $style $color;
-	padding: $padding;
+	padding: $padding
 }
 
 @mixin backdrop() {
@@ -43,3 +43,4 @@
 		@include transition();
 	}
 }
+

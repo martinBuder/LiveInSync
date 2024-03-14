@@ -3,13 +3,13 @@
 
 .header-wrapper {
 	background-color: var(--card-back-color);
-	padding: $padding $site-padding;
+	padding: var(--padding) var(--site-padding);
 	position: relative;
 	border-bottom: 0.2px solid var(--primary-border-color);
 
 	.menu-wrapper {
 		@include position-absolute-right($top: 60px);
-		margin-right: $site-padding;
+		margin-right: var(--site-padding);
 	}
 }
 

@@ -3,8 +3,8 @@
 
 
 .edit-wrapper {
-	padding: $padding;
-	@include display-flex($fd:column, $gap: $single*2);
+	padding: var(--padding);
+	@include display-flex($fd:column, $gap: calc(var(--single)*2));
 	
 	* {
 		width: 100%;
@@ -14,7 +14,17 @@
 		width: 50%;
 		@include display-flex();
 		align-self: flex-end;
-		margin: $single*2 0;
+		margin: calc(var(--single)*2) 0;
+	}
+}
+
+@media (max-width: 420px) {
+	
+	.edit-wrapper {
+		.btn-wrapper {
+			width: 100%;
+			@include display-flex($fd: column, $gap: calc(var(--single)*2)); 
+		}
 	}
 }
 

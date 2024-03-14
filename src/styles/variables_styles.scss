@@ -1,6 +1,19 @@
-$single: 8px;
-$padding: $single * 2;
-$site-padding: $single * 4;
+:root {
+	--single: 8px;
+	--padding: calc(calc(var(--single)*2));
+	--site-padding: calc(var(--single) * 4);
+	--input-font: calc(calc(var(--single)*2));
+
+	@media (max-width: 420px) {
+		--padding: calc(var(--single));
+		--site-padding: calc(calc(var(--single)*2));
+		--input-font: calc(var(--single) * 1.5);
+	}
+}
+
 $border-radius: 5px;
 
-$inputFont: $single * 2;
+
+
+
+

@@ -7,6 +7,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FirebaseService } from '../../../services/global/firebase.service';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { LocalStorageService } from '../../../services/global/local-storage.service';
+import { Todo } from '../../../interfaces/todo';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ListComponent implements OnInit{
   @Input() listHeader !: string; 
   protected isAddActivated: boolean = false;
   protected isEditableActivated: boolean[] = [];
-  protected itemsArray : Array<any> = [];
+  protected itemsArray : Array<Todo> = [];
 
   private fireCollection !: any;
   protected fireListHeader !: string;

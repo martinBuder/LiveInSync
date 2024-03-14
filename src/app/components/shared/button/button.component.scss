@@ -19,7 +19,7 @@
 	@include display-flex();
 	@include border();
 	@include backdrop();
-	padding: calc($padding / 2) $padding;
+	padding: calc(var(--padding) / 2) var(--padding);
 }
 
 .text-btn {
@@ -38,3 +38,4 @@
 		filter: brightness(0.8);
 	}
 }
+

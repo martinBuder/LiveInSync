@@ -5,11 +5,7 @@ import { UtilService } from '../utils/util.service';
   providedIn: 'root'
 })
 export class LocalStorageService {
-
-
   constructor(private utilService: UtilService) { }
-
-
 
   saveInLocalStorage(value: string, key: string):void {
     let valueAsText = JSON.stringify(value); 

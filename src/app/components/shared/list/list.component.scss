@@ -3,21 +3,19 @@
 @import  '../../../../styles/mixins.scss';
 
 .header-wrapper {
-	margin-bottom: $single *2;
-
-	app-button {
-		margin-right: $padding;
-	}
+	margin-bottom: calc(var(--single)*2);
+	padding: var(--padding);
 }
 
 .item {
  width: 100%;
-	padding: calc($padding/2) $padding;
+	padding: calc(var(--padding)/2) var(--padding);
 	@include display-flex();
 
 	&:last-child {
 		border-radius: 0 0 $border-radius $border-radius;
 	}
+
 }
 
 .header-wrapper + .item {

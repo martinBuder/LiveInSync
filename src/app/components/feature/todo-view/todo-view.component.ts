@@ -20,12 +20,5 @@ export class TodoViewComponent {
     formBuilder: FormBuilder
   ) {
     this.formGroup = formBuilder.group(TodoMapper.form);
-    
-
   }
-
-  protected openAdd():void {
-    
-  }
-
 }

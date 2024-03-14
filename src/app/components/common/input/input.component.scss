@@ -7,8 +7,9 @@
 .input-wrapper {
 	@include border($padding: 2px);
 	position: relative;
-	height: $single * 5;
+	height: calc(var(--single)*5);
 	margin-top: 25px;
+	width: 100%;
 
 	&:has(textarea) {
 		height: min-content;
@@ -22,7 +23,7 @@
 .title {
 	position: absolute;
 	top: -25px;
-	left: calc($padding /2);
+	left: calc(var(--padding) /2);
 }
 
 input, textarea {
@@ -31,6 +32,6 @@ input, textarea {
 	background-color: none;
 	height: 100%;
 	width: 100%;
-	font-size: $inputFont;
+	font-size: var(--input-font);
 	padding: 4px;
 }

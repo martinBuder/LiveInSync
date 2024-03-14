@@ -1,6 +1,6 @@
 @import '../styles/variables_styles.scss';
 
 .main-wrapper {
-	padding: $site-padding;
-	padding-top: $padding * 2;
+	padding: var(--site-padding);
+	padding-top: calc(var(--padding)*2);
 }
