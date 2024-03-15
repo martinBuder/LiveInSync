@@ -28,7 +28,6 @@ export class ListComponent implements OnInit{
   private fireCollection !: any;
   protected fireListHeader !: string;
 
-
   constructor( private firestore: Firestore, private firebaseService: FirebaseService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -45,12 +44,19 @@ export class ListComponent implements OnInit{
     } 
   }
 
-  openEdit(i: number):void {
-    this.isEditableActivated[i] = !this.isEditableActivated[i];
-    this.groupedForm.patchValue(this.itemsArray[i])
+  openAdd() {
+    if(this.isEditableActivated.every(value => value === false) && this.isAddActivated === false) 
+      this.isAddActivated = true;
   }
 
-  closeAllEdits() {
+  openEdit(i: number):void {
+    if(this.isEditableActivated.every(value => value === false) && this.isAddActivated === false) {
+      this.isEditableActivated[i] = !this.isEditableActivated[i];
+      this.groupedForm.patchValue(this.itemsArray[i])
+    }
+  }
+
+  closeAllEdits():void {
     this.isAddActivated = false;
     for (let i = 0; i < this.isEditableActivated.length; i++) {
       this.isEditableActivated[i] = false;

@@ -8,17 +8,20 @@ import { TodoMapper } from '../../../mapper/todo.mapper';
 @Component({
   selector: 'app-todo-view',
   standalone: true,
-  imports: [ListComponent, ButtonComponent, TranslateModule, ReactiveFormsModule, TodoMapper],
+  imports: [
+    ListComponent,
+    ButtonComponent,
+    TranslateModule,
+    ReactiveFormsModule,
+    TodoMapper,
+  ],
   templateUrl: './todo-view.component.html',
-  styleUrl: './todo-view.component.scss'
+  styleUrl: './todo-view.component.scss',
 })
 export class TodoViewComponent {
+  protected formGroup!: FormGroup;
 
-  protected formGroup !: FormGroup;
-
-  constructor(
-    formBuilder: FormBuilder
-  ) {
+  constructor(formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group(TodoMapper.form);
   }
 }

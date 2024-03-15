@@ -1,30 +1,52 @@
-@import '../../../../styles/variables_styles.scss';
-@import '../../../../styles/mixins.scss';
-
+@import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/mixins.scss";
 
 .edit-wrapper {
-	padding: var(--padding);
-	@include display-flex($fd:column, $gap: calc(var(--single)*2));
-	
-	* {
-		width: 100%;
-	}
+  padding: var(--padding);
+  @include display-flex($fd: column, $gap: calc(var(--single) * 2));
 
-	.btn-wrapper {
-		width: 50%;
-		@include display-flex();
-		align-self: flex-end;
-		margin: calc(var(--single)*2) 0;
+  * {
+    width: 100%;
+  }
+
+  .btn-wrapper {
+    width: 50%;
+    @include display-flex();
+    align-self: flex-end;
+    margin: calc(var(--single) * 2) 0;
+  }
+}
+
+@media (max-width: 875px) {
+  .edit-wrapper {
+    .btn-wrapper {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+	.edit-wrapper {
+			.btn-wrapper {
+					width: 100%;
+			}
+	}
+}
+
+@media (max-width: 520px) {
+	.edit-wrapper {
+			.btn-wrapper {
+					width: 50%;
+					@include display-flex($fd: column, $gap: calc(var(--single) * 2));
+
+			}
 	}
 }
 
 @media (max-width: 420px) {
-	
-	.edit-wrapper {
-		.btn-wrapper {
-			width: 100%;
-			@include display-flex($fd: column, $gap: calc(var(--single)*2)); 
-		}
-	}
+  .edit-wrapper {
+    .btn-wrapper {
+      width: 100%;
+    }
+  }
 }
-

@@ -1,6 +1,6 @@
 <div class="header-wrapper space-between-cols">
 	<h2 class="header">{{ listHeader }}</h2>
-	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="isAddActivated = true"></app-button>
+	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="openAdd()"></app-button>
 </div>
 <ng-container *ngIf="isAddActivated">
 	<app-editable style="background-color: var(--odd-back-color)" 
