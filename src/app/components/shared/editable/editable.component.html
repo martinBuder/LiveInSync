@@ -11,7 +11,8 @@
     [groupedForm]="groupedForm"
     [formField]="'description'"
   ></app-input>
-  <div class="check-box-wrapper">
+		<ng-container *ngIf="!isJustAddItem">
+			<div class="check-box-wrapper">
     <app-checkbox
       [checkboxTitle]="'label.read'"
       [groupedForm]="groupedForm"
@@ -23,6 +24,8 @@
       [formField]="'done'"
     ></app-checkbox>
   </div>
+		</ng-container>
+
   <div class="btn-wrapper">
     <app-button
       [btnClass]="'label-icon-btn'"
@@ -30,12 +33,14 @@
       [label]="'label.cancel' | translate"
       (buttonClicked)="cancel()"
     ></app-button>
+				<ng-container *ngIf="!isJustAddItem">
     <app-button
       [btnClass]="'label-icon-btn'"
       [matIcon]="'delete'"
       [label]="'label.delete' | translate"
       (buttonClicked)="delete()"
     ></app-button>
+				</ng-container>
     <app-button
       [btnClass]="'label-icon-btn'"
       [matIcon]="'save'"

@@ -33,6 +33,7 @@ export class EditableComponent implements OnInit {
   @Input() item?: Todo;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
+  @Input() isJustAddItem : boolean = false;
   @Output() closeEdit = new EventEmitter<void>();
 
   protected shouldChangedDialogOpen: boolean = false;
