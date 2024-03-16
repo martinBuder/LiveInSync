@@ -8,6 +8,7 @@ import { Firestore, collection } from '@angular/fire/firestore';
 import { LocalStorageService } from '../../../services/global/local-storage.service';
 import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +19,7 @@ import { ButtonComponent } from '../../common/button/button.component';
     EditableComponent,
     TranslateModule,
     ReactiveFormsModule,
+    MatIconModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',

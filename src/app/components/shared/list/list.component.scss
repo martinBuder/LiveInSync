@@ -1,30 +1,65 @@
-@import  '../../../../styles/color_styles.scss';
-@import  '../../../../styles/variables_styles.scss';
-@import  '../../../../styles/mixins.scss';
+@import "../../../../styles/color_styles.scss";
+@import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/mixins.scss";
 
 .header-wrapper {
-	margin-bottom: calc(var(--single)*2);
-	padding: var(--padding);
+  margin-bottom: calc(var(--single) * 2);
+  padding: var(--padding);
 }
 
 .item {
- width: 100%;
-	padding: calc(var(--padding)/2) var(--padding);
-	@include display-flex();
+  position: relative;
+  width: 100%;
+  padding: calc(var(--padding) / 2) var(--padding);
+  @include display-flex();
 
-	&:last-child {
-		border-radius: 0 0 $border-radius $border-radius;
-	}
-
+  &:last-child {
+    border-radius: 0 0 $border-radius $border-radius;
+  }
 }
 
 .header-wrapper + .item {
-	border-radius: $border-radius $border-radius 0 0;
+  border-radius: $border-radius $border-radius 0 0;
 }
 
 app-editable {
-	display: block;
-	width: 100%;
-	height: min-content;
-	border-radius: $border-radius $border-radius 0 0
+  display: block;
+  width: 100%;
+  height: min-content;
+  border-radius: $border-radius $border-radius 0 0;
+}
+
+.unread-marker {
+  position: absolute;
+  top: 10%;
+  left: 4px;
+  background-color: var(--focus-color);
+  width: 1px;
+  height: 80%;
+}
+
+.mat-icon {
+  color: var(--focus-color) !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--padding) * 4);
+}
+
+.done {
+  right: calc(var(--padding) * 6.5);
+}
+
+.hover-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: calc(var(--padding) * 6);
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.description-text:hover + .hover-text {
+  display: block;
 }

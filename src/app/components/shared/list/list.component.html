@@ -1,36 +1,64 @@
 <div class="header-wrapper space-between-cols">
-	<h2 class="header">{{ listHeader }}</h2>
-	<app-button [btnClass]="'icon-btn'" [matIcon]="'add'" (buttonClicked)="openAdd()"></app-button>
+  <h2 class="header">{{ listHeader }}</h2>
+  <app-button
+    [btnClass]="'icon-btn'"
+    [matIcon]="'add'"
+    (buttonClicked)="openAdd()"
+  ></app-button>
 </div>
 <ng-container *ngIf="isAddActivated">
-	<app-editable style="background-color: var(--odd-back-color)" 
-	(closeEdit)="isAddActivated = false" 
-	[groupedForm]="groupedForm" 
-	[listTitle]="listHeader"
-	[fireListHeader]="fireListHeader"
-	></app-editable>
+  <app-editable
+    style="background-color: var(--odd-back-color)"
+    (closeEdit)="isAddActivated = false"
+    [groupedForm]="groupedForm"
+    [listTitle]="listHeader"
+    [fireListHeader]="fireListHeader"
+  ></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
-	<ng-container *ngFor="let item of itemsArray; let i = index; let even = even">
-		<div class="item" [ngStyle]="{'background-color': even ? 'var(--even-back-color)' : 'var(--odd-back-color)'}">
-			<ng-container *ngIf="!isEditableActivated[i]">
-				<div class="title ellipsis-text">{{ item.title }} </div>
-				<app-button [btnClass]="'icon-btn'" [matIcon]="'edit_note'" (buttonClicked)="openEdit(i)" ></app-button>
-			</ng-container>
-			<ng-container *ngIf="isEditableActivated[i]">
-				<app-editable 
-				(closeEdit)="isEditableActivated[i] = false" 
-				[groupedForm]="groupedForm" 
-				[item]="item" 
-				[listTitle]="listHeader"
-				[fireListHeader]="fireListHeader"
-				></app-editable>
-			</ng-container>
-		</div>
-	</ng-container>
+  <ng-container *ngFor="let item of itemsArray; let i = index; let even = even">
+    <div
+      class="item"
+      [ngStyle]="{
+        'background-color': even
+          ? 'var(--even-back-color)'
+          : 'var(--odd-back-color)'
+      }"
+    >
+      <ng-container *ngIf="!isEditableActivated[i]">
+        <ng-container *ngIf="!item.read">
+          <div class="unread-marker"></div>
+        </ng-container>
+        <ng-container *ngIf="item.done">
+          <mat-icon class="done">checked</mat-icon>
+        </ng-container>
+        <ng-container *ngIf="item.description !== '' && item.description">
+          <mat-icon class="description-text">info</mat-icon>
+          <span class="card hover-text">{{
+            "text.descriptionText" | translate
+          }}</span>
+        </ng-container>
+        <div class="title ellipsis-text">{{ item.title }}</div>
+        <app-button
+          [btnClass]="'icon-btn'"
+          [matIcon]="'edit_note'"
+          (buttonClicked)="openEdit(i)"
+        ></app-button>
+      </ng-container>
+      <ng-container *ngIf="isEditableActivated[i]">
+        <app-editable
+          (closeEdit)="isEditableActivated[i] = false"
+          [groupedForm]="groupedForm"
+          [item]="item"
+          [listTitle]="listHeader"
+          [fireListHeader]="fireListHeader"
+        ></app-editable>
+      </ng-container>
+    </div>
+  </ng-container>
 </ng-container>
-		<ng-template #noItems class="item" >
-			<ng-container *ngIf="!isAddActivated">{{ 'text.noItems' | translate }}</ng-container>
-		</ng-template>
-
-
+<ng-template #noItems class="item">
+  <ng-container *ngIf="!isAddActivated">{{
+    "text.noItems" | translate
+  }}</ng-container>
+</ng-template>
