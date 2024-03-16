@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ListComponent } from '../../shared/list/list.component';
-import { ButtonComponent } from '../../shared/button/button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TodoMapper } from '../../../mapper/todo.mapper';
+import { ButtonComponent } from '../../common/button/button.component';
 
 @Component({
   selector: 'app-todo-view',

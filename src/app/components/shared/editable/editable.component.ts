@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../../common/input/input.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilService } from '../../../services/utils/util.service';
@@ -10,45 +9,60 @@ import { CommonModule } from '@angular/common';
 import { FirebaseService } from '../../../services/global/firebase.service';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { Todo } from '../../../interfaces/todo';
+import { ButtonComponent } from '../../common/button/button.component';
+import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-editable',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, InputComponent, TranslateModule, MatIconModule, ReactiveFormsModule, ChangedInputComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    CheckboxComponent,
+    InputComponent,
+    TranslateModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    ChangedInputComponent,
+  ],
   templateUrl: './editable.component.html',
-  styleUrl: './editable.component.scss'
+  styleUrl: './editable.component.scss',
 })
-export class EditableComponent implements OnInit{
-  @Input() groupedForm !: FormGroup;
-  @Input() item ?: Todo;
-  @Input() listTitle !: string;
-  @Input() fireListHeader !: string;
+export class EditableComponent implements OnInit {
+  @Input() groupedForm!: FormGroup;
+  @Input() item?: Todo;
+  @Input() listTitle!: string;
+  @Input() fireListHeader!: string;
   @Output() closeEdit = new EventEmitter<void>();
-  
 
-  protected shouldChangedDialogOpen : boolean = false;
-  private fireCollection !: any;
+  protected shouldChangedDialogOpen: boolean = false;
+  private fireCollection!: any;
 
-
-  constructor(protected utilService: UtilService, private firestore: Firestore,
-    private firebaseService: FirebaseService) {
-
-    }
+  constructor(
+    protected utilService: UtilService,
+    private firestore: Firestore,
+    private firebaseService: FirebaseService
+  ) {}
 
   ngOnInit(): void {
-      this.fireCollection = collection(this.firestore, this.fireListHeader); 
-    }
+    this.fireCollection = collection(this.firestore, this.fireListHeader);
+  }
 
-  protected delete():void {
-    if(this.item?.id) this.firebaseService.deleteFireItem(this.fireListHeader, this.item.id);
+  protected delete(): void {
+    if (this.item?.id)
+      this.firebaseService.deleteFireItem(this.fireListHeader, this.item.id);
     this.utilService.closeThis(this.closeWindow, 'editableClose');
   }
 
-  protected save():void {
+  protected save(): void {
     const todo: Todo = { ...this.groupedForm.value };
     this.utilService.closeThis(this.closeWindow, 'editableClose');
-    if (this.item?.id) 
-      this.firebaseService.updateFireItem(this.fireCollection, this.item.id, todo);
+    if (this.item?.id)
+      this.firebaseService.updateFireItem(
+        this.fireCollection,
+        this.item.id,
+        todo
+      );
     else {
       const token = this.utilService.generateSimpleToken(10);
       this.firebaseService.setItemToFirebase(this.fireListHeader, token, todo);
@@ -56,15 +70,13 @@ export class EditableComponent implements OnInit{
   }
 
   protected cancel(): void {
-    if(!this.groupedForm.dirty) this.utilService.closeThis(this.closeWindow, 'editableClose')
+    if (!this.groupedForm.dirty)
+      this.utilService.closeThis(this.closeWindow, 'editableClose');
     else this.shouldChangedDialogOpen = true;
   }
 
-  public closeWindow = ():void => {
+  public closeWindow = (): void => {
     this.groupedForm.reset();
     this.closeEdit.emit();
-  }
-
-
-
+  };
 }

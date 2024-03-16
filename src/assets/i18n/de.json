@@ -1,25 +1,24 @@
 {
-	"header": {
-		"todos": "todos",
-		"somethingChanged": "Änderungen vorhanden."
-	},
-	"text": {
-		"noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
-		"somethingChanged": "Es gab Änderungen. Bist du sicher, dass du das Fenster schliessen möchtest."
-	},
-	"label": {
-		"yes": "Ja",
-		"no": "Nein",
-		"cancel":"Abbrechen",
-		"delete":"Löschen",
-		"save":"Speichern",
-		"title": "Titel",
-		"description": "Beschreibung"
-	},
-	"setting": {
-		"darkmode": "DunkelModus"
-		
-
-	}
-
+  "header": {
+    "todos": "todos",
+    "somethingChanged": "Änderungen vorhanden."
+  },
+  "text": {
+    "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
+    "somethingChanged": "Es gab Änderungen. Bist du sicher, dass du das Fenster schliessen möchtest."
+  },
+  "label": {
+    "yes": "Ja",
+    "no": "Nein",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "save": "Speichern",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "read": "gelesen",
+    "done": "erledigt"
+  },
+  "setting": {
+    "darkmode": "DunkelModus"
+  }
 }

@@ -1,0 +1,10 @@
+<div [formGroup]="groupedForm" class="check-container">
+  <div class="checkbox-border">
+    <input
+      type="checkbox"
+      [value]="checkboxValue"
+      [formControlName]="formField"
+    />
+  </div>
+  <label for="formField">{{ checkboxTitle | translate }}</label>
+</div>
