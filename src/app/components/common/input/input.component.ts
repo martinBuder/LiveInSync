@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -20,4 +20,10 @@ export class InputComponent {
   @Input() inputType: string = 'text';
   @Input() needTextarea: boolean = false;
   @Input() shouldFocus: boolean = false;
+  @Input() hasIconFunction: boolean = false;
+  @Output() iconClicked = new EventEmitter<void>();
+
+  protected onIconClick():void {
+    this.iconClicked.emit();
+  }
 }

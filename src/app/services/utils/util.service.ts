@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilService {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   public closeThis(nextStep: Function, elementId: string):void {   
     const element = document.getElementById(elementId);
@@ -23,6 +24,10 @@ export class UtilService {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  }
+
+  public navigateTo(nav : string) {
+    this.router.navigate(['/' + nav]);
   }
 
   

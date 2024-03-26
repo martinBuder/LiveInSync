@@ -1,5 +1,6 @@
 {
   "header": {
+    "logIn": "Log In",
     "todos": "todos",
     "somethingChanged": "Änderungen vorhanden."
   },
@@ -14,10 +15,16 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "save": "Speichern",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "logIn":"Log In",
+    "forgotPassword": "Passwort vergessen?",
+    "newAccount": "Registrieren",
     "title": "Titel",
     "description": "Beschreibung",
     "read": "gelesen",
     "done": "erledigt"
+
   },
   "setting": {
     "darkmode": "DunkelModus"

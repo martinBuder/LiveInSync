@@ -1,1 +1,32 @@
-<p>start-site works!</p>
+<div class="start-site-wrapper">
+	<div class="card start-site-card">
+		<h2 class="header">{{ "header.logIn" | translate }}</h2>
+		<!-- ! FormGroup einbinden -->
+		<app-input
+		[inputTitle]="'label.email' | translate"
+		[withIcon]="true"
+		[matIcon]="'mail'"
+		[groupedForm]="formGroup"
+		[formField]="'email'"
+		></app-input>
+		<app-input
+		[inputTitle]="'label.password' | translate"
+		[groupedForm]="formGroup"
+		[formField]="'password'"
+		[withIcon]="true"
+		[matIcon]="passwordIcon"
+		[inputType]="passwordType"
+		[hasIconFunction]="true"
+		(iconClicked)="togglePasswordVisibility()"
+		></app-input>
+		<app-button
+		[btnClass]="'text-btn'"
+		[label]="'label.logIn' | translate"
+		(buttonClicked)="logIn()"
+		></app-button>
+		<app-button
+		[btnClass]="'just-text-btn'"
+		[label]="'label.forgotPassword' | translate"
+		></app-button>
+	</div>
+</div>

@@ -4,6 +4,7 @@
 
 .btn-container {
 	cursor: pointer;
+	text-align: center;
 }
 
 .icon-btn {
@@ -25,6 +26,19 @@
 .text-btn {
 	width: 75px;
 	@include display-flex($jc: center)
+}
+
+.just-text-btn {
+	color: var(--header-font-color);
+
+		&:hover {
+			color: var(--focus-color);
+		}
+	
+		&:active {
+			transform: scale(0.9);
+		}
+	
 }
 
 .save-btn{

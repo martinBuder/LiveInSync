@@ -81,6 +81,36 @@ body {
 	@include display-flex($fd: column, $jc: flex-start, $ai: flex-start);
 }
 
+.start-site-card {
+	padding: var(--site-padding);
+	gap: calc(var(--single)* 4);
+	width: 35%;
+
+	* {
+		width: 100%;
+	}
+
+	.header {
+		text-align: center;
+	}
+
+	app-button {
+		margin: 0 auto;
+		width: max-content;
+	}
+}
+
+.center-center-wrapper {
+	@include display-flex($jc: center);
+	width: 100%;
+}
+
+.start-site-wrapper {
+	@extend .center-center-wrapper;
+	height: calc(100vh - var(--header-height) - calc(var(--padding)*2) - var(--site-padding));
+	height: calc(100svh - var(--header-height) - calc(var(--padding)*2) - var(--site-padding));
+}
+
 .space-between-cols {
 	width: 100%;
 	@include display-flex()

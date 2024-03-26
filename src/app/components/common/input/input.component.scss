@@ -2,14 +2,23 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/color_styles.scss';
 
-
-
-.input-wrapper {
+.input-container {
 	@include border($padding: 2px);
+	@include display-flex();
 	position: relative;
 	height: calc(var(--single)*5);
 	margin-top: 25px;
 	width: 100%;
+	min-width: min-content;
+	background-color: #fff;
+	border: 2px solid var(--primary-border-color);
+	outline: 2px solid var(--highlight-color);
+	outline-offset: -4px;
+
+	 .mat-icon {
+			color: var(--highlight-color);
+			width: 32px;			
+		}
 
 	&:has(textarea) {
 		height: min-content;
@@ -29,6 +38,7 @@
 input, textarea {
 	@include display-flex();
 	outline: none;
+	border: none;
 	background-color: none;
 	height: 100%;
 	width: 100%;

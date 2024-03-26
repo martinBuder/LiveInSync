@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ListComponent } from '../../shared/list/list.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TodoMapper } from '../../../mapper/todo.mapper';
 import { ButtonComponent } from '../../common/button/button.component';
+import { FormMapper } from '../../../mapper/form.mapper';
 
 @Component({
   selector: 'app-todo-view',
@@ -13,7 +13,7 @@ import { ButtonComponent } from '../../common/button/button.component';
     ButtonComponent,
     TranslateModule,
     ReactiveFormsModule,
-    TodoMapper,
+    FormMapper,
   ],
   templateUrl: './todo-view.component.html',
   styleUrl: './todo-view.component.scss',
@@ -22,6 +22,6 @@ export class TodoViewComponent {
   protected formGroup!: FormGroup;
 
   constructor(formBuilder: FormBuilder) {
-    this.formGroup = formBuilder.group(TodoMapper.form);
+    this.formGroup = formBuilder.group(FormMapper.todoForm);
   }
 }
