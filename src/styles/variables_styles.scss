@@ -4,6 +4,7 @@
 	--site-padding: calc(var(--single) * 4);
 	--input-font: calc(calc(var(--single)*2));
 	--header-height: 6rem;
+	--max-content-width: 1400px;
 
 	@media (max-width: 420px) {
 		--padding: calc(var(--single));

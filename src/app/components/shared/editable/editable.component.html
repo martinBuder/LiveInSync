@@ -46,6 +46,7 @@
       [matIcon]="'save'"
       [label]="'label.save' | translate"
       (buttonClicked)="save()"
+      [isDisabled]="groupedForm.invalid"
     ></app-button>
   </div>
 </div>

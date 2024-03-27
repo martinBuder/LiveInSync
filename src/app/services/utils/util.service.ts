@@ -30,7 +30,6 @@ export class UtilService {
     this.router.navigate(['/' + nav]);
   }
 
-  
 
     
 }

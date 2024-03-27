@@ -21,6 +21,7 @@ export class InputComponent {
   @Input() needTextarea: boolean = false;
   @Input() shouldFocus: boolean = false;
   @Input() hasIconFunction: boolean = false;
+  @Input() checkValidStatus: boolean = false;
   @Output() iconClicked = new EventEmitter<void>();
 
   protected onIconClick():void {

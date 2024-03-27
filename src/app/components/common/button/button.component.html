@@ -1,4 +1,4 @@
-<div class="btn-container" (click)="onButtonClick()">
+<button class="btn-container" (click)="onButtonClick()" [disabled]="isDisabled">
 	<!-- ~ ICON BUTTON -->
 	<ng-container *ngIf="btnClass === 'icon-btn'">
 		<div [class]="btnClass">
@@ -25,4 +25,4 @@
 		</div>	
 	</ng-container>
 
-</div>
+</button>

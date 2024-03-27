@@ -1,12 +1,12 @@
 
-	<div [formGroup]="groupedForm" class="input-container">
+	<form [formGroup]="groupedForm" class="input-container">
 		<div class="title">{{ inputTitle }}</div>
 			<ng-container *ngIf="!needTextarea && shouldFocus">
 				<input [type]="inputType" [value]="inputValue" autofocus [formControlName]="formField">
 			</ng-container>
 		
 			<ng-container *ngIf="!needTextarea && !shouldFocus">
-				<input [type]="inputType" [value]="inputValue">
+				<input [type]="inputType" [value]="inputValue" [formControlName]="formField">
 			</ng-container>
 		
 			<ng-container *ngIf="withIcon && !needTextarea && !hasIconFunction">
@@ -20,6 +20,6 @@
 			<ng-container *ngIf="needTextarea">
 				<textarea [value]="inputValue" rows="3" [formControlName]="formField"></textarea>
 			</ng-container>
-	</div>
+	</form>
 
 

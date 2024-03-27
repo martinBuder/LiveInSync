@@ -1,19 +1,22 @@
 <div class="header-wrapper space-between-cols">
-	<div class="logo">
-		<app-logo-img></app-logo-img>
-	</div>
-	<h1 class="header">life in sync</h1>
-	<ng-container *ngIf="showStartMenu; else featureMenu">
-		<app-button [btnClass]="'just-text-btn'" (click)="utilService.navigateTo('register')" [label]='"label.newAccount" | translate'></app-button>
-	</ng-container>
-	<ng-template #featureMenu>
-		<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'" [matIcon]="'tune'"></app-button>
-		<ng-container *ngIf="menuOpen">
-			<div class="menu-wrapper">
-				<app-setting-menu (closing)="closeMenu()"></app-setting-menu>
-			</div>
+	<div class="max-width-site-container space-between-cols">
+		<div class="logo">
+			<app-logo-img></app-logo-img>
+		</div>
+		<h1 class="header">life in sync</h1>
+		<ng-container *ngIf="showStartMenu; else featureMenu">
+			<app-button [btnClass]="'just-text-btn'" (click)="utilService.navigateTo('register')" [label]='"label.newAccount" | translate'></app-button>
 		</ng-container>
-	</ng-template>
+		<ng-template #featureMenu>
+			<app-button (click)="menuOpen = !menuOpen" [btnClass]="'icon-btn'" [matIcon]="'tune'"></app-button>
+			<ng-container *ngIf="menuOpen">
+				<div class="menu-wrapper">
+					<app-setting-menu (closing)="closeMenu()"></app-setting-menu>
+				</div>
+			</ng-container>
+		</ng-template>
+	</div>
+	
 
 
 </div>

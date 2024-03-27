@@ -14,6 +14,7 @@ export class ButtonComponent {
   @Input() btnClass !: 'icon-btn' | 'label-icon-btn' | 'text-btn' | 'just-text-btn';
   @Input() matIcon ?: string;
   @Input() label ?: string;
+  @Input() isDisabled : boolean = false;
   @Output() buttonClicked = new EventEmitter<void>();
 
   protected onButtonClick():void {

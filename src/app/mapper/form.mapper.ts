@@ -17,7 +17,7 @@ export class FormMapper {
           '',
           [Validators.maxLength(60), Validators.required, Validators.minLength(6), Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]
         ],
-      password: ['', [Validators.maxLength(30), Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.maxLength(30), Validators.minLength(8)]],
   }
 
   static todoForm =  {
