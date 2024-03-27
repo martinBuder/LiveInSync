@@ -81,6 +81,10 @@ body {
 	font-style: normal;
 }
 
+.cursor {
+	cursor: pointer;
+}
+
 .card {
 	@include border();
 	background-color: var(--card-back-color);

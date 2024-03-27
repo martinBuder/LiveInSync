@@ -1,21 +1,28 @@
 {
   "header": {
     "logIn": "Log In",
+    "newAccount": "Account erstellen",
+    "forgotPassword":"Passwort vergessen",
     "todos": "todos"
   },
   "text": {
+    "confirmMail": "Gebe deine E-Mail-Adresse ein, mit welcher du deinen Account erstellt hast. Wir senden dir dann eine Nachricht per E-Mail zu.",
     "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
     "descriptionText": "Zu diesem Punkt existiert eine Beschreibung."
   },
   "label": {
+    "back": "zurück",
     "yes": "Ja",
     "no": "Nein",
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "save": "Speichern",
+    "name": "Name",
     "email": "E-Mail",
     "password": "Passwort",
-    "logIn":"Log In",
+    "comparePassword": "Passwort wiederholen",
+    "logIn": "Log In",
+    "confirm": "Bestätigen",
     "forgotPassword": "Passwort vergessen?",
     "newAccount": "Registrieren",
     "title": "Titel",

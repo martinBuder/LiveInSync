@@ -1,14 +1,13 @@
-import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FormMapper } from '../../../mapper/form.mapper';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NewHomeUtilService } from '../../../services/utils/new-home-util.service';
 import { NewHomeComponent } from '../../dialogs/new-home/new-home.component';
 import { CommonModule } from '@angular/common';
-import { ObserversModule } from '@angular/cdk/observers';
-import { Subscription } from 'rxjs';
+import { UserFormMapper } from '../../../mapper/userForm.mapper';
+import { UtilService } from '../../../services/utils/util.service';
 
 @Component({
   selector: 'app-start-site',
@@ -16,9 +15,7 @@ import { Subscription } from 'rxjs';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormMapper,
     TranslateModule,
-    ObserversModule,
     ButtonComponent,
     InputComponent,
     NewHomeComponent
@@ -29,16 +26,15 @@ import { Subscription } from 'rxjs';
 
 export class StartSiteComponent{
   protected formGroup!: FormGroup;
-  protected formSubscription !: Subscription;
   protected passwordIcon: string = 'visibility';
   protected passwordType: string = 'password';
-  protected validForm: boolean = false;
 
   constructor(
+    protected utilService: UtilService,
     protected formBuilder: FormBuilder,
     protected newHomeUtilService: NewHomeUtilService
     ) {
-    this.formGroup = formBuilder.group(FormMapper.logInForm);  
+    this.formGroup = formBuilder.group(UserFormMapper.logInForm);  
   }
 
    logIn():void {

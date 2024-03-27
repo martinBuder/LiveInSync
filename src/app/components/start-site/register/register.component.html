@@ -1,7 +1,14 @@
 <div class="start-site-wrapper">
 	<div [formGroup]="formGroup" class="card start-site-card">
-		<h2 class="header">{{ "header.logIn" | translate }}</h2>
+		<h2 class="header">{{ "header.newAccount" | translate }}</h2>
 		<!-- ! FormGroup einbinden -->
+		<app-input
+		[inputTitle]="'label.name' | translate"
+		[withIcon]="true"
+		[matIcon]="'person'"
+		[groupedForm]="formGroup"
+		[formField]="'name'"
+		></app-input>
 		<app-input
 		[inputTitle]="'label.email' | translate"
 		[withIcon]="true"
@@ -19,20 +26,25 @@
 		[hasIconFunction]="true"
 		(iconClicked)="togglePasswordVisibility()"
 		></app-input>
+		<app-input
+		[inputTitle]="'label.comparePassword' | translate"
+		[groupedForm]="formGroup"
+		[formField]="'comparePassword'"
+		[withIcon]="true"
+		[matIcon]="passwordIcon"
+		[inputType]="passwordType"
+		[hasIconFunction]="true"
+		(iconClicked)="togglePasswordVisibility()"
+		></app-input>
 		<app-button
 		[btnClass]="'text-btn'"
-		[label]="'label.logIn' | translate"
-		(buttonClicked)="logIn()"
+		[label]="'label.newAccount' | translate"
 		[isDisabled]="formGroup.invalid"
 		></app-button>
 		<app-button
 		[btnClass]="'just-text-btn'"
-		[label]="'label.forgotPassword' | translate"
-		(buttonClicked)="utilService.navigateTo('forgotPassword')"
+		[label]="'label.back' | translate"
+		(buttonClicked)="utilService.navigateTo('')"
 		></app-button>
 	</div>
 </div>
-<ng-container *ngIf="newHomeUtilService.openNewHomeDialog" >
-	<app-new-home (addHomeClicked)="newHomeUtilService.addHome()" (createHomeClicked)="newHomeUtilService.createHome()"></app-new-home>
-</ng-container>
-

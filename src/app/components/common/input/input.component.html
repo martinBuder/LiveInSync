@@ -14,7 +14,7 @@
 			</ng-container>
 		
 			<ng-container *ngIf="withIcon && !needTextarea && hasIconFunction">
-				<mat-icon (click)="onIconClick()" >{{ matIcon }}</mat-icon>
+				<mat-icon class="cursor" (click)="onIconClick()" >{{ matIcon }}</mat-icon>
 			</ng-container>
 			
 			<ng-container *ngIf="needTextarea">
