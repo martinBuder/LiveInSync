@@ -18,21 +18,21 @@ import { UserFormMapper } from '../../../mapper/userForm.mapper';
     InputComponent,
   ],
   templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.scss'
+  styleUrl: './forgot-password.component.scss',
 })
 export class ForgotPasswordComponent {
   protected formGroup!: FormGroup;
 
   constructor(
     protected utilService: UtilService,
-    protected formBuilder: FormBuilder,
-    ) {
-    this.formGroup = formBuilder.group(UserFormMapper.forgotPasswordForm);  
+    protected formBuilder: FormBuilder
+  ) {
+    this.formGroup = formBuilder.group(UserFormMapper.forgotPasswordForm);
   }
 
+  // !is just for the dev - later we get a mail and this will happend by mail
   getMail() {
-
+    const mail = this.formGroup.get('email')?.value;
+    this.utilService.navigateTo('newPassword');
   }
-
-
 }

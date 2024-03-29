@@ -1,39 +1,39 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { UtilService } from '../../../services/utils/util.service';
 import { UserFormMapper } from '../../../mapper/userForm.mapper';
-import { CommonModule } from '@angular/common';
+import { matchpassword } from '../../../validators/matchpassword.validator';
+import { UtilService } from '../../../services/utils/util.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
-import { matchpassword } from '../../../validators/matchpassword.validator';
-import { UserRegistedComponent } from '../../dialogs/user-registed/user-registed.component';
+import { SavedPasswordComponent } from '../../dialogs/saved-password/saved-password.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-new-password',
   standalone: true,
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  templateUrl: './new-password.component.html',
+  styleUrl: './new-password.component.scss',
   imports: [
     CommonModule,
     ReactiveFormsModule,
     TranslateModule,
     ButtonComponent,
     InputComponent,
-    UserRegistedComponent,
+    SavedPasswordComponent,
   ],
 })
-export class RegisterComponent {
+export class NewPasswordComponent {
   protected formGroup!: FormGroup;
   protected passwordIcon: string = 'visibility';
   protected passwordType: string = 'password';
   protected validForm: boolean = false;
 
   constructor(
-    protected utilService: UtilService,
-    protected formBuilder: FormBuilder
+    protected formBuilder: FormBuilder,
+    protected utilService: UtilService
   ) {
-    this.formGroup = formBuilder.group(UserFormMapper.registerForm, {
+    this.formGroup = formBuilder.group(UserFormMapper.newPasswordForm, {
       validators: matchpassword,
     });
   }
@@ -44,7 +44,7 @@ export class RegisterComponent {
     this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
   }
 
-  createNewAccount() {
+  saveNewPassword(): void {
     this.utilService.showTimedDialog('');
   }
 }
