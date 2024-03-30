@@ -91,25 +91,6 @@ body {
   @include display-flex($fd: column, $jc: flex-start, $ai: flex-start);
 }
 
-.start-site-card {
-  padding: var(--site-padding);
-  gap: calc(var(--single) * 4);
-  width: 35%;
-
-  * {
-    width: 100%;
-  }
-
-  .header {
-    text-align: center;
-  }
-
-  app-button {
-    margin: 0 auto;
-    width: max-content;
-  }
-}
-
 .center-center-wrapper {
   @include display-flex($jc: center);
   width: 100%;
@@ -125,6 +106,26 @@ body {
     100svh - var(--header-height) - calc(var(--padding) * 2) -
       var(--site-padding)
   );
+}
+
+.start-site-card {
+  padding: var(--site-padding);
+  gap: calc(var(--single) * 4);
+  width: 35%;
+  min-width: 400px;
+
+  * {
+    width: 100%;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  app-button {
+    margin: 0 auto;
+    width: max-content;
+  }
 }
 
 .space-between-cols {
@@ -190,7 +191,14 @@ img {
   }
 }
 
-@media (max-width: 420px) {
+@media screen and (max-width: 500px) {
+  .start-site-card {
+    width: 90%;
+    min-width: 250px;
+  }
+}
+
+@media screen and (max-width: 420px) {
   h1 {
     font-size: 24px;
   }

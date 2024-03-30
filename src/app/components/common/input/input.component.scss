@@ -66,3 +66,21 @@ textarea {
   font-size: 1rem;
   font-weight: 300;
 }
+
+@media screen and (max-width: 500px) {
+  .error {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .error {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .error {
+    font-size: 0.7rem;
+  }
+}
