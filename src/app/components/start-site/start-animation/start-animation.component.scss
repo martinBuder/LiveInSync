@@ -1,0 +1,54 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/color_styles.scss";
+
+:host-context(body.darkmode) img {
+  filter: invert(100%);
+}
+
+.full-screen-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 100vh;
+  height: 100svh;
+  width: 100%;
+  @include display-flex($jc: center);
+  background: var(--card-back-color);
+  animation: startGoAway 3100ms 400ms ease-in-out forwards;
+
+  img {
+    width: 5%;
+    height: auto;
+    animation: logoGetBigger 3000ms 400ms ease-in-out forwards;
+  }
+}
+
+@keyframes logoGetBigger {
+  0% {
+    width: 5%;
+  }
+
+  100% {
+    width: 120%;
+  }
+}
+
+@keyframes startGoAway {
+  0% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}

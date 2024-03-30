@@ -1,38 +1,41 @@
+<app-start-animation></app-start-animation>
 <div class="start-site-wrapper">
-	<div [formGroup]="formGroup" class="card start-site-card">
-		<h2 class="header">{{ "header.logIn" | translate }}</h2>
-		<!-- ! FormGroup einbinden -->
-		<app-input
-		[inputTitle]="'label.email' | translate"
-		[withIcon]="true"
-		[matIcon]="'mail'"
-		[groupedForm]="formGroup"
-		[formField]="'email'"
-		></app-input>
-		<app-input
-		[inputTitle]="'label.password' | translate"
-		[groupedForm]="formGroup"
-		[formField]="'password'"
-		[withIcon]="true"
-		[matIcon]="passwordIcon"
-		[inputType]="passwordType"
-		[hasIconFunction]="true"
-		(iconClicked)="togglePasswordVisibility()"
-		></app-input>
-		<app-button
-		[btnClass]="'text-btn'"
-		[label]="'label.logIn' | translate"
-		(buttonClicked)="logIn()"
-		[isDisabled]="formGroup.invalid"
-		></app-button>
-		<app-button
-		[btnClass]="'just-text-btn'"
-		[label]="'label.forgotPassword' | translate"
-		(buttonClicked)="utilService.navigateTo('forgotPassword')"
-		></app-button>
-	</div>
+  <div [formGroup]="formGroup" class="card start-site-card">
+    <h2 class="header">{{ "header.logIn" | translate }}</h2>
+    <!-- ! FormGroup einbinden -->
+    <app-input
+      [inputTitle]="'label.email' | translate"
+      [withIcon]="true"
+      [matIcon]="'mail'"
+      [groupedForm]="formGroup"
+      [formField]="'email'"
+    ></app-input>
+    <app-input
+      [inputTitle]="'label.password' | translate"
+      [groupedForm]="formGroup"
+      [formField]="'password'"
+      [withIcon]="true"
+      [matIcon]="passwordIcon"
+      [inputType]="passwordType"
+      [hasIconFunction]="true"
+      (iconClicked)="togglePasswordVisibility()"
+    ></app-input>
+    <app-button
+      [btnClass]="'text-btn'"
+      [label]="'label.logIn' | translate"
+      (buttonClicked)="logIn()"
+      [isDisabled]="formGroup.invalid"
+    ></app-button>
+    <app-button
+      [btnClass]="'just-text-btn'"
+      [label]="'label.forgotPassword' | translate"
+      (buttonClicked)="utilService.navigateTo('forgotPassword')"
+    ></app-button>
+  </div>
 </div>
-<ng-container *ngIf="newHomeUtilService.openNewHomeDialog" >
-	<app-new-home (addHomeClicked)="newHomeUtilService.addHome()" (createHomeClicked)="newHomeUtilService.createHome()"></app-new-home>
+<ng-container *ngIf="newHomeUtilService.openNewHomeDialog">
+  <app-new-home
+    (addHomeClicked)="newHomeUtilService.addHome()"
+    (createHomeClicked)="newHomeUtilService.createHome()"
+  ></app-new-home>
 </ng-container>
-
