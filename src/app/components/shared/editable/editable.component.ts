@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ChangedInputComponent } from '../../dialogs/changed-input/changed-input.component';
 import { CommonModule } from '@angular/common';
-import { FirebaseService } from '../../../services/global/firebase.service';
+import { FirebaseService } from '../../../services/global/backend/firebase.service';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
@@ -33,7 +33,7 @@ export class EditableComponent implements OnInit {
   @Input() item?: Todo;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
-  @Input() isJustAddItem : boolean = false;
+  @Input() isJustAddItem: boolean = false;
   @Output() closeEdit = new EventEmitter<void>();
 
   protected shouldChangedDialogOpen: boolean = false;

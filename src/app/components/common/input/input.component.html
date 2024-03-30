@@ -1,25 +1,57 @@
+<form [formGroup]="groupedForm" class="input-container">
+  <div class="title">{{ inputTitle }}</div>
+  <ng-container *ngIf="!needTextarea && shouldFocus">
+    <input
+      [type]="inputType"
+      [value]="inputValue"
+      autofocus
+      [formControlName]="formField"
+    />
+  </ng-container>
 
-	<form [formGroup]="groupedForm" class="input-container">
-		<div class="title">{{ inputTitle }}</div>
-			<ng-container *ngIf="!needTextarea && shouldFocus">
-				<input [type]="inputType" [value]="inputValue" autofocus [formControlName]="formField">
-			</ng-container>
-		
-			<ng-container *ngIf="!needTextarea && !shouldFocus">
-				<input [type]="inputType" [value]="inputValue" [formControlName]="formField">
-			</ng-container>
-		
-			<ng-container *ngIf="withIcon && !needTextarea && !hasIconFunction">
-				<mat-icon>{{ matIcon }}</mat-icon>
-			</ng-container>
-		
-			<ng-container *ngIf="withIcon && !needTextarea && hasIconFunction">
-				<mat-icon class="cursor" (click)="onIconClick()" >{{ matIcon }}</mat-icon>
-			</ng-container>
-			
-			<ng-container *ngIf="needTextarea">
-				<textarea [value]="inputValue" rows="3" [formControlName]="formField"></textarea>
-			</ng-container>
-	</form>
+  <ng-container *ngIf="!needTextarea && !shouldFocus">
+    <input
+      [type]="inputType"
+      [value]="inputValue"
+      [formControlName]="formField"
+    />
+  </ng-container>
 
+  <ng-container *ngIf="withIcon && !needTextarea && !hasIconFunction">
+    <mat-icon>{{ matIcon }}</mat-icon>
+  </ng-container>
 
+  <ng-container *ngIf="withIcon && !needTextarea && hasIconFunction">
+    <mat-icon class="cursor" (click)="onIconClick()">{{ matIcon }}</mat-icon>
+  </ng-container>
+
+  <ng-container *ngIf="needTextarea">
+    <textarea
+      [value]="inputValue"
+      rows="3"
+      [formControlName]="formField"
+    ></textarea>
+  </ng-container>
+  <ng-container
+    *ngIf="
+      groupedForm.controls[formField].touched &&
+      groupedForm.controls[formField]?.errors as errorCodes
+    "
+  >
+    <p class="error">
+      {{ getFormControlErrorTranslationKey(formField) | translate }}
+    </p>
+  </ng-container>
+  <ng-container
+    *ngIf="
+      formField === 'comparePassword' &&
+      groupedForm.controls[formField].touched &&
+      !groupedForm.controls[formField].errors &&
+      groupedForm.invalid
+    "
+  >
+    <p class="error match-error">
+      {{ "errors.comparePassword.passwordmatcherror" | translate }}
+    </p>
+  </ng-container>
+</form>

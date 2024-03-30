@@ -8,10 +8,7 @@ import { ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class UserFormMapper {
   //formFields
-  static nameField = [
-    '',
-    [Validators.required, Validators.maxLength(60), Validators.minLength(2)],
-  ];
+  static nameField = ['', [Validators.required]];
   static emailField = [
     '',
     [
@@ -32,10 +29,7 @@ export class UserFormMapper {
    *     validators:matchpassword
    *    });
    */
-  static comparePasswordField = [
-    '',
-    [Validators.required, Validators.maxLength(30), Validators.minLength(8)],
-  ];
+  static comparePasswordField = ['', [Validators.required]];
 
   //forms
   static logInForm = {

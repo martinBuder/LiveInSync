@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EditableComponent } from '../editable/editable.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { FirebaseService } from '../../../services/global/firebase.service';
+import { FirebaseService } from '../../../services/global/backend/firebase.service';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { LocalStorageService } from '../../../services/global/local-storage.service';
 import { Todo } from '../../../interfaces/todo';

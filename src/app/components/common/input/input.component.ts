@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule, MatIconModule, ReactiveFormsModule],
+  imports: [CommonModule, MatIconModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
 })
@@ -24,7 +25,14 @@ export class InputComponent {
   @Input() checkValidStatus: boolean = false;
   @Output() iconClicked = new EventEmitter<void>();
 
-  protected onIconClick():void {
+  protected onIconClick(): void {
     this.iconClicked.emit();
+  }
+
+  getFormControlErrorTranslationKey(formField: string): string {
+    const errors = this.groupedForm.controls[formField]?.errors;
+    if (!errors) return '';
+    const errorCode = Object.keys(errors)[0];
+    return `errors.${formField}.${errorCode}`;
   }
 }
