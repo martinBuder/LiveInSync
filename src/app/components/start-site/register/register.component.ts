@@ -7,10 +7,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
 import { matchpassword } from '../../../validators/matchpassword.validator';
-import { UserRegistedComponent } from '../../dialogs/user-registed/user-registed.component';
-import { UserProfile } from '../../../interfaces/userProfile';
 import { AuthService } from '../../../services/global/backend/auth.service';
 import { UserProfileService } from '../../../services/global/backend/userProfile.service';
+import { DialogMessageComponent } from '../../dialogs/message/dialog-message.component';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +22,7 @@ import { UserProfileService } from '../../../services/global/backend/userProfile
     TranslateModule,
     ButtonComponent,
     InputComponent,
-    UserRegistedComponent,
+    DialogMessageComponent,
   ],
 })
 export class RegisterComponent {
@@ -35,7 +34,7 @@ export class RegisterComponent {
   constructor(
     protected utilService: UtilService,
     protected formBuilder: FormBuilder,
-    private authService: AuthService,
+    protected authService: AuthService,
     private userProfileService: UserProfileService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.registerForm, {

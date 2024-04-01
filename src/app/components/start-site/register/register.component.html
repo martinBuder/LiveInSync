@@ -50,5 +50,8 @@
   </div>
 </div>
 <ng-container *ngIf="utilService.showInfoDialog">
-  <app-user-registed></app-user-registed>
+  <app-dialog-message
+    [isSuccessHeader]="this.authService.noError"
+    [text]="this.authService.infoMessage"
+  ></app-dialog-message>
 </ng-container>

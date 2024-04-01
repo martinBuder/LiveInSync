@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SavedPasswordComponent } from './saved-password.component';
+import { DialogMessageComponent } from './dialog-message.component';
 
-describe('SavedPasswordComponent', () => {
-  let component: SavedPasswordComponent;
-  let fixture: ComponentFixture<SavedPasswordComponent>;
+describe('DialogMessageComponent', () => {
+  let component: DialogMessageComponent;
+  let fixture: ComponentFixture<DialogMessageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SavedPasswordComponent],
+      imports: [DialogMessageComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SavedPasswordComponent);
+    fixture = TestBed.createComponent(DialogMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

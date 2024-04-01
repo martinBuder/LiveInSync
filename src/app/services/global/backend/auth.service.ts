@@ -14,16 +14,14 @@ import {
 } from '@angular/fire/auth';
 import { UserProfileService } from './userProfile.service';
 import { FirebaseService } from './firebase.service';
-import { Firestore, collection } from '@angular/fire/firestore';
-import { UserProfile } from '../../../interfaces/userProfile';
-import { Observable, firstValueFrom } from 'rxjs';
+import { Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  errorMessage: string | null = null;
-  successfulMessage: string | null = null;
+  infoMessage: string = '';
+  noError: boolean = true;
 
   constructor(
     private auth: Auth,
@@ -56,16 +54,15 @@ export class AuthService {
         userCredential.user.uid,
         this.userProfileService.user
       );
+      this.infoMessage = 'dialogText.userRegisted';
     } catch (error: any) {
+      this.noError = false;
       const errorCode = error.code;
       if (errorCode === 'this.auth/email-already-in-use') {
-        this.errorMessage = 'Dieser Benutzer hat bereits ein Konto.';
+        this.infoMessage = 'errors.auth.userExist';
       } else {
-        this.errorMessage = 'Da ist leider was schief gelaufen.';
+        this.infoMessage = 'errors.auth.mistakeText';
       }
-      setTimeout(() => {
-        this.errorMessage = null;
-      }, 2000);
     }
   }
 
@@ -87,16 +84,13 @@ export class AuthService {
   }
 
   createErrorMessages(errorCode: any): void {
+    this.noError = false;
     if (errorCode === 'auth/invalid-credential') {
-      this.errorMessage = 'E-Mail und/oder Passwort ist nicht bekannt.';
+      this.infoMessage = 'errors.auth.wrongLogIn';
     } else {
-      this.errorMessage =
-        'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
+      this.infoMessage = 'errors.auth.mistakeText';
     }
-    console.log(this.errorMessage);
-    setTimeout(() => {
-      this.errorMessage = null;
-    }, 2000);
+    this.changNoErrorBoolean();
   }
 
   // async checkFirebaseUser() {
@@ -129,21 +123,10 @@ export class AuthService {
     const user = this.auth.currentUser;
     const newPassword = newResetPassword;
     if (user !== null) {
-      await updatePassword(user, newPassword)
-        .then(() => {
-          this.successfulMessage = 'Passwort erfolgreich geändert.';
-          setTimeout(() => {
-            this.successfulMessage = null;
-          }, 2000);
-        })
-        .catch((error) => {
-          if (error)
-            this.errorMessage =
-              'Da ist leider etwas schief gegangen. Bitte versuche es noch mal.';
-          setTimeout(() => {
-            this.errorMessage = null;
-          }, 2000);
-        });
+      await updatePassword(user, newPassword).catch((error) => {
+        if (error) this.infoMessage = 'errors.auth.mistakeText';
+        this.changNoErrorBoolean();
+      });
     }
   }
 
@@ -161,4 +144,11 @@ export class AuthService {
   //   }
   //   console.log(this.auth.currentUser);
   // }
+
+  changNoErrorBoolean(): void {
+    setTimeout(() => {
+      this.infoMessage = '';
+      this.noError = true;
+    }, 2000);
+  }
 }

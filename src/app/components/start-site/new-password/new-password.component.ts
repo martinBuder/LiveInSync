@@ -6,8 +6,9 @@ import { UtilService } from '../../../services/utils/util.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
-import { SavedPasswordComponent } from '../../dialogs/saved-password/saved-password.component';
 import { CommonModule } from '@angular/common';
+import { DialogMessageComponent } from '../../dialogs/message/dialog-message.component';
+import { AuthService } from '../../../services/global/backend/auth.service';
 
 @Component({
   selector: 'app-new-password',
@@ -20,7 +21,7 @@ import { CommonModule } from '@angular/common';
     TranslateModule,
     ButtonComponent,
     InputComponent,
-    SavedPasswordComponent,
+    DialogMessageComponent,
   ],
 })
 export class NewPasswordComponent {
@@ -31,7 +32,8 @@ export class NewPasswordComponent {
 
   constructor(
     protected formBuilder: FormBuilder,
-    protected utilService: UtilService
+    protected utilService: UtilService,
+    protected authService: AuthService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.newPasswordForm, {
       validators: matchpassword,

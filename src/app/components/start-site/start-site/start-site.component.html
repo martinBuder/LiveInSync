@@ -33,3 +33,9 @@
     ></app-button>
   </div>
 </div>
+<ng-container *ngIf="utilService.showInfoDialog">
+  <app-dialog-message
+    [isSuccessHeader]="false"
+    [text]="this.authService.infoMessage"
+  ></app-dialog-message>
+</ng-container>

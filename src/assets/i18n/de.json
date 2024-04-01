@@ -64,6 +64,12 @@
     "comparePassword": {
       "required": "* Bitte wiederhole dein neues Passwort.",
       "passwordmatcherror": "* Die beiden Passwörter stimmen nicht überein."
+    },
+    "auth": {
+      "mistake": "Fehler",
+      "mistakeText": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "wrongLogIn": "E-Mail und/oder Passwort ist nicht bekannt.",
+      "userExist": "Dieser Benutzer hat bereits ein Konto."
     }
   }
 }

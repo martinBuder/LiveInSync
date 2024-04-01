@@ -10,6 +10,7 @@ import { UserFormMapper } from '../../../mapper/userForm.mapper';
 import { UtilService } from '../../../services/utils/util.service';
 import { StartAnimationComponent } from '../start-animation/start-animation.component';
 import { AuthService } from '../../../services/global/backend/auth.service';
+import { DialogMessageComponent } from '../../dialogs/message/dialog-message.component';
 
 @Component({
   selector: 'app-start-site',
@@ -24,6 +25,7 @@ import { AuthService } from '../../../services/global/backend/auth.service';
     InputComponent,
     NewHomeComponent,
     StartAnimationComponent,
+    DialogMessageComponent,
   ],
 })
 export class StartSiteComponent {
@@ -35,7 +37,7 @@ export class StartSiteComponent {
     protected utilService: UtilService,
     protected formBuilder: FormBuilder,
     protected newHomeUtilService: NewHomeUtilService,
-    private authService: AuthService
+    protected authService: AuthService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.logInForm);
   }
