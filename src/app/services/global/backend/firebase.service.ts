@@ -5,6 +5,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   onSnapshot,
   query,
   setDoc,
@@ -110,8 +111,19 @@ export class FirebaseService {
    * @param id
    */
   public deleteFireItem(fireList: any, id: string): void {
-    let fireCollection = collection(this.firestore, fireList);
-    let userDoc = doc(fireCollection, id);
+    const fireCollection = collection(this.firestore, fireList);
+    const userDoc = doc(fireCollection, id);
     deleteDoc(userDoc);
+  }
+
+  public async getFireDoc(fireList: string, id: string): Promise<any> {
+    const fireCollection = collection(this.firestore, fireList);
+    const docRef = doc(fireCollection, id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return null;
+    }
   }
 }

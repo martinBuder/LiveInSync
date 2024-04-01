@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { UserFormMapper } from '../../../mapper/userForm.mapper';
 import { UtilService } from '../../../services/utils/util.service';
 import { StartAnimationComponent } from '../start-animation/start-animation.component';
+import { AuthService } from '../../../services/global/backend/auth.service';
 
 @Component({
   selector: 'app-start-site',
@@ -33,17 +34,19 @@ export class StartSiteComponent {
   constructor(
     protected utilService: UtilService,
     protected formBuilder: FormBuilder,
-    protected newHomeUtilService: NewHomeUtilService
+    protected newHomeUtilService: NewHomeUtilService,
+    private authService: AuthService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.logInForm);
   }
 
-  logIn(): void {
-    this.newHomeUtilService.openNewHomeDialog = true;
-    // this.utilService.navigateTo('todo');
+  protected async logIn(): Promise<void> {
+    const mail = this.formGroup.value.email;
+    const password = this.formGroup.value.password;
+    await this.authService.userLogIn(mail, password);
   }
 
-  togglePasswordVisibility(): void {
+  protected togglePasswordVisibility(): void {
     this.passwordIcon =
       this.passwordIcon === 'visibility' ? 'visibility_off' : 'visibility';
     this.passwordType = this.passwordType === 'password' ? 'text' : 'password';

@@ -20,7 +20,14 @@ export class UserFormMapper {
   ];
   static passwordField = [
     '',
-    [Validators.required, Validators.maxLength(30), Validators.minLength(8)],
+    [
+      Validators.required,
+      Validators.maxLength(30),
+      Validators.minLength(8),
+      Validators.pattern(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?\-+'#()\/=}{§"!?&])[A-Za-z\d@$!%*?\-+'#()\/=}{§"!?&]+$/
+      ),
+    ],
   ];
 
   /**

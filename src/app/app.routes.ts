@@ -4,11 +4,13 @@ import { StartSiteComponent } from './components/start-site/start-site/start-sit
 import { RegisterComponent } from './components/start-site/register/register.component';
 import { ForgotPasswordComponent } from './components/start-site/forgot-password/forgot-password.component';
 import { NewPasswordComponent } from './components/start-site/new-password/new-password.component';
+import { DashboardComponent } from './components/feature/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', component: StartSiteComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'newPassword', component: NewPasswordComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'todo', component: TodoViewComponent },
 ];

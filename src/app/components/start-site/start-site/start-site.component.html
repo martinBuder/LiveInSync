@@ -33,9 +33,3 @@
     ></app-button>
   </div>
 </div>
-<ng-container *ngIf="newHomeUtilService.openNewHomeDialog">
-  <app-new-home
-    (addHomeClicked)="newHomeUtilService.addHome()"
-    (createHomeClicked)="newHomeUtilService.createHome()"
-  ></app-new-home>
-</ng-container>

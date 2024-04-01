@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewHomeUtilService {
-
   public openNewHomeDialog: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  addHome():void {
+  addHome(): void {
     this.openNewHomeDialog = false;
   }
 
-  createHome():void {
+  createHome(): void {
     this.openNewHomeDialog = false;
   }
 }

@@ -8,6 +8,9 @@ import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
 import { matchpassword } from '../../../validators/matchpassword.validator';
 import { UserRegistedComponent } from '../../dialogs/user-registed/user-registed.component';
+import { UserProfile } from '../../../interfaces/userProfile';
+import { AuthService } from '../../../services/global/backend/auth.service';
+import { UserProfileService } from '../../../services/global/backend/userProfile.service';
 
 @Component({
   selector: 'app-register',
@@ -31,7 +34,9 @@ export class RegisterComponent {
 
   constructor(
     protected utilService: UtilService,
-    protected formBuilder: FormBuilder
+    protected formBuilder: FormBuilder,
+    private authService: AuthService,
+    private userProfileService: UserProfileService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.registerForm, {
       validators: matchpassword,
@@ -44,7 +49,16 @@ export class RegisterComponent {
     this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
   }
 
-  createNewAccount() {
+  async createNewAccount(): Promise<void> {
+    this.userProfileService.user = {
+      name: this.formGroup.value.name,
+      mail: this.formGroup.value.email,
+    };
+    const password = this.formGroup.value.password;
+    await this.authService.createUser(
+      this.userProfileService.user.mail,
+      password
+    );
     this.utilService.showTimedDialog('');
   }
 }
