@@ -1,0 +1,8 @@
+<div class="select-wrapper">
+  <ng-container *ngFor="let select of selectArray">
+    <app-checkbox
+      [checkboxTitle]="select.name"
+      [checkboxValue]="select.selected"
+    ></app-checkbox>
+  </ng-container>
+</div>

@@ -28,6 +28,7 @@
     "newAccount": "Registrieren",
     "title": "Titel",
     "description": "Beschreibung",
+    "homeName": "Name des Haushaltes",
     "read": "gelesen",
     "done": "erledigt"
   },

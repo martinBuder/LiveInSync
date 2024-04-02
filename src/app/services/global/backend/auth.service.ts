@@ -15,6 +15,7 @@ import {
 import { UserProfileService } from './userProfile.service';
 import { FirebaseService } from './firebase.service';
 import { Firestore } from '@angular/fire/firestore';
+import { UtilService } from '../../utils/util.service';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +28,7 @@ export class AuthService {
     private auth: Auth,
     private userProfileService: UserProfileService,
     private firebaseService: FirebaseService,
-    private firestore: Firestore
+    private utilService: UtilService
   ) {
     this.auth = getAuth();
   }
@@ -77,6 +78,7 @@ export class AuthService {
         'AppUsers',
         userCredential.user.uid
       );
+      this.utilService.navigateTo('dashboard');
     } catch (error) {
       const errorCode = (error as { code?: string }).code;
       this.createErrorMessages(errorCode);

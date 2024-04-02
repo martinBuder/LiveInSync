@@ -1,10 +1,22 @@
-<div [formGroup]="groupedForm" class="check-container">
-  <div class="checkbox-border">
-    <input
-      type="checkbox"
-      [value]="checkboxValue"
-      [formControlName]="formField"
-    />
+<ng-container
+  *ngIf="groupedForm !== undefined && formField !== undefined; else noForm"
+>
+  <div [formGroup]="groupedForm" class="check-container">
+    <div class="checkbox-border">
+      <input
+        type="checkbox"
+        [value]="checkboxValue"
+        [formControlName]="formField"
+      />
+    </div>
+    <label for="formField">{{ checkboxTitle | translate }}</label>
   </div>
-  <label for="formField">{{ checkboxTitle | translate }}</label>
-</div>
+</ng-container>
+<ng-template #noForm>
+  <div class="check-container">
+    <div class="checkbox-border">
+      <input type="checkbox" [value]="checkboxValue" />
+    </div>
+    <label>{{ checkboxTitle | translate }}</label>
+  </div>
+</ng-template>

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LogoImgComponent } from '../../common/logo/logo.component';
 import { SettingMenuComponent } from '../setting-menu/setting-menu.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../common/button/button.component';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilService } from '../../../services/utils/util.service';
 
@@ -17,27 +17,34 @@ import { UtilService } from '../../../services/utils/util.service';
     SettingMenuComponent,
     ButtonComponent,
     CommonModule,
-    TranslateModule
+    TranslateModule,
   ],
 })
-
-
-export class HeaderComponent implements OnInit {
-
-  private startHeader: string = '/' || '/signIn';
-  protected showStartMenu !: boolean;
+export class HeaderComponent {
+  protected showStartMenu: boolean = false;
   protected menuOpen: boolean = false;
-  
-  constructor(private router: Router, protected utilService : UtilService) { }
+  private startPaths: string[] = [
+    '/',
+    '/register',
+    '/forgotPassword',
+    '/newPassword',
+  ];
 
-  ngOnInit():void {   
-    this.showStartMenu = this.router.url === this.startHeader;   
+  constructor(private router: Router, protected utilService: UtilService) {
+    this.router.events.subscribe((x) => {
+      if (x instanceof NavigationEnd) {
+        console.log(x.url);
+        this.checkWhichHeader(x.url);
+      }
+    });
+  }
+
+  checkWhichHeader(url: string): void {
+    if (this.startPaths.includes(url)) this.showStartMenu = true;
+    else this.showStartMenu = false;
   }
 
   public closeMenu(): void {
     this.menuOpen = false;
   }
 }
-
-
-
