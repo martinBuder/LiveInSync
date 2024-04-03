@@ -7,7 +7,7 @@ import { UtilService } from '../utils/util.service';
 export class LocalStorageService {
   constructor(private utilService: UtilService) {}
 
-  saveInLocalStorage(value: string, key: string): void {
+  public saveInLocalStorage(value: string, key: string): void {
     let valueAsText = JSON.stringify(value);
     localStorage.setItem(key, valueAsText);
   }
@@ -15,7 +15,7 @@ export class LocalStorageService {
   /**
    * get the user-Array from localStorage so that user is on every site
    */
-  getFromLocalStorage(key: string): string {
+  public getFromLocalStorage(key: string): string {
     let itemAsText = localStorage.getItem(key);
     if (itemAsText) return JSON.parse(itemAsText);
     else {

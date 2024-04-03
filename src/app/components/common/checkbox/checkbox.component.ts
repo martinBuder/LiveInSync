@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,4 +15,10 @@ export class CheckboxComponent {
   @Input() formField?: string;
   @Input() checkboxTitle!: string;
   @Input() checkboxValue: boolean = false;
+  @Output() checkboxValueChange = new EventEmitter<boolean>();
+
+  protected onCheckboxChange(newValue: boolean): void {
+    this.checkboxValue = newValue;
+    this.checkboxValueChange.emit(newValue);
+  }
 }

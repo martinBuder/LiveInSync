@@ -1,8 +1,8 @@
-export type FeaturesEnum = '' | 'todo' | 'shooping' | 'calendar' | 'cleaning';
+export type FeaturesEnum = 'todo' | 'shopping' | 'calendar' | 'cleaning';
 
 export interface Home {
   name: string;
   id: string;
   adminUserId: string;
-  inclFeatures: FeaturesEnum[];
+  features: FeaturesEnum[];
 }

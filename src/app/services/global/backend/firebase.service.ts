@@ -22,12 +22,6 @@ export class FirebaseService {
 
   constructor(private firestore: Firestore) {}
 
-  /**
-   * get List from Firebase
-   *
-   * @param fireCollection, that we use
-   * @param projectArray, that we need for *ngFor
-   */
   public getListFromFirebase(fireCollection: any): Observable<any> {
     return new Observable((subscriber) => {
       onSnapshot(
@@ -48,12 +42,6 @@ export class FirebaseService {
     });
   }
 
-  /**
-   * get List from Firebase with an query
-   *
-   * @param fireCollection, that we use
-   * @param projectArray, that we need for *ngFor
-   */
   public async getQueryListFromFirebase(
     fireCollection: any,
     fireQuery: any,
@@ -70,13 +58,6 @@ export class FirebaseService {
     });
   }
 
-  /**
-   * set the item to the right item with the id
-   *
-   * @param fireList
-   * @param fireListId
-   * @param item
-   */
   public async setItemToFirebase(
     fireList: string,
     fireListId: any,
@@ -91,25 +72,16 @@ export class FirebaseService {
     await addDoc(fireList, item);
   }
 
-  /**
-   * update the profile in firebase
-   *
-   * @param id item-id
-   */
   public async updateFireItem(
-    fireCollection: any,
+    fireList: string,
     id: string,
     item: any
   ): Promise<void> {
+    const fireCollection = collection(this.firestore, fireList);
     const itemRef = doc(fireCollection, id);
     await updateDoc(itemRef, item);
   }
 
-  /**
-   * delete User from firebase
-   *
-   * @param id
-   */
   public deleteFireItem(fireList: any, id: string): void {
     const fireCollection = collection(this.firestore, fireList);
     const userDoc = doc(fireCollection, id);

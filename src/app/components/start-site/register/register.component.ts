@@ -48,7 +48,7 @@ export class RegisterComponent {
     this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
   }
 
-  async createNewAccount(): Promise<void> {
+  protected async createNewAccount(): Promise<void> {
     this.userProfileService.user = {
       name: this.formGroup.value.name,
       mail: this.formGroup.value.email,

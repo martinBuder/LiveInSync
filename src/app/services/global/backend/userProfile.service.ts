@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { UserProfile } from '../../../interfaces/userProfile';
 
 @Injectable({
@@ -8,6 +8,4 @@ export class UserProfileService {
   user!: UserProfile;
 
   constructor() {}
-
-  setAppUser(): void {}
 }

@@ -16,6 +16,7 @@
   @include display-flex($jc: center);
   background: var(--card-back-color);
   animation: startGoAway 3100ms 400ms ease-in-out forwards;
+  overflow: hidden;
 
   img {
     width: 5%;

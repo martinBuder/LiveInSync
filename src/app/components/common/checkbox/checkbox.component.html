@@ -15,7 +15,11 @@
 <ng-template #noForm>
   <div class="check-container">
     <div class="checkbox-border">
-      <input type="checkbox" [value]="checkboxValue" />
+      <input
+        type="checkbox"
+        [checked]="checkboxValue"
+        (change)="onCheckboxChange(!checkboxValue)"
+      />
     </div>
     <label>{{ checkboxTitle | translate }}</label>
   </div>

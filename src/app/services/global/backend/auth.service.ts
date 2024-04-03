@@ -16,6 +16,7 @@ import { UserProfileService } from './userProfile.service';
 import { FirebaseService } from './firebase.service';
 import { Firestore } from '@angular/fire/firestore';
 import { UtilService } from '../../utils/util.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -28,21 +29,14 @@ export class AuthService {
     private auth: Auth,
     private userProfileService: UserProfileService,
     private firebaseService: FirebaseService,
+    private localStorageService: LocalStorageService,
     private utilService: UtilService
   ) {
     this.auth = getAuth();
+    this.checkFirebaseUser();
   }
 
-  /**
-   * wait that userProfileService.user.id is filled
-   */
-  async waitForNotNullValue() {
-    while (this.userProfileService.user === null) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
-  }
-
-  async createUser(email: string, password: string) {
+  public async createUser(email: string, password: string): Promise<void> {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
@@ -50,6 +44,8 @@ export class AuthService {
         password
       );
       this.userProfileService.user.id = userCredential.user.uid;
+      this.userProfileService.user.mainHome = '';
+      this.userProfileService.user.homes = [];
       this.firebaseService.setItemToFirebase(
         'AppUsers',
         userCredential.user.uid,
@@ -67,7 +63,7 @@ export class AuthService {
     }
   }
 
-  async userLogIn(email: string, password: string): Promise<void> {
+  public async userLogIn(email: string, password: string): Promise<void> {
     try {
       const userCredential = await signInWithEmailAndPassword(
         this.auth,
@@ -85,7 +81,7 @@ export class AuthService {
     }
   }
 
-  createErrorMessages(errorCode: any): void {
+  public createErrorMessages(errorCode: any): void {
     this.noError = false;
     if (errorCode === 'auth/invalid-credential') {
       this.infoMessage = 'errors.auth.wrongLogIn';
@@ -95,24 +91,20 @@ export class AuthService {
     this.changNoErrorBoolean();
   }
 
-  // async checkFirebaseUser() {
-  //   this.auth.onAuthStateChanged((firebaseUser) => {
-  //     // this.userProfileService.user.id = firebaseUser;
-  //   });
-  // }
+  public async checkFirebaseUser(): Promise<void> {
+    this.auth.onAuthStateChanged(async (firebaseUser) => {
+      if (firebaseUser) {
+        this.userProfileService.user = await this.firebaseService.getFireDoc(
+          'AppUsers',
+          firebaseUser.uid
+        );
+        console.log(this.userProfileService.user);
+      }
+    });
+  }
 
-  /**
-   * user will be sign out and the browser navigate to checkIn site
-   */
   async fireLogOut() {
     try {
-      // const online = false;
-      // this.userProfileService.setUserProfile(this.userProfileService.user.id, online);
-      // if (this.userProfileService.user.id) {
-      //   await this.userProfileService.updateOnlinestatusToProfile(
-      //     this.userProfileService.user.id.uid
-      //   );
-      // }
       await signOut(this.auth);
     } catch (error) {}
   }

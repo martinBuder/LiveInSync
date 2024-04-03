@@ -3,13 +3,18 @@
     "logIn": "Log In",
     "newAccount": "Account erstellen",
     "forgotPassword": "Passwort vergessen",
-    "newPassword": "Neues Passwort",
-    "todos": "todos"
+    "newPassword": "Neues Passwort"
   },
   "text": {
     "confirmMail": "Gebe deine E-Mail-Adresse ein, mit welcher du deinen Account erstellt hast. Wir senden dir dann eine Nachricht per E-Mail zu.",
     "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
     "descriptionText": "Zu diesem Punkt existiert eine Beschreibung."
+  },
+  "featureName": {
+    "todo": "Todos",
+    "shopping": "Einkaufsliste",
+    "cleaning": "Putzplan",
+    "calendar": "Kalender"
   },
   "label": {
     "back": "zurück",

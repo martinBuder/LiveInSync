@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FeaturesEnum } from '../../interfaces/home';
 
 @Injectable({
   providedIn: 'root',
@@ -10,30 +11,30 @@ export class NewHomeUtilService {
 
   constructor() {}
 
-  newHomeFeatures = [
+  public newHomeFeatures = [
     {
-      name: 'todo',
+      name: 'todo' as FeaturesEnum,
       selected: false,
     },
     {
-      name: 'shopping',
+      name: 'shopping' as FeaturesEnum,
       selected: false,
     },
     {
-      name: 'cleaning',
+      name: 'cleaning' as FeaturesEnum,
       selected: false,
     },
     {
-      name: 'calendar',
+      name: 'calendar' as FeaturesEnum,
       selected: false,
     },
   ];
 
-  addHome(): void {
+  public addHome(): void {
     this.openNewHomeDialog = false;
   }
 
-  createHome(): void {
+  public createHome(): void {
     this.openNewHomeDialog = false;
   }
 }

@@ -29,7 +29,7 @@ export class InputComponent {
     this.iconClicked.emit();
   }
 
-  getFormControlErrorTranslationKey(formField: string): string {
+  protected getFormControlErrorTranslationKey(formField: string): string {
     const errors = this.groupedForm.controls[formField]?.errors;
     if (!errors) return '';
     const errorCode = Object.keys(errors)[0];
