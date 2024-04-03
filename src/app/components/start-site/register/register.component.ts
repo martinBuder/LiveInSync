@@ -52,6 +52,9 @@ export class RegisterComponent {
     this.userProfileService.user = {
       name: this.formGroup.value.name,
       mail: this.formGroup.value.email,
+      id: '',
+      homes: [],
+      mainHome: '',
     };
     const password = this.formGroup.value.password;
     await this.authService.createUser(

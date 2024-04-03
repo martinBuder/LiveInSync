@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   EmailAuthProvider,
+  UserProfile,
   createUserWithEmailAndPassword,
   getAuth,
   reauthenticateWithCredential,
@@ -17,6 +18,7 @@ import { FirebaseService } from './firebase.service';
 import { Firestore } from '@angular/fire/firestore';
 import { UtilService } from '../../utils/util.service';
 import { LocalStorageService } from '../local-storage.service';
+import { CurrentHomeService } from '../../frontend/current-home.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,13 +26,15 @@ import { LocalStorageService } from '../local-storage.service';
 export class AuthService {
   infoMessage: string = '';
   noError: boolean = true;
+  user!: UserProfile;
 
   constructor(
     private auth: Auth,
     private userProfileService: UserProfileService,
     private firebaseService: FirebaseService,
     private localStorageService: LocalStorageService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private currentHomeService: CurrentHomeService
   ) {
     this.auth = getAuth();
     this.checkFirebaseUser();
@@ -43,9 +47,7 @@ export class AuthService {
         email,
         password
       );
-      this.userProfileService.user.id = userCredential.user.uid;
-      this.userProfileService.user.mainHome = '';
-      this.userProfileService.user.homes = [];
+      this.userProfileService.user!.id = userCredential.user.uid;
       this.firebaseService.setItemToFirebase(
         'AppUsers',
         userCredential.user.uid,
@@ -74,11 +76,24 @@ export class AuthService {
         'AppUsers',
         userCredential.user.uid
       );
+      this.setCurrentHome();
       this.utilService.navigateTo('dashboard');
     } catch (error) {
       const errorCode = (error as { code?: string }).code;
       this.createErrorMessages(errorCode);
     }
+  }
+
+  private async setCurrentHome(): Promise<void> {
+    if (this.userProfileService.user?.mainHome)
+      await this.currentHomeService.getCurrentHome(
+        this.userProfileService.user.mainHome
+      );
+    this.localStorageService.saveInLocalStorage(
+      this.currentHomeService.currentHome.id,
+      'currentHome'
+    );
+    console.log(this.currentHomeService.currentHome);
   }
 
   public createErrorMessages(errorCode: any): void {
@@ -98,12 +113,17 @@ export class AuthService {
           'AppUsers',
           firebaseUser.uid
         );
-        console.log(this.userProfileService.user);
       }
+      const homeId =
+        this.localStorageService.getFromLocalStorage('currentHome');
+      console.log(homeId);
+
+      this.currentHomeService.getCurrentHome(homeId);
+      console.log(this.currentHomeService.currentHome);
     });
   }
 
-  async fireLogOut() {
+  public async fireLogOut(): Promise<void> {
     try {
       await signOut(this.auth);
     } catch (error) {}

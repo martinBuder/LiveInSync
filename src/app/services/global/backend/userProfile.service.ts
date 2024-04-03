@@ -5,7 +5,7 @@ import { UserProfile } from '../../../interfaces/userProfile';
   providedIn: 'root',
 })
 export class UserProfileService {
-  user!: UserProfile;
+  user: UserProfile | null = null;
 
   constructor() {}
 }

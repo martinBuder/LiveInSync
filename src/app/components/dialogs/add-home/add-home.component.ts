@@ -37,7 +37,9 @@ export class AddHomeComponent {
     this.formGroup = formBuilder.group(FeatureFormMapper.addHomeForm);
   }
 
-  protected cancel(): void {}
+  protected cancel(): void {
+    this.newHomeUtilService.openAddHomeDialog = false;
+  }
 
   protected async save(): Promise<void> {
     await this.saveHome();
@@ -47,8 +49,11 @@ export class AddHomeComponent {
   private async saveHome(): Promise<void> {
     this.home = {
       name: this.formGroup.value.title,
-      id: this.formGroup.value.title + this.utilService.generateSimpleToken(8),
-      adminUserId: this.userProfilService.user.id as string,
+      id:
+        this.formGroup.value.title +
+        '~' +
+        this.utilService.generateSimpleToken(8),
+      adminUserId: this.userProfilService.user?.id as string,
       features: this.returnHomeFeatures(),
     };
     await this.firebaseService.setItemToFirebase(
@@ -59,12 +64,12 @@ export class AddHomeComponent {
   }
 
   private connectHomeWithUser(): void {
-    this.userProfilService.user.homes?.push(this.home.id);
-    if (this.userProfilService.user.mainHome === '')
+    this.userProfilService.user?.homes?.push(this.home.id);
+    if (this.userProfilService.user?.mainHome === '')
       this.userProfilService.user.mainHome = this.home.id;
     this.firebaseService.updateFireItem(
       'AppUsers',
-      this.userProfilService.user.id as string,
+      this.userProfilService.user?.id as string,
       this.userProfilService.user
     );
   }

@@ -2,6 +2,8 @@
   <app-header></app-header>
 </app-sticky-header>
 <div class="main-wrapper max-width-site-container">
+  <ng-container *ngIf="!pathService.isStartPath">
+    <app-sidebar></app-sidebar>
+  </ng-container>
   <router-outlet></router-outlet>
 </div>
-

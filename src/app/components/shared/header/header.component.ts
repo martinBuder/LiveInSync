@@ -6,6 +6,7 @@ import { ButtonComponent } from '../../common/button/button.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { UtilService } from '../../../services/utils/util.service';
+import { PathService } from '../../../services/global/path.service';
 
 @Component({
   selector: 'app-header',
@@ -21,28 +22,12 @@ import { UtilService } from '../../../services/utils/util.service';
   ],
 })
 export class HeaderComponent {
-  protected showStartMenu: boolean = false;
   protected menuOpen: boolean = false;
-  private startPaths: string[] = [
-    '/',
-    '/register',
-    '/forgotPassword',
-    '/newPassword',
-  ];
 
-  constructor(private router: Router, protected utilService: UtilService) {
-    this.router.events.subscribe((x) => {
-      if (x instanceof NavigationEnd) {
-        console.log(x.url);
-        this.checkWhichHeader(x.url);
-      }
-    });
-  }
-
-  checkWhichHeader(url: string): void {
-    if (this.startPaths.includes(url)) this.showStartMenu = true;
-    else this.showStartMenu = false;
-  }
+  constructor(
+    protected utilService: UtilService,
+    protected pathService: PathService
+  ) {}
 
   public closeMenu(): void {
     this.menuOpen = false;

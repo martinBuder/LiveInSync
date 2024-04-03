@@ -39,4 +39,10 @@ export class UtilService {
       if (nav !== undefined) this.navigateTo(nav);
     }, 3000);
   }
+
+  public async waitForValue(item: any) {
+    while (item === undefined) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
 }
