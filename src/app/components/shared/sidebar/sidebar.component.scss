@@ -1,0 +1,17 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables_styles.scss";
+
+.feature-navigation {
+  margin-top: var(--padding);
+  padding-left: var(--padding);
+  @include display-flex($fd: column, $ai: flex-start);
+}
+
+.feature-link {
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    transform: translateX(calc(var(--padding) * -1));
+  }
+}

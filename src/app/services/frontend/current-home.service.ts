@@ -27,7 +27,6 @@ export class CurrentHomeService {
       'allHomes',
       homeId as string
     );
-    console.log(this.currentHome);
   }
 
   public spliceHomeName(homeId: string): string {

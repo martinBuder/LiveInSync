@@ -3,11 +3,12 @@ import { CurrentHomeService } from '../../../services/frontend/current-home.serv
 import { UserProfileService } from '../../../services/global/backend/userProfile.service';
 import { CommonModule } from '@angular/common';
 import { Home } from '../../../interfaces/home';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })

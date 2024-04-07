@@ -2,6 +2,10 @@
   {{ currentHomeService.currentHome.name }}
 </h2>
 <div class="feature-navigation">
-  <!-- <ng-container *ngFor="this.currentHomeService."> </ng-container> -->
+  <ng-container
+    *ngFor="let feature of this.currentHomeService.currentHome.features"
+  >
+    <div class="feature-link">{{ "featureName." + feature | translate }}</div>
+  </ng-container>
 </div>
 <div class="otherHomes"></div>
