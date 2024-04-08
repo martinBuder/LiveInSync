@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Home } from '../../../interfaces/home';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIcon } from '@angular/material/icon';
+import { UtilService } from '../../../services/utils/util.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,6 +17,7 @@ import { MatIcon } from '@angular/material/icon';
 export class SidebarComponent {
   constructor(
     protected currentHomeService: CurrentHomeService,
-    protected userProfileService: UserProfileService
+    protected userProfileService: UserProfileService,
+    protected utilService: UtilService
   ) {}
 }

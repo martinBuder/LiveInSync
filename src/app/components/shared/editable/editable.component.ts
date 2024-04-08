@@ -28,7 +28,7 @@ import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
   templateUrl: './editable.component.html',
   styleUrl: './editable.component.scss',
 })
-export class EditableComponent implements OnInit {
+export class EditableComponent {
   @Input() groupedForm!: FormGroup;
   @Input() item?: Todo;
   @Input() listTitle!: string;
@@ -37,17 +37,11 @@ export class EditableComponent implements OnInit {
   @Output() closeEdit = new EventEmitter<void>();
 
   protected shouldChangedDialogOpen: boolean = false;
-  private fireCollection!: any;
 
   constructor(
     protected utilService: UtilService,
-    private firestore: Firestore,
     private firebaseService: FirebaseService
   ) {}
-
-  ngOnInit(): void {
-    this.fireCollection = collection(this.firestore, this.fireListHeader);
-  }
 
   protected delete(): void {
     if (this.item?.id)
@@ -60,7 +54,7 @@ export class EditableComponent implements OnInit {
     this.utilService.closeThis(this.closeWindow, 'editableClose');
     if (this.item?.id)
       this.firebaseService.updateFireItem(
-        this.fireCollection,
+        this.fireListHeader,
         this.item.id,
         todo
       );

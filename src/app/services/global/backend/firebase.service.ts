@@ -22,7 +22,9 @@ export class FirebaseService {
 
   constructor(private firestore: Firestore) {}
 
-  public getListFromFirebase(fireCollection: any): Observable<any> {
+  public getListFromFirebase(fireListHeader: any): Observable<any> {
+    const fireCollection = collection(this.firestore, fireListHeader);
+
     return new Observable((subscriber) => {
       onSnapshot(
         query(fireCollection),

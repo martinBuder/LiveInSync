@@ -9,6 +9,7 @@ import { LocalStorageService } from '../../../services/global/local-storage.serv
 import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CurrentHomeService } from '../../../services/frontend/current-home.service';
 
 @Component({
   selector: 'app-list',
@@ -31,29 +32,29 @@ export class ListComponent implements OnInit {
   protected isEditableActivated: boolean[] = [];
   protected itemsArray: Array<Todo> = [];
 
-  private fireCollection!: any;
   protected fireListHeader!: string;
 
   constructor(
-    private firestore: Firestore,
     private firebaseService: FirebaseService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private currentHomeService: CurrentHomeService
   ) {}
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      this.fireListHeader = this.localStorageService.getFromLocalStorage(
-        this.listHeader
-      );
-      this.fireCollection = collection(this.firestore, this.fireListHeader);
-      this.firebaseService.getListFromFirebase(this.fireCollection).subscribe({
-        next: (data) => {
-          this.itemsArray = data;
-          this.closeAllEdits();
-        },
-        error: (error) => console.error(error),
-      });
-    }
+    // if (typeof window !== 'undefined') {
+    // this.fireListHeader = this.localStorageService.getFromLocalStorage(
+    //   this.listHeader
+    // );
+    this.fireListHeader =
+      this.currentHomeService.currentHome.id + this.listHeader;
+    this.firebaseService.getListFromFirebase(this.fireListHeader).subscribe({
+      next: (data) => {
+        this.itemsArray = data;
+        this.closeAllEdits();
+      },
+      error: (error) => console.error(error),
+    });
+    // }
   }
 
   openAdd() {

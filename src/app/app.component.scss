@@ -8,7 +8,7 @@
   width: 100%;
 
   &:has(app-sidebar) {
-    @include display-flex($jc: flex-start);
+    @include display-flex($jc: flex-start, $ai: flex-start);
   }
 
   app-sidebar {
@@ -24,7 +24,7 @@
     margin-left: calc(var(--site-padding) * -1);
   }
 
-  router-outlet {
+  .feature-wrapper {
     flex: 1;
   }
 }

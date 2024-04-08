@@ -5,5 +5,7 @@
   <ng-container *ngIf="!pathService.isStartPath">
     <app-sidebar></app-sidebar>
   </ng-container>
-  <router-outlet></router-outlet>
+  <div class="feature-wrapper">
+    <router-outlet></router-outlet>
+  </div>
 </div>
