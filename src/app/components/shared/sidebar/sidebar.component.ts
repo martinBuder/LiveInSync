@@ -4,11 +4,12 @@ import { UserProfileService } from '../../../services/global/backend/userProfile
 import { CommonModule } from '@angular/common';
 import { Home } from '../../../interfaces/home';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, MatIcon],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })

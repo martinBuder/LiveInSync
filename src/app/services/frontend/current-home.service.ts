@@ -1,9 +1,6 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Home } from '../../interfaces/home';
-import { UserProfileService } from '../global/backend/userProfile.service';
 import { FirebaseService } from '../global/backend/firebase.service';
-import { UtilService } from '../utils/util.service';
-import { LocalStorageService } from '../global/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +13,7 @@ export class CurrentHomeService {
     features: [],
   };
 
-  constructor(
-    private userProfileService: UserProfileService,
-    private firebaseService: FirebaseService,
-    private utilService: UtilService
-  ) {}
+  constructor(private firebaseService: FirebaseService) {}
 
   public async getCurrentHome(homeId: string) {
     this.currentHome = await this.firebaseService.getFireDoc(

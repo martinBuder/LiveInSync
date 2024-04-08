@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { NewHomeComponent } from '../../dialogs/new-home/new-home.component';
 import { NewHomeUtilService } from '../../../services/utils/new-home-util.service';
 import { CommonModule } from '@angular/common';
@@ -12,13 +12,13 @@ import { UserProfileService } from '../../../services/global/backend/userProfile
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterContentInit {
   constructor(
     protected newHomeUtilService: NewHomeUtilService,
     private userProfileService: UserProfileService
   ) {}
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     if (this.userProfileService && this.userProfileService.user) {
       if (
         this.userProfileService.user.homes === undefined ||

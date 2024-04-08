@@ -1,17 +1,33 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/variables_styles.scss";
 
-.feature-navigation {
+.sidebar-navigation,
+.otherHomes {
   margin-top: var(--padding);
-  padding-left: var(--padding);
   @include display-flex($fd: column, $ai: flex-start);
 }
 
-.feature-link {
+.link-container {
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  @include display-flex();
+  @include border($padding: var(--single) var(--padding));
+  width: 200px;
+  flex-wrap: nowrap;
 
-  &:hover {
-    transform: translateX(calc(var(--padding) * -1));
+  .sidebar-link {
+    min-width: 100%;
+    transition: all 300ms ease-in-out;
   }
+
+  &:hover .sidebar-link {
+    min-width: 70%;
+  }
+}
+
+.icon-background {
+  text-align: center;
+}
+
+.otherHomes {
+  padding: var(--padding) 0;
 }

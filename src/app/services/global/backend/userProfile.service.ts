@@ -5,7 +5,16 @@ import { UserProfile } from '../../../interfaces/userProfile';
   providedIn: 'root',
 })
 export class UserProfileService {
-  user: UserProfile | null = null;
+  private _user: UserProfile | null = null;
+  public get user(): UserProfile | null {
+    return this._user;
+  }
+  public set user(v: UserProfile) {
+    this._user = v;
+    this.isUserLoaded = true;
+  }
+
+  public isUserLoaded: boolean = false;
 
   constructor() {}
 }
