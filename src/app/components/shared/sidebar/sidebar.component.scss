@@ -1,5 +1,6 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/color_styles.scss";
 
 .sidebar-navigation,
 .otherHomes {
@@ -22,6 +23,11 @@
   &:hover .sidebar-link {
     min-width: 70%;
   }
+
+  &:hover.current-path .sidebar-link {
+    min-width: 100%;
+    cursor: auto;
+  }
 }
 
 .icon-background {
@@ -30,4 +36,8 @@
 
 .otherHomes {
   padding: var(--padding) 0;
+}
+
+.current-path {
+  background-color: var(--even-back-color);
 }

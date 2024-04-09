@@ -13,6 +13,8 @@ export class PathService {
     '/newPassword',
   ];
 
+  public urlFeature!: string;
+
   constructor(private router: Router) {
     this.router.events.subscribe((x) => {
       if (x instanceof NavigationEnd) {
@@ -23,7 +25,11 @@ export class PathService {
   }
 
   private checkWhichHeader(url: string): void {
-    if (this.startPaths.includes(url)) this.isStartPath = true;
-    else this.isStartPath = false;
+    if (this.startPaths.includes(url)) {
+      this.isStartPath = true;
+    } else {
+      this.isStartPath = false;
+      this.urlFeature = url;
+    }
   }
 }

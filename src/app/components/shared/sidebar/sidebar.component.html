@@ -3,14 +3,24 @@
 </h2>
 
 <div class="sidebar-navigation">
-  <div class="link-container" (click)="utilService.navigateTo('dashboard')">
+  <div
+    class="link-container"
+    (click)="utilService.navigateTo('dashboard')"
+    [ngClass]="
+      pathService.urlFeature.includes('dashboard') ? 'current-path' : ''
+    "
+  >
     <div class="sidebar-link">{{ "sidebar.dashboard" | translate }}</div>
     <mat-icon class="icon-background">arrow_forward</mat-icon>
   </div>
   <ng-container
     *ngFor="let feature of this.currentHomeService.currentHome.features"
   >
-    <div class="link-container" (click)="utilService.navigateTo(feature)">
+    <div
+      class="link-container"
+      (click)="utilService.navigateTo(feature)"
+      [ngClass]="pathService.urlFeature.includes(feature) ? 'current-path' : ''"
+    >
       <div class="sidebar-link">{{ "featureName." + feature | translate }}</div>
       <mat-icon class="icon-background">arrow_forward</mat-icon>
     </div>

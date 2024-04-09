@@ -6,6 +6,7 @@ import { Home } from '../../../interfaces/home';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIcon } from '@angular/material/icon';
 import { UtilService } from '../../../services/utils/util.service';
+import { PathService } from '../../../services/global/path.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,6 +19,7 @@ export class SidebarComponent {
   constructor(
     protected currentHomeService: CurrentHomeService,
     protected userProfileService: UserProfileService,
-    protected utilService: UtilService
+    protected utilService: UtilService,
+    protected pathService: PathService
   ) {}
 }
