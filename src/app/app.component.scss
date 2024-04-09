@@ -8,7 +8,11 @@
   width: 100%;
 
   &:has(app-sidebar) {
-    @include display-flex($jc: flex-start, $ai: flex-start);
+    @include display-flex(
+      $jc: flex-start,
+      $ai: flex-start,
+      $gap: var(--site-padding)
+    );
   }
 
   app-sidebar {

@@ -8,7 +8,9 @@
   "text": {
     "confirmMail": "Gebe deine E-Mail-Adresse ein, mit welcher du deinen Account erstellt hast. Wir senden dir dann eine Nachricht per E-Mail zu.",
     "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
-    "descriptionText": "Zu diesem Punkt existiert eine Beschreibung."
+    "descriptionText": "Zu diesem Punkt existiert eine Beschreibung.",
+    "unfinished": "unerledigte ",
+    "finished": "erledigte "
   },
   "featureName": {
     "todo": "Todos",

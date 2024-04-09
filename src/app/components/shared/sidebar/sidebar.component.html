@@ -7,7 +7,9 @@
     class="link-container"
     (click)="utilService.navigateTo('dashboard')"
     [ngClass]="
-      pathService.urlFeature.includes('dashboard') ? 'current-path' : ''
+      pathService.urlFeature && pathService.urlFeature.includes('dashboard')
+        ? 'current-path'
+        : ''
     "
   >
     <div class="sidebar-link">{{ "sidebar.dashboard" | translate }}</div>

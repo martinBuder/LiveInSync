@@ -4,7 +4,7 @@ import { FeaturesEnum } from '../../interfaces/home';
 @Injectable({
   providedIn: 'root',
 })
-export class NewHomeUtilService {
+export class HomeUtilService {
   public openNewHomeDialog: boolean = false;
   public openAddHomeDialog: boolean = false;
   public openCreateHomeDialog: boolean = false;

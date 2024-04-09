@@ -89,6 +89,7 @@ body {
   @include border();
   background-color: var(--card-back-color);
   @include display-flex($fd: column, $jc: flex-start, $ai: flex-start);
+  height: calc(100svh - var(--header-height) - calc(var(--site-padding) * 2));
 }
 
 .center-center-wrapper {

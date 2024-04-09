@@ -1,0 +1,14 @@
+@import "../../../../styles/mixins.scss";
+
+.card {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: var(--site-padding);
+}
+
+.dashboard-card {
+  @include border();
+  min-width: 300px;
+  flex: 1;
+}

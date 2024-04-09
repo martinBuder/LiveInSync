@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonComponent } from '../../common/button/button.component';
+import { ButtonComponent } from '../../../common/button/button.component';
 
 @Component({
   selector: 'app-new-home',

@@ -18,7 +18,6 @@ export class PathService {
   constructor(private router: Router) {
     this.router.events.subscribe((x) => {
       if (x instanceof NavigationEnd) {
-        console.log(x.url);
         this.checkWhichHeader(x.url);
       }
     });

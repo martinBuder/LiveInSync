@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { InputComponent } from '../../common/input/input.component';
-import { ButtonComponent } from '../../common/button/button.component';
+import { InputComponent } from '../../../common/input/input.component';
+import { ButtonComponent } from '../../../common/button/button.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FeatureFormMapper } from '../../../mapper/featureForm.mapper';
-import { SelectAreaComponent } from '../../shared/select-area/select-area.component';
-import { NewHomeUtilService } from '../../../services/utils/new-home-util.service';
-import { FeaturesEnum, Home } from '../../../interfaces/home';
-import { UserProfileService } from '../../../services/global/backend/userProfile.service';
-import { UtilService } from '../../../services/utils/util.service';
-import { FirebaseService } from '../../../services/global/backend/firebase.service';
+import { FeatureFormMapper } from '../../../../mapper/featureForm.mapper';
+import { SelectAreaComponent } from '../../../shared/select-area/select-area.component';
+import { HomeUtilService } from '../../../../services/utils/home-util.service';
+import { FeaturesEnum, Home } from '../../../../interfaces/home';
+import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
+import { UtilService } from '../../../../services/utils/util.service';
+import { FirebaseService } from '../../../../services/global/backend/firebase.service';
 
 @Component({
   selector: 'app-add-home',
@@ -29,7 +29,7 @@ export class AddHomeComponent {
 
   constructor(
     formBuilder: FormBuilder,
-    protected newHomeUtilService: NewHomeUtilService,
+    protected homeUtilService: HomeUtilService,
     private userProfilService: UserProfileService,
     private firebaseService: FirebaseService,
     private utilService: UtilService
@@ -38,7 +38,7 @@ export class AddHomeComponent {
   }
 
   protected cancel(): void {
-    this.newHomeUtilService.openAddHomeDialog = false;
+    this.homeUtilService.openAddHomeDialog = false;
   }
 
   protected async save(): Promise<void> {
@@ -76,7 +76,7 @@ export class AddHomeComponent {
 
   private returnHomeFeatures(): FeaturesEnum[] {
     const featuresArray: FeaturesEnum[] = [];
-    this.newHomeUtilService.newHomeFeatures.forEach((feature) => {
+    this.homeUtilService.newHomeFeatures.forEach((feature) => {
       if (feature.selected === true) featuresArray.push(feature.name);
     });
     return featuresArray;

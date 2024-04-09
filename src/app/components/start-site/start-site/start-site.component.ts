@@ -3,8 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../common/button/button.component';
 import { InputComponent } from '../../common/input/input.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NewHomeUtilService } from '../../../services/utils/new-home-util.service';
-import { NewHomeComponent } from '../../dialogs/new-home/new-home.component';
+import { NewHomeComponent } from '../../dialogs/home/new-home/new-home.component';
 import { CommonModule } from '@angular/common';
 import { UserFormMapper } from '../../../mapper/userForm.mapper';
 import { UtilService } from '../../../services/utils/util.service';
@@ -36,7 +35,6 @@ export class StartSiteComponent {
   constructor(
     protected utilService: UtilService,
     protected formBuilder: FormBuilder,
-    protected newHomeUtilService: NewHomeUtilService,
     protected authService: AuthService
   ) {
     this.formGroup = formBuilder.group(UserFormMapper.logInForm);
