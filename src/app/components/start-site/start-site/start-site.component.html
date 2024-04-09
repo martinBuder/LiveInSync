@@ -19,6 +19,7 @@
       [inputType]="passwordType"
       [hasIconFunction]="true"
       (iconClicked)="togglePasswordVisibility()"
+      (enterFunction)="logIn()"
     ></app-input>
     <app-button
       [btnClass]="'text-btn'"

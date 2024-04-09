@@ -24,9 +24,14 @@ export class InputComponent {
   @Input() hasIconFunction: boolean = false;
   @Input() checkValidStatus: boolean = false;
   @Output() iconClicked = new EventEmitter<void>();
+  @Output() enterFunction = new EventEmitter<void>();
 
   protected onIconClick(): void {
     this.iconClicked.emit();
+  }
+
+  protected onEnterPress(): void {
+    if (this.groupedForm.valid) this.enterFunction.emit();
   }
 
   protected getFormControlErrorTranslationKey(formField: string): string {
