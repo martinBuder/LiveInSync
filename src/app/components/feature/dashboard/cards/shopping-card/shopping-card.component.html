@@ -1,2 +1,11 @@
 <h3 class="center-header">{{ "featureName.shopping" | translate }}</h3>
-<div class="shopping-list"></div>
+<div class="shopping-list">
+  <canvas
+    height="300"
+    class="chart"
+    baseChart
+    [data]="kategorieAmount"
+    [legend]="false"
+  >
+  </canvas>
+</div>
