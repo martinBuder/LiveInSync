@@ -12,4 +12,5 @@ import { TodoDiagramComponent } from '../../diagrams/todo-diagram/todo-diagram.c
 export class TodoCardComponent {
   finishedAmount: number = 7;
   unfinishedAmount: number = 4;
+  delayAmount: number = 2;
 }

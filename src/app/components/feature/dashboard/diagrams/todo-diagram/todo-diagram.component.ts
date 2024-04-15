@@ -12,12 +12,12 @@ Chart.register(...registerables);
 export class TodoDiagramComponent implements OnInit {
   @Input() finishedNr!: number;
   @Input() unfinishedNr!: number;
+  @Input() delayNumber!: number;
+  protected donePercent!: string;
 
   private fontColor = getComputedStyle(document.body)
     .getPropertyValue('--font-color')
     .trim();
-
-  protected donePercent!: string;
 
   ngOnInit(): void {
     this.calcPercent();
@@ -25,23 +25,32 @@ export class TodoDiagramComponent implements OnInit {
   }
 
   calcPercent(): void {
-    const all = this.finishedNr + this.unfinishedNr;
+    const all = this.finishedNr + this.unfinishedNr + this.delayNumber;
     this.donePercent =
-      Math.round((this.finishedNr * 100) / all).toString() + '%';
+      Math.round((this.finishedNr * 100) / all).toString() + `%`;
   }
 
   erstelleKreisDiagramm(): void {
     const daten = {
-      labels: ['Erledigt', 'Offen'],
+      labels: [
+        'Erledigt: ' + this.finishedNr,
+        'Offen: ' + this.unfinishedNr,
+        'Überfällig: ' + this.delayNumber,
+      ],
       datasets: [
         {
           label: ' Todos',
-          data: [this.finishedNr, this.unfinishedNr],
+          data: [this.finishedNr, this.unfinishedNr, this.delayNumber],
           backgroundColor: [
+            'rgba(99, 255, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 99, 132, 0.2)',
           ],
-          borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+          borderColor: [
+            'rgba(99, 255, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)',
+          ],
           borderWidth: 1,
         },
       ],
@@ -58,11 +67,12 @@ export class TodoDiagramComponent implements OnInit {
             ctx.save();
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.font = '20px Arial'; // Du kannst die Schriftart und -größe hier anpassen
-            ctx.fillStyle = this.fontColor; // Textfarbe
+            ctx.font = '20px Oswald';
+            ctx.fillStyle = this.fontColor;
             let centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
             let centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-            ctx.fillText(this.donePercent, centerX, centerY);
+            ctx.fillText(this.donePercent, centerX, centerY - 15);
+            ctx.fillText('erledigt', centerX, centerY + 15);
             ctx.restore();
           },
         },

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shopping-card',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './shopping-card.component.html',
-  styleUrl: './shopping-card.component.scss'
+  styleUrl: './shopping-card.component.scss',
 })
-export class ShoppingCardComponent {
-
-}
+export class ShoppingCardComponent {}

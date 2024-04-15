@@ -1,0 +1,12 @@
+.dialog {
+  gap: var(--padding);
+
+  * {
+    width: 100%;
+  }
+
+  .btn-wrapper {
+    width: max-content;
+    margin: 0 auto;
+  }
+}

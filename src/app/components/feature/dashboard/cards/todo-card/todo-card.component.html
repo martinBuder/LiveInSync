@@ -1,17 +1,6 @@
-<h3>{{ "featureName.todo" | translate }}</h3>
-<div class="counter-container">
-  <div class="counter-line">
-    {{ "text.unfinished" | translate }} {{ "featureName.todo" | translate }}:
-    <span class="amount"></span>
-    {{ unfinishedAmount }}
-  </div>
-  <div class="counter-line">
-    {{ "text.finished" | translate }} {{ "featureName.todo" | translate }}:
-    <span class="amount"></span>
-    {{ finishedAmount }}
-  </div>
-  <app-todo-diagram
-    [finishedNr]="finishedAmount"
-    [unfinishedNr]="unfinishedAmount"
-  ></app-todo-diagram>
-</div>
+<h3 class="center-header">{{ "featureName.todo" | translate }}</h3>
+<app-todo-diagram
+  [finishedNr]="finishedAmount"
+  [unfinishedNr]="unfinishedAmount"
+  [delayNumber]="delayAmount"
+></app-todo-diagram>
