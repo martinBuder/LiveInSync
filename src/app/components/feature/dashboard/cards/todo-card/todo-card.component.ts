@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { TodoDiagramComponent } from '../../diagrams/todo-diagram/todo-diagram.component';
+import { CircleChartComponent } from '../../diagrams/circle-diagram/circle-diagram.component';
 
 @Component({
   selector: 'app-todo-card',
   standalone: true,
-  imports: [TranslateModule, TodoDiagramComponent],
+  imports: [TranslateModule, CircleChartComponent],
   templateUrl: './todo-card.component.html',
   styleUrl: './todo-card.component.scss',
 })
 export class TodoCardComponent {
-  finishedAmount: number = 7;
-  unfinishedAmount: number = 4;
-  delayAmount: number = 2;
+  protected finishedAmount: number = 7;
+  protected unfinishedAmount: number = 4;
+  protected delayAmount: number = 2;
 }

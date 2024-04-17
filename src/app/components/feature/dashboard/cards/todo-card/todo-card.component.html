@@ -1,6 +1,7 @@
 <h3 class="center-header">{{ "featureName.todo" | translate }}</h3>
-<app-todo-diagram
+<app-circle-chart
   [finishedNr]="finishedAmount"
   [unfinishedNr]="unfinishedAmount"
   [delayNumber]="delayAmount"
-></app-todo-diagram>
+  [chart]="'todoChart'"
+></app-circle-chart>

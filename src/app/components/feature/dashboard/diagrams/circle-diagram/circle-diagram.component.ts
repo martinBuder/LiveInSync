@@ -1,25 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Chart, registerables, ChartConfiguration } from 'chart.js';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-todo-diagram',
+  selector: 'app-circle-chart',
   standalone: true,
   imports: [],
-  templateUrl: './todo-diagram.component.html',
-  styleUrl: './todo-diagram.component.scss',
+  templateUrl: './circle-diagram.component.html',
+  styleUrl: './circle-diagram.component.scss',
 })
-export class TodoDiagramComponent implements OnInit {
+export class CircleChartComponent implements AfterViewInit {
   @Input() finishedNr!: number;
   @Input() unfinishedNr!: number;
   @Input() delayNumber!: number;
+  @Input() chart!: string;
+
   protected donePercent!: string;
 
   private fontColor = getComputedStyle(document.body)
     .getPropertyValue('--font-color')
     .trim();
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.calcPercent();
     this.erstelleKreisDiagramm();
   }
@@ -79,6 +81,6 @@ export class TodoDiagramComponent implements OnInit {
       ],
     };
 
-    new Chart('kreisDiagrammCanvas', konfiguration);
+    new Chart(this.chart, konfiguration);
   }
 }
