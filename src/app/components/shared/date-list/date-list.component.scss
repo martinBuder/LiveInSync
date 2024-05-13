@@ -1,0 +1,17 @@
+@import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/mixins.scss";
+
+.date {
+  @include display-flex();
+  min-width: min-content;
+
+  .time {
+    text-wrap: nowrap;
+  }
+}
+
+.item {
+  @include display-flex();
+  width: 100%;
+  padding: calc(var(--padding) / 2) var(--padding);
+}

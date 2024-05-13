@@ -10,7 +10,8 @@
     "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
     "descriptionText": "Zu diesem Punkt existiert eine Beschreibung.",
     "unfinished": "unerledigte ",
-    "finished": "erledigte "
+    "finished": "erledigte ",
+    "nextAppoinments": "Nächste Termine"
   },
   "featureName": {
     "todo": "Todos",
