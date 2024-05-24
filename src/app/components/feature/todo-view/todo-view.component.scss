@@ -1,6 +1,9 @@
-@import '../../../../styles/variables_styles.scss';
+@import "../../../../styles/variables_styles.scss";
 
-app-list {
-	width: 100%;
+.card {
+  flex: 1;
 }
 
+app-list {
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+<div class="dialog-outside">
+  <div class="card dialog change-opacity">
+    <ng-container *ngIf="!isSuccessHeader">
+      <h2 style="color: var(--error-color)">
+        {{ "errors.auth.mistake" | translate }}
+      </h2>
+    </ng-container>
+    <ng-container *ngIf="isSuccessHeader">
+      <h2>{{ header | translate }}</h2>
+    </ng-container>
+    <p>{{ text | translate }}</p>
+    <div class="btn-wrapper"></div>
+  </div>
+</div>

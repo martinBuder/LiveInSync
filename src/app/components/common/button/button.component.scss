@@ -1,9 +1,29 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/color_styles.scss';
 
+//clear button css
+button {
+	background: none;
+	border: none;
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
 
 .btn-container {
 	cursor: pointer;
+	text-align: center;
+
+	&:disabled {
+		cursor: auto;
+		opacity: 50%;
+	}
 }
 
 .icon-btn {
@@ -23,8 +43,23 @@
 }
 
 .text-btn {
-	width: 75px;
-	@include display-flex($jc: center)
+	width: 100px;
+	@include display-flex($jc: center);
+
+
+}
+
+.just-text-btn {
+	color: var(--header-font-color);
+
+		&:hover {
+			color: var(--focus-color);
+		}
+	
+		&:active {
+			transform: scale(0.9);
+		}
+	
 }
 
 .save-btn{

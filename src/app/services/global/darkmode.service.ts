@@ -10,7 +10,7 @@ export class DarkmodeService {
   constructor() {
     this.darkmodeState = new BehaviorSubject(this.detectDarkmode());
     this.darkmodeState.subscribe((state: boolean) => {
-      if (state) this.setDarkmode();
+      if (state) this.setDarkmodeOnBody();
       else this.setLightmode();
     });
   }
@@ -37,7 +37,7 @@ export class DarkmodeService {
     }
   }
 
-  private setDarkmode(): void {
+  private setDarkmodeOnBody(): void {
     if (typeof document !== 'undefined') {
       document.body.classList.add('darkmode');
       document.body.classList.remove('lightmod');

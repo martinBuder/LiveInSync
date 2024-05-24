@@ -1,0 +1,43 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/color_styles.scss";
+
+.sidebar-navigation,
+.otherHomes {
+  margin-top: var(--padding);
+  @include display-flex($fd: column, $ai: flex-start);
+}
+
+.link-container {
+  cursor: pointer;
+  @include display-flex();
+  @include border($padding: var(--single) var(--padding));
+  width: 200px;
+  flex-wrap: nowrap;
+
+  .sidebar-link {
+    min-width: 100%;
+    transition: all 300ms ease-in-out;
+  }
+
+  &:hover .sidebar-link {
+    min-width: 70%;
+  }
+
+  &:hover.current-path .sidebar-link {
+    min-width: 100%;
+    cursor: auto;
+  }
+}
+
+.icon-background {
+  text-align: center;
+}
+
+.otherHomes {
+  padding: var(--padding) 0;
+}
+
+.current-path {
+  background-color: var(--even-back-color);
+}

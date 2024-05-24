@@ -1,27 +1,27 @@
- 
 :root {
-	--font-color: #000;
-	--header-font-color: #2a343d;
-	--site-background-color: #fbfeff;
-	--card-back-color: #ecf0f1;
-	--primary-border-color: #2a343d; 
-	--secondary-border-color: #262e31; 
-	--odd-back-color: #dee3e6;
-	--even-back-color: #d7dce0;
-	--highlight-color: #c5cfd0; 
-	--focus-color: #5c87cb;
- }
-
-[data-theme="dark"] {
-	--font-color: #fff;
-	--header-font-color: #d0d5d8;
-	--site-background-color: #192026;
-	--card-back-color: #2a343d;
-	--primary-border-color: #d0d5d8; 
-	--secondary-border-color: #ecf0f1; 
-	--odd-back-color: #303c45;
-	--even-back-color: #3a4650;
-	--highlight-color: #262e31; 
-	--focus-color: #5c87cb;
+  --font-color: #000;
+  --header-font-color: #2a343d;
+  --site-background-color: #fbfeff;
+  --card-back-color: #ecf0f1;
+  --primary-border-color: #2a343d;
+  --secondary-border-color: #262e31;
+  --odd-back-color: #dee3e6;
+  --even-back-color: #d7dce0;
+  --highlight-color: #c5cfd0;
+  --focus-color: #5c87cb;
+  --error-color: rgb(247, 27, 27);
+  --valid-color: rgb(50, 143, 50);
 }
 
+[data-theme="dark"] {
+  --font-color: #fff;
+  --header-font-color: #d0d5d8;
+  --site-background-color: #192026;
+  --card-back-color: #2a343d;
+  --primary-border-color: #d0d5d8;
+  --secondary-border-color: #ecf0f1;
+  --odd-back-color: #303c45;
+  --even-back-color: #3a4650;
+  --highlight-color: #262e31;
+  --focus-color: #5c87cb;
+}

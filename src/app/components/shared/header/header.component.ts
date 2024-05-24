@@ -3,6 +3,10 @@ import { LogoImgComponent } from '../../common/logo/logo.component';
 import { SettingMenuComponent } from '../setting-menu/setting-menu.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../common/button/button.component';
+import { NavigationEnd, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { UtilService } from '../../../services/utils/util.service';
+import { PathService } from '../../../services/global/path.service';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +18,16 @@ import { ButtonComponent } from '../../common/button/button.component';
     SettingMenuComponent,
     ButtonComponent,
     CommonModule,
+    TranslateModule,
   ],
 })
 export class HeaderComponent {
-  public menuOpen: boolean = false;
+  protected menuOpen: boolean = false;
 
-  constructor() {}
+  constructor(
+    protected utilService: UtilService,
+    protected pathService: PathService
+  ) {}
 
   public closeMenu(): void {
     this.menuOpen = false;

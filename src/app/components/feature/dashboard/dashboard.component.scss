@@ -1,0 +1,26 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/color_styles.scss";
+
+.card {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: var(--site-padding);
+  height: auto;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.dashboard-card {
+  @include border();
+  min-width: 300px;
+  flex: 1;
+  background: var(--card-back-color);
+
+  * {
+    @include display-flex($fd: column);
+    height: 100%;
+  }
+}

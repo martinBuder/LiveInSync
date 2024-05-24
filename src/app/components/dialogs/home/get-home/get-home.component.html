@@ -1,0 +1,12 @@
+<ng-container *ngIf="homeUtilService.openNewHomeDialog">
+  <app-new-home
+    (addHomeClicked)="homeUtilService.addHome()"
+    (createHomeClicked)="homeUtilService.createHome()"
+  ></app-new-home>
+</ng-container>
+<ng-container *ngIf="homeUtilService.openAddHomeDialog">
+  <app-add-home
+    (addHomeClicked)="homeUtilService.addHome()"
+    (createHomeClicked)="homeUtilService.createHome()"
+  ></app-add-home>
+</ng-container>

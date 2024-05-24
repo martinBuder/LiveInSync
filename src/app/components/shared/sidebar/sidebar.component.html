@@ -1,0 +1,47 @@
+<h2>
+  {{ currentHomeService.currentHome.name }}
+</h2>
+
+<div class="sidebar-navigation">
+  <div
+    class="link-container"
+    (click)="utilService.navigateTo('dashboard')"
+    [ngClass]="
+      pathService.urlFeature && pathService.urlFeature.includes('dashboard')
+        ? 'current-path'
+        : ''
+    "
+  >
+    <div class="sidebar-link">{{ "sidebar.dashboard" | translate }}</div>
+    <mat-icon class="icon-background">arrow_forward</mat-icon>
+  </div>
+  <ng-container
+    *ngFor="let feature of this.currentHomeService.currentHome.features"
+  >
+    <div
+      class="link-container"
+      (click)="utilService.navigateTo(feature)"
+      [ngClass]="pathService.urlFeature.includes(feature) ? 'current-path' : ''"
+    >
+      <div class="sidebar-link">{{ "featureName." + feature | translate }}</div>
+      <mat-icon class="icon-background">arrow_forward</mat-icon>
+    </div>
+  </ng-container>
+</div>
+<ng-container *ngIf="userProfileService.isUserLoaded">
+  <ng-container *ngIf="userProfileService.user!.homes!.length > 1">
+    <div class="otherHomes">
+      <h3>{{ "sidebar.otherHomes" | translate }}</h3>
+    </div>
+    <div class="sidebar-navigation">
+      <ng-container *ngFor="let home of userProfileService.user!.homes">
+        <div class="link-container">
+          <div class="sidebar-link">
+            {{ currentHomeService.spliceHomeName(home) }}
+          </div>
+          <mat-icon class="icon-background">arrow_forward</mat-icon>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>

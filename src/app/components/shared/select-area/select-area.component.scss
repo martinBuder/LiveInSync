@@ -1,0 +1,9 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables_styles.scss";
+
+.select-wrapper {
+  padding: var(--padding) 0;
+  width: 100%;
+  @include display-flex($jc: flex-start, $gap: calc(var(--padding) * 2));
+  flex-wrap: wrap;
+}

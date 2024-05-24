@@ -1,0 +1,17 @@
+<div class="card">
+  <ng-container *ngIf="currentHomeService.currentHome.features">
+    <ng-container
+      *ngFor="let feature of currentHomeService.currentHome.features"
+    >
+      <ng-container [ngSwitch]="feature">
+        <div class="dashboard-card">
+          <app-calendar-card *ngSwitchCase="'calendar'"></app-calendar-card>
+          <app-todo-card *ngSwitchCase="'todo'"></app-todo-card>
+          <app-shopping-card *ngSwitchCase="'shopping'"></app-shopping-card>
+          <app-cleaning-card *ngSwitchCase="'cleaning'"></app-cleaning-card>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+<app-get-home></app-get-home>

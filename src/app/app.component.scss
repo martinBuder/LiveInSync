@@ -1,6 +1,34 @@
-@import '../styles/variables_styles.scss';
+@import "../styles/variables_styles.scss";
+@import "../styles/mixins.scss";
+@import "../styles/color_styles.scss";
 
 .main-wrapper {
-	padding: var(--site-padding);
-	padding-top: calc(var(--padding)*2);
+  padding: var(--site-padding);
+  padding-top: calc(var(--padding) * 2);
+  width: 100%;
+
+  &:has(app-sidebar) {
+    @include display-flex(
+      $jc: flex-start,
+      $ai: flex-start,
+      $gap: var(--site-padding)
+    );
+  }
+
+  app-sidebar {
+    width: 280px;
+    max-width: max-content;
+    @include border();
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+    height: calc(100svh - var(--header-height));
+    margin-top: calc(var(--site-padding) * -1);
+    margin-bottom: calc(var(--site-padding) * -1);
+    margin-left: calc(var(--site-padding) * -1);
+  }
+
+  .feature-wrapper {
+    flex: 1;
+  }
 }

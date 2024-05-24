@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ChangedInputComponent } from '../../dialogs/changed-input/changed-input.component';
 import { CommonModule } from '@angular/common';
-import { FirebaseService } from '../../../services/global/firebase.service';
+import { FirebaseService } from '../../../services/global/backend/firebase.service';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
@@ -28,26 +28,20 @@ import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
   templateUrl: './editable.component.html',
   styleUrl: './editable.component.scss',
 })
-export class EditableComponent implements OnInit {
+export class EditableComponent {
   @Input() groupedForm!: FormGroup;
   @Input() item?: Todo;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
-  @Input() isJustAddItem : boolean = false;
+  @Input() isJustAddItem: boolean = false;
   @Output() closeEdit = new EventEmitter<void>();
 
   protected shouldChangedDialogOpen: boolean = false;
-  private fireCollection!: any;
 
   constructor(
     protected utilService: UtilService,
-    private firestore: Firestore,
     private firebaseService: FirebaseService
   ) {}
-
-  ngOnInit(): void {
-    this.fireCollection = collection(this.firestore, this.fireListHeader);
-  }
 
   protected delete(): void {
     if (this.item?.id)
@@ -60,7 +54,7 @@ export class EditableComponent implements OnInit {
     this.utilService.closeThis(this.closeWindow, 'editableClose');
     if (this.item?.id)
       this.firebaseService.updateFireItem(
-        this.fireCollection,
+        this.fireListHeader,
         this.item.id,
         todo
       );

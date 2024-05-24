@@ -1,37 +1,86 @@
-@import '../../../../styles/variables_styles.scss';
-@import '../../../../styles/mixins.scss';
-@import '../../../../styles/color_styles.scss';
+@import "../../../../styles/variables_styles.scss";
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/color_styles.scss";
 
+.input-container {
+  @include border($padding: 2px);
+  @include display-flex();
+  position: relative;
+  height: calc(var(--single) * 5);
+  margin-top: 25px;
+  width: 100%;
+  min-width: min-content;
+  background-color: #fff;
+  border: 2px solid var(--primary-border-color);
+  outline: 2px solid var(--highlight-color);
+  outline-offset: -4px;
 
+  .mat-icon {
+    color: var(--highlight-color);
+    width: 32px;
+  }
 
-.input-wrapper {
-	@include border($padding: 2px);
-	position: relative;
-	height: calc(var(--single)*5);
-	margin-top: 25px;
-	width: 100%;
+  &:has(textarea) {
+    height: min-content;
+  }
 
-	&:has(textarea) {
-		height: min-content;
-	}
+  &:has(:focus) {
+    border-color: var(--focus-color);
+  }
 
-	&:has(:focus) {
-		border-color: var(--focus-color);
-	}
+  &:has(.ng-touched.ng-valid),
+  &:has(.ng-dirty.ng-valid) {
+    border-color: var(--valid-color);
+  }
+
+  &:has(.ng-touched.ng-invalid),
+  &:has(.ng-dirty.ng-invalid),
+  &:has(.error.match-error) {
+    border-color: var(--error-color);
+  }
 }
 
 .title {
-	position: absolute;
-	top: -25px;
-	left: calc(var(--padding) /2);
+  position: absolute;
+  top: -25px;
+  left: calc(var(--padding) / 2);
 }
 
-input, textarea {
-	@include display-flex();
-	outline: none;
-	background-color: none;
-	height: 100%;
-	width: 100%;
-	font-size: var(--input-font);
-	padding: 4px;
+input,
+textarea {
+  @include display-flex();
+  outline: none;
+  border: none;
+  background-color: none;
+  height: 100%;
+  width: 100%;
+  font-size: var(--input-font);
+  padding: 4px;
+}
+
+.error {
+  color: var(--error-color);
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--single) * -3);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 500px) {
+  .error {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .error {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .error {
+    font-size: 0.7rem;
+  }
 }

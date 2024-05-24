@@ -1,0 +1,57 @@
+<div class="start-site-wrapper">
+  <div [formGroup]="formGroup" class="card start-site-card">
+    <h2 class="header">{{ "header.newAccount" | translate }}</h2>
+    <!-- ! FormGroup einbinden -->
+    <app-input
+      [inputTitle]="'label.name' | translate"
+      [withIcon]="true"
+      [matIcon]="'person'"
+      [groupedForm]="formGroup"
+      [formField]="'name'"
+    ></app-input>
+    <app-input
+      [inputTitle]="'label.email' | translate"
+      [withIcon]="true"
+      [matIcon]="'mail'"
+      [groupedForm]="formGroup"
+      [formField]="'email'"
+    ></app-input>
+    <app-input
+      [inputTitle]="'label.password' | translate"
+      [groupedForm]="formGroup"
+      [formField]="'password'"
+      [withIcon]="true"
+      [matIcon]="passwordIcon"
+      [inputType]="passwordType"
+      [hasIconFunction]="true"
+      (iconClicked)="togglePasswordVisibility()"
+    ></app-input>
+    <app-input
+      [inputTitle]="'label.comparePassword' | translate"
+      [groupedForm]="formGroup"
+      [formField]="'comparePassword'"
+      [withIcon]="true"
+      [matIcon]="passwordIcon"
+      [inputType]="passwordType"
+      [hasIconFunction]="true"
+      (iconClicked)="togglePasswordVisibility()"
+    ></app-input>
+    <app-button
+      [btnClass]="'text-btn'"
+      [label]="'label.newAccount' | translate"
+      [isDisabled]="formGroup.invalid"
+      (buttonClicked)="createNewAccount()"
+    ></app-button>
+    <app-button
+      [btnClass]="'just-text-btn'"
+      [label]="'label.back' | translate"
+      (buttonClicked)="utilService.navigateTo('')"
+    ></app-button>
+  </div>
+</div>
+<ng-container *ngIf="utilService.showInfoDialog">
+  <app-dialog-message
+    [isSuccessHeader]="this.authService.noError"
+    [text]="this.authService.infoMessage"
+  ></app-dialog-message>
+</ng-container>

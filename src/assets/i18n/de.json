@@ -1,25 +1,88 @@
 {
   "header": {
-    "todos": "todos",
-    "somethingChanged": "Änderungen vorhanden."
+    "logIn": "Log In",
+    "newAccount": "Account erstellen",
+    "forgotPassword": "Passwort vergessen",
+    "newPassword": "Neues Passwort"
   },
   "text": {
+    "confirmMail": "Gebe deine E-Mail-Adresse ein, mit welcher du deinen Account erstellt hast. Wir senden dir dann eine Nachricht per E-Mail zu.",
     "noItems": "Derzeit befinden sich keine Einträge in dieser Liste. Klicke auf das Plus-Symbol, um den ersten Eintrag hinzuzufügen.",
-    "somethingChanged": "Es gab Änderungen. Bist du sicher, dass du das Fenster schliessen möchtest.",
-    "descriptionText": "Zu diesem Punkt existiert eine Beschreibung."
+    "descriptionText": "Zu diesem Punkt existiert eine Beschreibung.",
+    "unfinished": "unerledigte ",
+    "finished": "erledigte ",
+    "nextAppoinments": "Nächste Termine"
+  },
+  "featureName": {
+    "todo": "Todos",
+    "shopping": "Einkaufsliste",
+    "cleaning": "Putzplan",
+    "calendar": "Kalender"
   },
   "label": {
+    "back": "zurück",
     "yes": "Ja",
     "no": "Nein",
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "save": "Speichern",
+    "name": "Name",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "comparePassword": "Passwort wiederholen",
+    "logIn": "Log In",
+    "confirm": "Bestätigen",
+    "forgotPassword": "Passwort vergessen?",
+    "newAccount": "Registrieren",
     "title": "Titel",
     "description": "Beschreibung",
+    "homeName": "Name des Haushaltes",
     "read": "gelesen",
     "done": "erledigt"
   },
+  "dialogHeader": {
+    "newHome": "Neuen Haushalt anlegen",
+    "somethingChanged": "Änderungen vorhanden.",
+    "successful": "Erfolgreich"
+  },
+  "dialogText": {
+    "newHome": "Möchtest du einen neuen Haushalt erstellen, oder den Haushalt von einem Freund übernehmen.",
+    "somethingChanged": "Es gab Änderungen. Bist du sicher, dass du das Fenster schliessen möchtest.",
+    "savedPassword": "Neues Passwort wurde erfolgreich gespeichert! Du kannst dich jetzt wieder einloggen.",
+    "userRegisted": "Dein Nutzerkonto wurde erstellt. Du kannst dich jetzt einloggen."
+  },
   "setting": {
     "darkmode": "DunkelModus"
+  },
+  "errors": {
+    "email": {
+      "required": "* E-Mail ist ein Pflichtfeld.",
+      "maxlength": "* E-Mail darf nicht länger als 60 Zeichen sein.",
+      "minlength": "* E-Mail muss mindestens 6 Zeichen lang sein.",
+      "pattern": "* Die Eingabe ist keine E-Mail-Adresse."
+    },
+    "name": {
+      "required": "* Name ist ein Pflichtfeld."
+    },
+    "password": {
+      "required": "* Passwort ist ein Pflichtfeld.",
+      "maxlength": "* Das Passwort darf nicht länger als 30 Zeichen sein.",
+      "minlength": "* Das Passwort muss mindestens 8 Zeichen lang sein.",
+      "pattern": "* Das Passwort muss eine Zahl und ein Sonderzeichen haben."
+    },
+    "comparePassword": {
+      "required": "* Bitte wiederhole dein neues Passwort.",
+      "passwordmatcherror": "* Die beiden Passwörter stimmen nicht überein."
+    },
+    "auth": {
+      "mistake": "Fehler",
+      "mistakeText": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "wrongLogIn": "E-Mail und/oder Passwort ist nicht bekannt.",
+      "userExist": "Dieser Benutzer hat bereits ein Konto."
+    }
+  },
+  "sidebar": {
+    "dashboard": "Überblick",
+    "otherHomes": "weitere Haushalte"
   }
 }
