@@ -64,6 +64,14 @@ h3 {
   font-size: calc(var(--single) * 2.8);
 }
 
+app-list {
+  width: 100%;
+
+  .card {
+    flex: 1;
+  }
+}
+
 .center-header {
   width: 100%;
   text-align: center;

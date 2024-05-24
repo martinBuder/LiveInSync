@@ -3,6 +3,7 @@ import { ListComponent } from '../../shared/list/list.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FeatureFormMapper } from '../../../mapper/featureForm.mapper';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Category } from '../../../interfaces/category';
 
 @Component({
   selector: 'app-shopping',
@@ -18,6 +19,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ShoppingComponent {
   protected formGroup!: FormGroup;
+  protected shopCategories: Array<Category> = [
+    { name: 'Edeka', color: 'yellow' },
+    { name: 'OBI', color: 'orange' },
+  ];
 
   constructor(formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group(FeatureFormMapper.shoppingForm);

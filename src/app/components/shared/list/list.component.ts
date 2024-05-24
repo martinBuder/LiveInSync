@@ -10,12 +10,15 @@ import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CurrentHomeService } from '../../../services/frontend/current-home.service';
+import { Category } from '../../../interfaces/category';
+import { SelectComponent } from '../../common/select/select.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
   imports: [
     CommonModule,
+    SelectComponent,
     ButtonComponent,
     EditableComponent,
     TranslateModule,
@@ -27,7 +30,9 @@ import { CurrentHomeService } from '../../../services/frontend/current-home.serv
 })
 export class ListComponent implements OnInit {
   @Input() groupedForm!: FormGroup;
+  @Input() categories?: Array<Category>;
   @Input() listHeader!: string;
+  protected currentCategory: Category | null = null;
   protected isAddActivated: boolean = false;
   protected isEditableActivated: boolean[] = [];
   protected itemsArray: Array<any> = [];

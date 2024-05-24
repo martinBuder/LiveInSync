@@ -1,0 +1,8 @@
+<div>
+  <label for="select">Wähle eine Option:</label>
+  <select id="select" [(ngModel)]="selectedOption">
+    <option *ngFor="let option of options" [value]="option">
+      {{ option.name }}
+    </option>
+  </select>
+</div>
