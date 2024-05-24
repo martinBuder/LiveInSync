@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormArray,
-  FormBuilder,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -23,7 +18,12 @@ export class FeatureFormMapper {
   ];
   static doneField = [false];
   static readField = [false];
+  static dateField = ['', [Validators.required]];
+  static timeField = [];
+  static allDayField = [false];
   static featuresField = [];
+  static repetitionField = [];
+  static categoryField = [];
 
   // forms
   static todoForm = {
@@ -31,6 +31,36 @@ export class FeatureFormMapper {
     description: FeatureFormMapper.descriptionField,
     done: FeatureFormMapper.doneField,
     read: FeatureFormMapper.readField,
+  };
+
+  static shoppingForm = {
+    title: FeatureFormMapper.titleField,
+    description: FeatureFormMapper.descriptionField,
+    done: FeatureFormMapper.doneField,
+    read: FeatureFormMapper.readField,
+    category: FeatureFormMapper.categoryField,
+  };
+
+  static calendarForm = {
+    title: FeatureFormMapper.titleField,
+    description: FeatureFormMapper.descriptionField,
+    done: FeatureFormMapper.doneField,
+    read: FeatureFormMapper.readField,
+    allDay: FeatureFormMapper.allDayField,
+    date: FeatureFormMapper.dateField,
+    time: FeatureFormMapper.timeField,
+    repetition: FeatureFormMapper.repetitionField,
+    category: FeatureFormMapper.categoryField,
+  };
+
+  static cleaningForm = {
+    title: FeatureFormMapper.titleField,
+    description: FeatureFormMapper.descriptionField,
+    done: FeatureFormMapper.doneField,
+    read: FeatureFormMapper.readField,
+    date: FeatureFormMapper.dateField,
+    repetition: FeatureFormMapper.repetitionField,
+    category: FeatureFormMapper.categoryField,
   };
 
   static addHomeForm = {

@@ -30,7 +30,7 @@ export class ListComponent implements OnInit {
   @Input() listHeader!: string;
   protected isAddActivated: boolean = false;
   protected isEditableActivated: boolean[] = [];
-  protected itemsArray: Array<Todo> = [];
+  protected itemsArray: Array<any> = [];
 
   protected fireListHeader!: string;
 
@@ -57,7 +57,7 @@ export class ListComponent implements OnInit {
     // }
   }
 
-  openAdd() {
+  openAdd(): void {
     if (
       this.isEditableActivated.every((value) => value === false) &&
       this.isAddActivated === false

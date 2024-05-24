@@ -30,7 +30,7 @@ import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
 })
 export class EditableComponent {
   @Input() groupedForm!: FormGroup;
-  @Input() item?: Todo;
+  @Input() item?: any;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
   @Input() isJustAddItem: boolean = false;

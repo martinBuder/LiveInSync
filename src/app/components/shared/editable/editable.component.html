@@ -11,20 +11,25 @@
     [groupedForm]="groupedForm"
     [formField]="'description'"
   ></app-input>
-		<ng-container *ngIf="!isJustAddItem">
-			<div class="check-box-wrapper">
+  <div class="check-box-wrapper">
+    <ng-container *ngIf="!isJustAddItem">
+      <app-checkbox
+        [checkboxTitle]="'label.read'"
+        [groupedForm]="groupedForm"
+        [formField]="'read'"
+      ></app-checkbox>
+      <app-checkbox
+        [checkboxTitle]="'label.done'"
+        [groupedForm]="groupedForm"
+        [formField]="'done'"
+      ></app-checkbox>
+    </ng-container>
     <app-checkbox
-      [checkboxTitle]="'label.read'"
+      [checkboxTitle]="'label.allDay'"
       [groupedForm]="groupedForm"
-      [formField]="'read'"
-    ></app-checkbox>
-    <app-checkbox
-      [checkboxTitle]="'label.done'"
-      [groupedForm]="groupedForm"
-      [formField]="'done'"
+      [formField]="'allDay'"
     ></app-checkbox>
   </div>
-		</ng-container>
 
   <div class="btn-wrapper">
     <app-button
@@ -33,14 +38,14 @@
       [label]="'label.cancel' | translate"
       (buttonClicked)="cancel()"
     ></app-button>
-				<ng-container *ngIf="!isJustAddItem">
-    <app-button
-      [btnClass]="'label-icon-btn'"
-      [matIcon]="'delete'"
-      [label]="'label.delete' | translate"
-      (buttonClicked)="delete()"
-    ></app-button>
-				</ng-container>
+    <ng-container *ngIf="!isJustAddItem">
+      <app-button
+        [btnClass]="'label-icon-btn'"
+        [matIcon]="'delete'"
+        [label]="'label.delete' | translate"
+        (buttonClicked)="delete()"
+      ></app-button>
+    </ng-container>
     <app-button
       [btnClass]="'label-icon-btn'"
       [matIcon]="'save'"

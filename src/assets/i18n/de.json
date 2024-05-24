@@ -38,7 +38,8 @@
     "description": "Beschreibung",
     "homeName": "Name des Haushaltes",
     "read": "gelesen",
-    "done": "erledigt"
+    "done": "erledigt",
+    "allDay": "ganztägig"
   },
   "dialogHeader": {
     "newHome": "Neuen Haushalt anlegen",

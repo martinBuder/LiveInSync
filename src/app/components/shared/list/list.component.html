@@ -13,7 +13,7 @@
     [groupedForm]="groupedForm"
     [listTitle]="listHeader"
     [fireListHeader]="fireListHeader"
-				[isJustAddItem]="true"
+    [isJustAddItem]="true"
   ></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
@@ -27,6 +27,14 @@
       }"
     >
       <ng-container *ngIf="!isEditableActivated[i]">
+        <ng-container *ngIf="item.date">
+          <div class="date">
+            <div class="day">{{ item.date | date : "dd.MM.yy" }}</div>
+            <ng-container *ngIf="item.time">
+              <div class="time">- {{ item.time }}</div>
+            </ng-container>
+          </div>
+        </ng-container>
         <ng-container *ngIf="!item.read">
           <div class="unread-marker"></div>
         </ng-container>
