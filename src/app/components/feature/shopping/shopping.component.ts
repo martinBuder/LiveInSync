@@ -20,6 +20,7 @@ import { Category } from '../../../interfaces/category';
 export class ShoppingComponent {
   protected formGroup!: FormGroup;
   protected shopCategories: Array<Category> = [
+    { name: 'alle', color: 'white' },
     { name: 'Edeka', color: 'yellow' },
     { name: 'OBI', color: 'orange' },
   ];

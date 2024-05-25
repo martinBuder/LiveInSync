@@ -13,10 +13,11 @@ import { FormsModule } from '@angular/forms';
 export class SelectComponent implements OnInit {
   @Input() options: Category[] = [];
   @Output() selectionChange = new EventEmitter<Category>();
-  selectedOption?: Category;
+  protected selectedOption?: Category;
 
   ngOnInit() {
     if (this.options.length > 0) {
+      this.selectedOption = this.options[0];
       this.selectionChange.emit(this.selectedOption);
     }
   }
