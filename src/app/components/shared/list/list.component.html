@@ -1,9 +1,11 @@
 <div class="header-wrapper space-between-cols">
   <h2 class="header">{{ listHeader }}</h2>
   <ng-container *ngIf="categories">
-    <app-select [options]="categories"></app-select>
+    <app-select
+      [options]="categories"
+      (selectionChange)="onCategoryChange($event)"
+    ></app-select>
   </ng-container>
-
   <app-button
     [btnClass]="'icon-btn'"
     [matIcon]="'add'"

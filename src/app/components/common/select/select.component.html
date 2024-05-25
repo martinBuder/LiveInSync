@@ -1,7 +1,10 @@
 <div>
-  <label for="select">Wähle eine Option:</label>
-  <select id="select" [(ngModel)]="selectedOption">
-    <option *ngFor="let option of options" [value]="option">
+  <select
+    id="select"
+    [(ngModel)]="selectedOption"
+    (ngModelChange)="onSelectionChange($event)"
+  >
+    <option *ngFor="let option of options" [ngValue]="option">
       {{ option.name }}
     </option>
   </select>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from '../../../interfaces/category';
 import { FormsModule } from '@angular/forms';
 
@@ -12,11 +12,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class SelectComponent implements OnInit {
   @Input() options: Category[] = [];
-  selectedOption!: Category;
+  @Output() selectionChange = new EventEmitter<Category>();
+  selectedOption?: Category;
 
   ngOnInit() {
     if (this.options.length > 0) {
-      this.selectedOption = this.options[0];
+      this.selectionChange.emit(this.selectedOption);
     }
+  }
+
+  onSelectionChange(selected: Category) {
+    this.selectionChange.emit(selected);
   }
 }

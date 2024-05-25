@@ -29,10 +29,13 @@ import { SelectComponent } from '../../common/select/select.component';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
+  //   this.listHeader
+  // );
+
   @Input() groupedForm!: FormGroup;
   @Input() categories?: Array<Category>;
   @Input() listHeader!: string;
-  protected currentCategory: Category | null = null;
+  protected currentCategory?: Category;
   protected isAddActivated: boolean = false;
   protected isEditableActivated: boolean[] = [];
   protected itemsArray: Array<any> = [];
@@ -60,6 +63,10 @@ export class ListComponent implements OnInit {
       error: (error) => console.error(error),
     });
     // }
+  }
+
+  onCategoryChange($event: Category) {
+    this.currentCategory = $event;
   }
 
   openAdd(): void {
