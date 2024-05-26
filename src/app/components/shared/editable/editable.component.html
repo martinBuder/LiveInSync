@@ -11,6 +11,12 @@
     [groupedForm]="groupedForm"
     [formField]="'description'"
   ></app-input>
+  <ng-container *ngIf="categories">
+    <app-select
+      [options]="categories"
+      (selectionChange)="onCategoryChange($event)"
+    ></app-select>
+  </ng-container>
   <div class="check-box-wrapper">
     <ng-container *ngIf="!isJustAddItem">
       <app-checkbox
@@ -24,13 +30,14 @@
         [formField]="'done'"
       ></app-checkbox>
     </ng-container>
-    <app-checkbox
-      [checkboxTitle]="'label.allDay'"
-      [groupedForm]="groupedForm"
-      [formField]="'allDay'"
-    ></app-checkbox>
+    <ng-container *ngIf="item.allDay">
+      <app-checkbox
+        [checkboxTitle]="'label.allDay'"
+        [groupedForm]="groupedForm"
+        [formField]="'allDay'"
+      ></app-checkbox>
+    </ng-container>
   </div>
-
   <div class="btn-wrapper">
     <app-button
       [btnClass]="'label-icon-btn'"

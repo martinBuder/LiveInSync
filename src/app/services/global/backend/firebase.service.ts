@@ -24,7 +24,6 @@ export class FirebaseService {
 
   public getListFromFirebase(fireListHeader: any): Observable<any> {
     const fireCollection = collection(this.firestore, fireListHeader);
-
     return new Observable((subscriber) => {
       onSnapshot(
         query(fireCollection),

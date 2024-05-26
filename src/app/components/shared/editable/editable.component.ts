@@ -11,6 +11,8 @@ import { Firestore, collection } from '@angular/fire/firestore';
 import { Todo } from '../../../interfaces/todo';
 import { ButtonComponent } from '../../common/button/button.component';
 import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
+import { SelectComponent } from '../../common/select/select.component';
+import { Category } from '../../../interfaces/category';
 
 @Component({
   selector: 'app-editable',
@@ -20,6 +22,7 @@ import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
     ButtonComponent,
     CheckboxComponent,
     InputComponent,
+    SelectComponent,
     TranslateModule,
     MatIconModule,
     ReactiveFormsModule,
@@ -31,6 +34,8 @@ import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
 export class EditableComponent {
   @Input() groupedForm!: FormGroup;
   @Input() item?: any;
+  @Input() categories?: Category[];
+  @Input() currentCategory?: Category;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
   @Input() isJustAddItem: boolean = false;
@@ -74,4 +79,8 @@ export class EditableComponent {
     this.groupedForm.reset();
     this.closeEdit.emit();
   };
+
+  public onCategoryChange(category: Category) {
+    this.item.category = category;
+  }
 }
