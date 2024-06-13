@@ -1,25 +1,28 @@
 <div class="header-wrapper space-between-cols">
   <h2 class="header">{{ listHeader }}</h2>
-  <ng-container *ngIf="categories">
+  <ng-container *ngIf="categories && !isAddActivated && areAllEditFalse()">
     <app-select
       [options]="categories"
       (selectionChange)="onCategoryChange($event)"
     ></app-select>
   </ng-container>
-  <app-button
-    [btnClass]="'icon-btn'"
-    [matIcon]="'add'"
-    (buttonClicked)="openAdd()"
-  ></app-button>
+  <ng-container *ngIf="!isAddActivated && areAllEditFalse()">
+    <app-button
+      [btnClass]="'icon-btn'"
+      [matIcon]="'add'"
+      (buttonClicked)="openAdd()"
+    ></app-button>
+  </ng-container>
 </div>
 <ng-container *ngIf="isAddActivated">
   <app-editable
     style="background-color: var(--odd-back-color)"
-    (closeEdit)="isAddActivated = false"
+    (closeEdit)="closeAllEdits()"
     [groupedForm]="groupedForm"
     [listTitle]="listHeader"
     [fireListHeader]="fireListHeader"
     [isJustAddItem]="true"
+    [categories]="categories"
   ></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
@@ -62,7 +65,7 @@
       </ng-container>
       <ng-container *ngIf="isEditableActivated[i]">
         <app-editable
-          (closeEdit)="isEditableActivated[i] = false"
+          (closeEdit)="closeAllEdits()"
           [groupedForm]="groupedForm"
           [item]="item"
           [listTitle]="listHeader"

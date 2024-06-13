@@ -30,7 +30,7 @@
         [formField]="'done'"
       ></app-checkbox>
     </ng-container>
-    <ng-container *ngIf="item.allDay">
+    <ng-container *ngIf="item?.allDay !== undefined && item?.allDay">
       <app-checkbox
         [checkboxTitle]="'label.allDay'"
         [groupedForm]="groupedForm"

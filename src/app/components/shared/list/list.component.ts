@@ -70,21 +70,19 @@ export class ListComponent implements OnInit {
   }
 
   openAdd(): void {
-    if (
-      this.isEditableActivated.every((value) => value === false) &&
-      this.isAddActivated === false
-    )
+    if (this.areAllEditFalse() && this.isAddActivated === false)
       this.isAddActivated = true;
   }
 
   openEdit(i: number): void {
-    if (
-      this.isEditableActivated.every((value) => value === false) &&
-      this.isAddActivated === false
-    ) {
-      this.isEditableActivated[i] = !this.isEditableActivated[i];
+    if (this.areAllEditFalse() && this.isAddActivated === false) {
+      this.isEditableActivated[i] = true;
       this.groupedForm.patchValue(this.itemsArray[i]);
     }
+  }
+
+  areAllEditFalse(): boolean {
+    return this.isEditableActivated.every((value) => value === false);
   }
 
   closeAllEdits(): void {
