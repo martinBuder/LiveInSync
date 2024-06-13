@@ -12,6 +12,23 @@
       [matIcon]="'add'"
       (buttonClicked)="openAdd()"
     ></app-button>
+    <div class="change-list-modus">
+      <p>{{ "label.changeTo" | translate }}</p>
+      <ng-container *ngIf="listModus === 'select'">
+        <app-button
+          [btnClass]="'icon-btn'"
+          [matIcon]="'edited'"
+          (buttonClicked)="listModus = 'edit'"
+        ></app-button>
+      </ng-container>
+      <ng-container *ngIf="listModus === 'edit'">
+        <app-button
+          [btnClass]="'icon-btn'"
+          [matIcon]="'checked'"
+          (buttonClicked)="listModus = 'select'"
+        ></app-button>
+      </ng-container>
+    </div>
   </ng-container>
 </div>
 <ng-container *ngIf="isAddActivated">
@@ -22,7 +39,7 @@
     [listTitle]="listHeader"
     [fireListHeader]="fireListHeader"
     [isJustAddItem]="true"
-    [categories]="categories"
+    [categoriesArray]="categories"
   ></app-editable>
 </ng-container>
 <ng-container *ngIf="itemsArray.length > 0; else noItems">
@@ -57,11 +74,19 @@
           }}</span>
         </ng-container>
         <div class="title ellipsis-text">{{ item.title }}</div>
-        <app-button
-          [btnClass]="'icon-btn'"
-          [matIcon]="'edit_note'"
-          (buttonClicked)="openEdit(i)"
-        ></app-button>
+        <ng-container *ngIf="listModus === 'edit'">
+          <app-button
+            [btnClass]="'icon-btn'"
+            [matIcon]="'edit_note'"
+            (buttonClicked)="openEdit(i)"
+          ></app-button>
+        </ng-container>
+        <ng-container *ngIf="listModus === 'select'">
+          <app-checkbox
+            (checkboxValueChange)="selectItem(i)"
+            [checkboxValue]="selectedArray.includes(i)"
+          ></app-checkbox>
+        </ng-container>
       </ng-container>
       <ng-container *ngIf="isEditableActivated[i]">
         <app-editable
@@ -70,6 +95,7 @@
           [item]="item"
           [listTitle]="listHeader"
           [fireListHeader]="fireListHeader"
+          [categoriesArray]="categories"
         ></app-editable>
       </ng-container>
     </div>

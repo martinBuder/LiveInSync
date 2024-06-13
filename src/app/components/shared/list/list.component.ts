@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CurrentHomeService } from '../../../services/frontend/current-home.service';
 import { Category } from '../../../interfaces/category';
 import { SelectComponent } from '../../common/select/select.component';
+import { CheckboxComponent } from '../../common/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-list',
@@ -21,6 +22,7 @@ import { SelectComponent } from '../../common/select/select.component';
     SelectComponent,
     ButtonComponent,
     EditableComponent,
+    CheckboxComponent,
     TranslateModule,
     ReactiveFormsModule,
     MatIconModule,
@@ -29,16 +31,15 @@ import { SelectComponent } from '../../common/select/select.component';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
-  //   this.listHeader
-  // );
-
   @Input() groupedForm!: FormGroup;
   @Input() categories?: Array<Category>;
   @Input() listHeader!: string;
   protected currentCategory?: Category;
   protected isAddActivated: boolean = false;
+  protected listModus: 'edit' | 'select' = 'select';
   protected isEditableActivated: boolean[] = [];
   protected itemsArray: Array<any> = [];
+  protected selectedArray: Array<number> = [];
 
   protected fireListHeader!: string;
 
@@ -79,6 +80,12 @@ export class ListComponent implements OnInit {
       this.isEditableActivated[i] = true;
       this.groupedForm.patchValue(this.itemsArray[i]);
     }
+  }
+
+  selectItem(i: number): void {
+    const index = this.selectedArray.indexOf(i);
+    if (index === -1) this.selectedArray.push(i);
+    else this.selectedArray.splice(index, 1);
   }
 
   areAllEditFalse(): boolean {

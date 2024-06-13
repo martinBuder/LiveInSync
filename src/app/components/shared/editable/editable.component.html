@@ -11,9 +11,10 @@
     [groupedForm]="groupedForm"
     [formField]="'description'"
   ></app-input>
-  <ng-container *ngIf="categories">
+  <ng-container *ngIf="categoriesArray">
     <app-select
-      [options]="categories"
+      [options]="categoriesArray"
+      [optionValue]="item?.category"
       (selectionChange)="onCategoryChange($event)"
     ></app-select>
   </ng-container>

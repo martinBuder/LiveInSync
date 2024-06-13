@@ -34,7 +34,7 @@ import { Category } from '../../../interfaces/category';
 export class EditableComponent {
   @Input() groupedForm!: FormGroup;
   @Input() item?: any;
-  @Input() categories?: Category[];
+  @Input() categoriesArray?: Category[];
   @Input() currentCategory?: Category;
   @Input() listTitle!: string;
   @Input() fireListHeader!: string;
