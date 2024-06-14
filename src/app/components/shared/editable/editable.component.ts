@@ -55,17 +55,17 @@ export class EditableComponent {
   }
 
   protected save(): void {
-    const todo: Todo = { ...this.groupedForm.value };
+    const item: any = { ...this.groupedForm.value };
     this.utilService.closeThis(this.closeWindow, 'editableClose');
     if (this.item?.id)
       this.firebaseService.updateFireItem(
         this.fireListHeader,
         this.item.id,
-        todo
+        item
       );
     else {
       const token = this.utilService.generateSimpleToken(10);
-      this.firebaseService.setItemToFirebase(this.fireListHeader, token, todo);
+      this.firebaseService.setItemToFirebase(this.fireListHeader, token, item);
     }
   }
 
