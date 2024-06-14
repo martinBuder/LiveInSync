@@ -84,8 +84,20 @@ export class ListComponent implements OnInit {
 
   protected selectItem(i: number): void {
     const index = this.selectedArray.indexOf(i);
-    if (index === -1) this.selectedArray.push(i);
-    else this.selectedArray.splice(index, 1);
+    if (index === -1) {
+      this.selectedArray.push(i);
+      this.itemsArray[i].selected = true;
+    } else {
+      this.selectedArray.splice(index, 1);
+      this.itemsArray[i].selected = false;
+    }
+    console.log(this.itemsArray[i]);
+
+    this.firebaseService.updateFireItem(
+      this.fireListHeader,
+      this.itemsArray[i].id,
+      this.itemsArray[i]
+    );
   }
 
   protected deleteAll(): void {

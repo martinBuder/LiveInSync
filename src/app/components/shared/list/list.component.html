@@ -84,7 +84,7 @@
         <ng-container *ngIf="listModus === 'select'">
           <app-checkbox
             (checkboxValueChange)="selectItem(i)"
-            [checkboxValue]="selectedArray.includes(i)"
+            [checkboxValue]="item.selected || selectedArray.includes(i)"
           ></app-checkbox>
         </ng-container>
       </ng-container>

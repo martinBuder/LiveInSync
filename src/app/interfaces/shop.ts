@@ -1,8 +1,7 @@
 export interface Shop {
-  id: string;
+  id?: string;
   title: string;
   description: string;
+  selected: boolean;
   category: string;
-  read: boolean;
-  done: boolean;
 }
