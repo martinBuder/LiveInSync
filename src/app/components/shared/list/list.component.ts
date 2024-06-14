@@ -66,33 +66,43 @@ export class ListComponent implements OnInit {
     // }
   }
 
-  onCategoryChange($event: Category) {
+  protected onCategoryChange($event: Category) {
     this.currentCategory = $event;
   }
 
-  openAdd(): void {
+  protected openAdd(): void {
     if (this.areAllEditFalse() && this.isAddActivated === false)
       this.isAddActivated = true;
   }
 
-  openEdit(i: number): void {
+  protected openEdit(i: number): void {
     if (this.areAllEditFalse() && this.isAddActivated === false) {
       this.isEditableActivated[i] = true;
       this.groupedForm.patchValue(this.itemsArray[i]);
     }
   }
 
-  selectItem(i: number): void {
+  protected selectItem(i: number): void {
     const index = this.selectedArray.indexOf(i);
     if (index === -1) this.selectedArray.push(i);
     else this.selectedArray.splice(index, 1);
   }
 
-  areAllEditFalse(): boolean {
+  protected deleteAll(): void {
+    this.selectedArray.forEach((index) => {
+      this.firebaseService.deleteFireItem(
+        this.fireListHeader,
+        this.itemsArray[index].id
+      );
+    });
+    this.selectedArray = [];
+  }
+
+  protected areAllEditFalse(): boolean {
     return this.isEditableActivated.every((value) => value === false);
   }
 
-  closeAllEdits(): void {
+  protected closeAllEdits(): void {
     this.isAddActivated = false;
     for (let i = 0; i < this.isEditableActivated.length; i++) {
       this.isEditableActivated[i] = false;

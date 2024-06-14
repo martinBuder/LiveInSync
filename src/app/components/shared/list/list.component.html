@@ -100,6 +100,22 @@
       </ng-container>
     </div>
   </ng-container>
+  <ng-container
+    *ngIf="
+      listModus === 'select' &&
+      selectedArray.length > 0 &&
+      !isAddActivated &&
+      areAllEditFalse()
+    "
+  >
+    <div class="fixed-btn">
+      <app-button
+        [btnClass]="'icon-btn'"
+        [matIcon]="'done_all'"
+        (buttonClicked)="deleteAll()"
+      ></app-button>
+    </div>
+  </ng-container>
 </ng-container>
 <ng-template #noItems class="item">
   <ng-container *ngIf="!isAddActivated">{{

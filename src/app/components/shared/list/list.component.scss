@@ -63,3 +63,11 @@ app-editable {
 .description-text:hover + .hover-text {
   display: block;
 }
+
+.fixed-btn {
+  position: absolute;
+  right: calc(var(--padding) * 4);
+  bottom: calc(var(--padding) * 4);
+  background-color: var(--focus-color);
+  border-radius: 50%;
+}
