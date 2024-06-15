@@ -1,9 +1,39 @@
-<div class="nav-list slide-down" id="settingMenuClose" appClickOutsideDirective (clickOutside)="utilService.closeThis(closeWindow, 'settingMenuClose')" >
-	<div class="close-item">
-		<app-button [btnClass]="'icon-btn'" [matIcon]="'close'" (buttonClicked)="utilService.closeThis(closeWindow, 'settingMenuClose')"></app-button>
-	</div>
-	<div class="list-item">
-		<div class="dark-toogle">{{ 'setting.darkmode' | translate }}</div>
-		<mat-slide-toggle [checked]="isDarkmode()" (change)="darkmodeService.toogleDarkmode()" color="primary"></mat-slide-toggle>
-	</div>
+<div
+  class="nav-list slide-down"
+  id="settingMenuClose"
+  appClickOutsideDirective
+  (clickOutside)="utilService.closeThis(closeWindow, 'settingMenuClose')"
+>
+  <div class="close-item">
+    <app-button
+      [btnClass]="'icon-btn'"
+      [matIcon]="'close'"
+      (buttonClicked)="utilService.closeThis(closeWindow, 'settingMenuClose')"
+    ></app-button>
+  </div>
+  <div class="list-item cursor" (click)="homeService.openQRDialog = true">
+    <div class="menu-text">{{ "setting.shareHome" | translate }}</div>
+    <mat-icon>qr_code</mat-icon>
+  </div>
+  <div class="list-item cursor" (click)="homeService.openNewHomeDialog = true">
+    <div class="menu-text">{{ "setting.addHome" | translate }}</div>
+    <mat-icon>add_home</mat-icon>
+  </div>
+  <div class="list-item cursor" (click)="openHomeSetting()">
+    <div class="menu-text">{{ "setting.homeSetting" | translate }}</div>
+    <mat-icon>settings</mat-icon>
+  </div>
+  <div class="list-item cursor" (click)="logOut()">
+    <div class="menu-text">{{ "setting.logout" | translate }}</div>
+    <mat-icon>logout</mat-icon>
+  </div>
+
+  <div class="list-item">
+    <div class="dark-toogle">{{ "setting.darkmode" | translate }}</div>
+    <mat-slide-toggle
+      [checked]="isDarkmode()"
+      (change)="darkmodeService.toogleDarkmode()"
+      color="primary"
+    ></mat-slide-toggle>
+  </div>
 </div>

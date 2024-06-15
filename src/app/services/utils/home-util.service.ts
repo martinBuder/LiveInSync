@@ -8,6 +8,7 @@ export class HomeUtilService {
   public openNewHomeDialog: boolean = false;
   public openAddHomeDialog: boolean = false;
   public openCreateHomeDialog: boolean = false;
+  public openQRDialog: boolean = false;
 
   constructor() {}
 

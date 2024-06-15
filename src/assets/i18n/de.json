@@ -54,7 +54,11 @@
     "userRegisted": "Dein Nutzerkonto wurde erstellt. Du kannst dich jetzt einloggen."
   },
   "setting": {
-    "darkmode": "DunkelModus"
+    "darkmode": "DunkelModus",
+    "shareHome": "Haushalt teilen",
+    "addHome": "Haushalt hinzufügen",
+    "homeSetting": "Haushalt Einstellungen",
+    "logout": "Ausloggen"
   },
   "errors": {
     "email": {

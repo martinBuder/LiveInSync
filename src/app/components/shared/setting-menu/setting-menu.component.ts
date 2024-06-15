@@ -6,6 +6,9 @@ import { UtilService } from '../../../services/utils/util.service';
 import { ClickOutsideDirective } from '../../../directives/click-outside-directive';
 import { HeaderComponent } from '../header/header.component';
 import { ButtonComponent } from '../../common/button/button.component';
+import { MatIcon } from '@angular/material/icon';
+import { AuthService } from '../../../services/global/backend/auth.service';
+import { HomeUtilService } from '../../../services/utils/home-util.service';
 
 @Component({
   selector: 'app-setting-menu',
@@ -13,6 +16,7 @@ import { ButtonComponent } from '../../common/button/button.component';
   imports: [
     TranslateModule,
     MatSlideToggleModule,
+    MatIcon,
     ClickOutsideDirective,
     HeaderComponent,
     ButtonComponent,
@@ -25,7 +29,9 @@ export class SettingMenuComponent {
 
   constructor(
     protected darkmodeService: DarkmodeService,
-    protected utilService: UtilService
+    protected utilService: UtilService,
+    protected homeService: HomeUtilService,
+    protected authService: AuthService
   ) {}
 
   protected isDarkmode(): boolean {
@@ -37,4 +43,10 @@ export class SettingMenuComponent {
   public closeWindow = () => {
     this.closing.emit();
   };
+
+  protected logOut(): void {
+    this.authService.fireLogOut();
+  }
+
+  protected openHomeSetting(): void {}
 }
