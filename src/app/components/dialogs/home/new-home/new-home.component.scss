@@ -1,0 +1,21 @@
+@import "../../../../../styles/mixins.scss";
+
+@import "../../../../../styles/variables_styles.scss";
+@import "../../../../../styles/color_styles.scss";
+
+app-button {
+  @include border($padding: 0, $radius: 50%);
+
+  &:hover + p {
+    display: block !important;
+  }
+}
+
+.btn-wrapper {
+  position: relative;
+  gap: calc(var(--single) * 10);
+}
+
+.btn-wrapper p {
+  display: none;
+}

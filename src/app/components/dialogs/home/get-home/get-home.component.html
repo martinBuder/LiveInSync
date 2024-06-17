@@ -1,12 +1,12 @@
 <ng-container *ngIf="homeUtilService.openNewHomeDialog">
-  <app-new-home
-    (addHomeClicked)="homeUtilService.addHome()"
-    (createHomeClicked)="homeUtilService.createHome()"
-  ></app-new-home>
+  <app-new-home></app-new-home>
 </ng-container>
 <ng-container *ngIf="homeUtilService.openAddHomeDialog">
-  <app-add-home
-    (addHomeClicked)="homeUtilService.addHome()"
-    (createHomeClicked)="homeUtilService.createHome()"
-  ></app-add-home>
+  <app-add-home></app-add-home>
+</ng-container>
+<ng-container *ngIf="homeUtilService.openConnectHomeDialog">
+  <app-connect-home></app-connect-home>
+</ng-container>
+<ng-container *ngIf="homeUtilService.openShareHomeDialog">
+  <app-share-home></app-share-home>
 </ng-container>

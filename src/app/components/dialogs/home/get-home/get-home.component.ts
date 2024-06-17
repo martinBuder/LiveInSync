@@ -4,11 +4,17 @@ import { NewHomeComponent } from '../new-home/new-home.component';
 import { AddHomeComponent } from '../add-home/add-home.component';
 import { HomeUtilService } from '../../../../services/utils/home-util.service';
 import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
+import { ConnectHomeComponent } from '../connect-home/connect-home.component';
 
 @Component({
   selector: 'app-get-home',
   standalone: true,
-  imports: [CommonModule, NewHomeComponent, AddHomeComponent],
+  imports: [
+    CommonModule,
+    NewHomeComponent,
+    AddHomeComponent,
+    ConnectHomeComponent,
+  ],
   templateUrl: './get-home.component.html',
   styleUrl: './get-home.component.scss',
 })

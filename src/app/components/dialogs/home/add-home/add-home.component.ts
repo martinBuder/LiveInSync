@@ -61,6 +61,7 @@ export class AddHomeComponent {
       this.home.id,
       this.home
     );
+    this.homeUtilService.openAddHomeDialog = false;
   }
 
   private connectHomeWithUser(): void {

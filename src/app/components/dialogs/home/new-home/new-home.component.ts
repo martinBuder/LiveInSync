@@ -1,23 +1,26 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from '../../../common/button/button.component';
+import { MatIcon } from '@angular/material/icon';
+import { HomeUtilService } from '../../../../services/utils/home-util.service';
 
 @Component({
   selector: 'app-new-home',
   standalone: true,
-  imports: [TranslateModule, ButtonComponent],
+  imports: [TranslateModule, ButtonComponent, MatIcon],
   templateUrl: './new-home.component.html',
   styleUrl: './new-home.component.scss',
 })
 export class NewHomeComponent {
-  @Output() createHomeClicked = new EventEmitter<void>();
-  @Output() addHomeClicked = new EventEmitter<void>();
+  constructor(private homeService: HomeUtilService) {}
 
   protected createHome(): void {
-    this.createHomeClicked.emit();
+    this.homeService.openNewHomeDialog = false;
+    this.homeService.openAddHomeDialog = true;
   }
 
-  protected addHome(): void {
-    this.addHomeClicked.emit();
+  protected connectHome(): void {
+    this.homeService.openNewHomeDialog = false;
+    this.homeService.openConnectHomeDialog = true;
   }
 }
