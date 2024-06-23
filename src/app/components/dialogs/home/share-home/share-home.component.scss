@@ -1,0 +1,18 @@
+@import "../../../../../styles/color_styles.scss";
+@import "../../../../../styles/variables_styles.scss";
+@import "../../../../../styles/mixins.scss";
+
+.center-center-wrapper {
+  flex-direction: column;
+  gap: var(--padding);
+  padding-top: var(--padding);
+
+  h3 {
+    margin: var(--padding) auto;
+    color: var(highlight-color);
+  }
+
+  qr-code {
+    margin-bottom: var(--padding);
+  }
+}
