@@ -67,4 +67,8 @@ export class FeatureFormMapper {
     title: FeatureFormMapper.titleField,
     features: FeatureFormMapper.featuresField,
   };
+
+  static connectHomeForm = {
+    title: FeatureFormMapper.titleField,
+  };
 }
