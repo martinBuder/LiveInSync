@@ -55,7 +55,7 @@ export class AddHomeComponent {
         this.formGroup.value.title +
         '~' +
         this.utilService.generateSimpleToken(8),
-      adminUserId: this.userProfilService.user?.id as string,
+      adminUsersId: [this.userProfilService.user?.id as string],
       features: this.returnHomeFeatures(),
     };
     await this.firebaseService.setItemToFirebase(

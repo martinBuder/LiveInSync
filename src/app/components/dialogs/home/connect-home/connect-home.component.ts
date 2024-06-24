@@ -14,6 +14,8 @@ import { FeatureFormMapper } from '../../../../mapper/featureForm.mapper';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeUtilService } from '../../../../services/utils/home-util.service';
 import { ButtonComponent } from '../../../common/button/button.component';
+import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
+import { FirebaseService } from '../../../../services/global/backend/firebase.service';
 
 if (typeof document !== 'undefined') {
   LOAD_WASM().subscribe();
@@ -50,6 +52,8 @@ export class ConnectHomeComponent {
 
   constructor(
     private qrcode: NgxScannerQrcodeService,
+    private userProfileService: UserProfileService,
+    private firebaseService: FirebaseService,
     protected homeUtilService: HomeUtilService,
     formBuilder: FormBuilder
   ) {
@@ -64,8 +68,17 @@ export class ConnectHomeComponent {
       });
   }
 
-  protected connectingHome(): void {
+  protected async connectingHome(): Promise<void> {
     const homeId = this.formGroup.value.title;
-    console.log(homeId);
+    const user = this.userProfileService.user;
+    user?.homes?.push(homeId);
+    if (user !== null)
+      await this.firebaseService.updateFireItem(
+        'AppUsers',
+        user.id as string,
+        user
+      );
+    this.homeUtilService.openConnectHomeDialog = false;
+    // es fehlt noch die bestätigung
   }
 }
