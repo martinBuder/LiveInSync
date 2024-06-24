@@ -48,5 +48,21 @@ export class SettingMenuComponent {
     this.authService.fireLogOut();
   }
 
+  protected openDialog(dialog: string): void {
+    this.utilService.closeThis(this.closeWindow, 'settingMenuClose');
+    switch (dialog) {
+      case 'add':
+        this.homeService.openAddHomeDialog = true;
+        break;
+      case 'share':
+        this.homeService.openShareHomeDialog = true;
+        break;
+      default:
+        console.error(
+          `${dialog} existiert isn´t a boolean in HomeUtilService.`
+        );
+    }
+  }
+
   protected openHomeSetting(): void {}
 }
