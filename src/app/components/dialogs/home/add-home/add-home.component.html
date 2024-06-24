@@ -1,6 +1,13 @@
 <div class="dialog-outside">
   <div class="card dialog">
-    <h2>{{ "dialogHeader.newHome" | translate }}</h2>
+    <div class="space-between-cols">
+      <h2>{{ "dialogHeader.newHome" | translate }}</h2>
+      <mat-icon
+        class="cursor"
+        (click)="homeUtilService.openAddHomeDialog = false"
+        >close</mat-icon
+      >
+    </div>
     <app-input
       [inputTitle]="'label.homeName' | translate"
       [groupedForm]="formGroup"

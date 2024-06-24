@@ -10,6 +10,7 @@ import { FeaturesEnum, Home } from '../../../../interfaces/home';
 import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
 import { UtilService } from '../../../../services/utils/util.service';
 import { FirebaseService } from '../../../../services/global/backend/firebase.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-add-home',
@@ -19,6 +20,7 @@ import { FirebaseService } from '../../../../services/global/backend/firebase.se
     InputComponent,
     ButtonComponent,
     SelectAreaComponent,
+    MatIconModule,
   ],
   templateUrl: './add-home.component.html',
   styleUrl: './add-home.component.scss',

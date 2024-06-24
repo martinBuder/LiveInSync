@@ -12,15 +12,15 @@ import { HomeUtilService } from '../../../../services/utils/home-util.service';
   styleUrl: './new-home.component.scss',
 })
 export class NewHomeComponent {
-  constructor(private homeService: HomeUtilService) {}
+  constructor(protected homeUtilService: HomeUtilService) {}
 
   protected createHome(): void {
-    this.homeService.openNewHomeDialog = false;
-    this.homeService.openAddHomeDialog = true;
+    this.homeUtilService.openNewHomeDialog = false;
+    this.homeUtilService.openAddHomeDialog = true;
   }
 
   protected connectHome(): void {
-    this.homeService.openNewHomeDialog = false;
-    this.homeService.openConnectHomeDialog = true;
+    this.homeUtilService.openNewHomeDialog = false;
+    this.homeUtilService.openConnectHomeDialog = true;
   }
 }

@@ -1,6 +1,14 @@
 <div class="dialog-outside">
   <div class="card dialog">
-    <h2>{{ "dialogHeader.connectHome" | translate }}</h2>
+    <div class="space-between-cols">
+      <h2>{{ "dialogHeader.connectHome" | translate }}</h2>
+      <mat-icon
+        class="cursor"
+        (click)="homeUtilService.openConnectHomeDialog = false"
+        >close</mat-icon
+      >
+    </div>
+
     <div class="center-center-wrapper">
       <!-- For camera -->
       <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
@@ -11,11 +19,24 @@
       ><!-- async -->
       <!-- Loading -->
       <p *ngIf="action.isLoading">⌛ Loading...</p>
-
       <!-- start -->
       <button (click)="action.isStart ? action.stop() : action.start()">
         {{ action.isStart ? "Stop" : "Start" }}
       </button>
     </div>
+    <app-input
+      [groupedForm]="formGroup"
+      [formField]="'title'"
+      [inputValue]="qrValue"
+      [placeholderText]="'Gebe hier den vollen Haushaltsnamen ein.'"
+      [shouldFocus]="true"
+      (enterFunction)="connectingHome()"
+    ></app-input>
+    <app-button
+      [btnClass]="'text-btn'"
+      [isDisabled]="formGroup.valid"
+      [label]="'label.save' | translate"
+      (buttonClicked)="connectingHome()"
+    ></app-button>
   </div>
 </div>
