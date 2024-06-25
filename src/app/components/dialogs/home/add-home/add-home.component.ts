@@ -56,7 +56,13 @@ export class AddHomeComponent {
         '~' +
         this.utilService.generateSimpleToken(8),
       adminUsersId: [this.userProfilService.user?.id as string],
-      features: this.returnHomeFeatures(),
+      features: this.homeUtilService.returnHomeFeatures(),
+      connectedUsers: [
+        {
+          name: this.userProfilService.user?.name as string,
+          id: this.userProfilService.user?.id as string,
+        },
+      ],
     };
     await this.firebaseService.setItemToFirebase(
       'allHomes',
@@ -75,13 +81,5 @@ export class AddHomeComponent {
       this.userProfilService.user?.id as string,
       this.userProfilService.user
     );
-  }
-
-  private returnHomeFeatures(): FeaturesEnum[] {
-    const featuresArray: FeaturesEnum[] = [];
-    this.homeUtilService.newHomeFeatures.forEach((feature) => {
-      if (feature.selected === true) featuresArray.push(feature.name);
-    });
-    return featuresArray;
   }
 }

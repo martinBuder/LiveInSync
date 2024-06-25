@@ -1,12 +1,11 @@
 <div class="dialog-outside">
   <div class="card dialog">
     <div class="space-between-cols">
-      <h2>{{ "dialogHeader.newHome" | translate }}</h2>
-      <mat-icon
-        class="cursor"
-        (click)="homeUtilService.openAddHomeDialog = false"
-        >close</mat-icon
-      >
+      <h2>
+        {{ currentHomeService.currentHome.name }}
+        {{ "dialogHeader.setting" | translate }}
+      </h2>
+      <mat-icon class="cursor" (click)="cancel()">close</mat-icon>
     </div>
     <app-input
       [inputTitle]="'label.homeName' | translate"
@@ -16,6 +15,8 @@
     <app-select-area
       [selectArray]="homeUtilService.homeFeatures"
     ></app-select-area>
+    <app-select [options]="currentHomeService.currentHome.connectedUsers">
+    </app-select>
     <div class="btn-wrapper">
       <app-button
         [btnClass]="'text-btn'"

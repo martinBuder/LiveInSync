@@ -10,6 +10,7 @@ export class CurrentHomeService {
     name: 'startHome',
     id: 'startId',
     adminUsersId: ['startUserId'],
+    connectedUsers: [],
     features: [],
   };
 

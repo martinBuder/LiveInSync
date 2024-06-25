@@ -57,12 +57,11 @@ export class SettingMenuComponent {
       case 'share':
         this.homeService.openShareHomeDialog = true;
         break;
+      case 'setting':
+        this.homeService.openSettingHomeDialog = true;
+        break;
       default:
-        console.error(
-          `${dialog} existiert isn´t a boolean in HomeUtilService.`
-        );
+        console.error(`${dialog} isn´t a boolean in HomeUtilService.`);
     }
   }
-
-  protected openHomeSetting(): void {}
 }

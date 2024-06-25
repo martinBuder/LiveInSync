@@ -6,6 +6,7 @@ import { HomeUtilService } from '../../../../services/utils/home-util.service';
 import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
 import { ConnectHomeComponent } from '../connect-home/connect-home.component';
 import { ShareHomeComponent } from '../share-home/share-home.component';
+import { HomeSettingComponent } from '../home-setting/home-setting.component';
 
 @Component({
   selector: 'app-get-home',
@@ -16,6 +17,7 @@ import { ShareHomeComponent } from '../share-home/share-home.component';
     AddHomeComponent,
     ConnectHomeComponent,
     ShareHomeComponent,
+    HomeSettingComponent,
   ],
   templateUrl: './get-home.component.html',
   styleUrl: './get-home.component.scss',
