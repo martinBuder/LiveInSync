@@ -5,18 +5,20 @@ import { AddHomeComponent } from '../add-home/add-home.component';
 import { HomeUtilService } from '../../../../services/utils/home-util.service';
 import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
 import { ConnectHomeComponent } from '../connect-home/connect-home.component';
+import { ShareHomeComponent } from '../share-home/share-home.component';
 
 @Component({
   selector: 'app-get-home',
   standalone: true,
+  templateUrl: './get-home.component.html',
+  styleUrl: './get-home.component.scss',
   imports: [
     CommonModule,
     NewHomeComponent,
     AddHomeComponent,
     ConnectHomeComponent,
+    ShareHomeComponent,
   ],
-  templateUrl: './get-home.component.html',
-  styleUrl: './get-home.component.scss',
 })
 export class GetHomeComponent implements AfterContentInit {
   constructor(
