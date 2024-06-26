@@ -44,8 +44,9 @@ export class SettingMenuComponent {
     this.closing.emit();
   };
 
-  protected logOut(): void {
-    this.authService.fireLogOut();
+  protected async logOut(): Promise<void> {
+    await this.authService.fireLogOut();
+    this.utilService.navigateTo('');
   }
 
   protected openDialog(dialog: string): void {
@@ -59,6 +60,9 @@ export class SettingMenuComponent {
         break;
       case 'setting':
         this.homeService.openSettingHomeDialog = true;
+        break;
+      case 'category':
+        this.homeService.openEditCategoriesDialog = true;
         break;
       default:
         console.error(`${dialog} isn´t a boolean in HomeUtilService.`);

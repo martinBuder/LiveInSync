@@ -89,11 +89,11 @@ export class AuthService {
       await this.currentHomeService.getCurrentHome(
         this.userProfileService.user.mainHome
       );
-    this.localStorageService.saveInLocalStorage(
-      this.currentHomeService.currentHome.id,
-      'currentHome'
-    );
-    console.log(this.currentHomeService.currentHome);
+    // this.localStorageService.saveInLocalStorage(
+    //   this.currentHomeService.currentHome.id,
+    //   'currentHome'
+    // );
+    // console.log(this.currentHomeService.currentHome);
   }
 
   public createErrorMessages(errorCode: any): void {
@@ -114,12 +114,12 @@ export class AuthService {
           firebaseUser.uid
         );
       }
-      const homeId =
-        this.localStorageService.getFromLocalStorage('currentHome');
-      console.log(homeId);
+      // const homeId =
+      //   this.localStorageService.getFromLocalStorage('currentHome');
+      // console.log(homeId);
 
-      this.currentHomeService.getCurrentHome(homeId);
-      console.log(this.currentHomeService.currentHome);
+      // this.currentHomeService.getCurrentHome(homeId);
+      // console.log(this.currentHomeService.currentHome);
     });
   }
 

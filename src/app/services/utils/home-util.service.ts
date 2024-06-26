@@ -11,6 +11,7 @@ export class HomeUtilService {
   public openConnectHomeDialog: boolean = false;
   public openShareHomeDialog: boolean = false;
   public openSettingHomeDialog: boolean = false;
+  public openEditCategoriesDialog: boolean = false;
 
   constructor() {}
 

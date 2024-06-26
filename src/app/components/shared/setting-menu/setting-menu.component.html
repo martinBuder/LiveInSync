@@ -23,6 +23,10 @@
     <div class="menu-text">{{ "setting.homeSetting" | translate }}</div>
     <mat-icon>settings</mat-icon>
   </div>
+  <div class="list-item cursor" (click)="openDialog('category')">
+    <div class="menu-text">{{ "setting.categories" | translate }}</div>
+    <mat-icon>category</mat-icon>
+  </div>
   <div class="list-item cursor" (click)="logOut()">
     <div class="menu-text">{{ "setting.logout" | translate }}</div>
     <mat-icon>logout</mat-icon>
