@@ -24,6 +24,10 @@ export class FeatureFormMapper {
   static featuresField = [];
   static repetitionField = [];
   static categoryField = [];
+  static homeAdminField = [
+    '',
+    [Validators.maxLength(35), Validators.minLength(2)],
+  ];
 
   // forms
   static todoForm = {
@@ -66,5 +70,15 @@ export class FeatureFormMapper {
   static addHomeForm = {
     title: FeatureFormMapper.titleField,
     features: FeatureFormMapper.featuresField,
+  };
+
+  static settingHomeForm = {
+    title: FeatureFormMapper.titleField,
+    features: FeatureFormMapper.featuresField,
+    homeAdmin: FeatureFormMapper.homeAdminField,
+  };
+
+  static connectHomeForm = {
+    title: FeatureFormMapper.titleField,
   };
 }

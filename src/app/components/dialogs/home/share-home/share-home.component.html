@@ -1,1 +1,24 @@
-<!-- hier soll der code angezeigt werden und ein qr code -->
+<div class="dialog-outside">
+  <div class="card dialog">
+    <div class="space-between-cols">
+      <h2>{{ "dialogHeader.shareHome" | translate }}</h2>
+      <mat-icon
+        class="cursor"
+        (click)="homeUtilService.openShareHomeDialog = false"
+        >close</mat-icon
+      >
+    </div>
+    <div class="center-center-wrapper">
+      <p>
+        {{ "dialogText.shareHome" | translate }}
+      </p>
+      <h3>{{ currentHomeService.currentHome.id }}</h3>
+      <qr-code
+        value="{{ currentHomeService.currentHome.id }}"
+        size="150"
+        errorCorrectionLevel="M"
+      ></qr-code>
+      <p>{{ "dialogText.shareInstruction" | translate }}</p>
+    </div>
+  </div>
+</div>

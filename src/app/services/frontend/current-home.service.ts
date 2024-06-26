@@ -9,7 +9,8 @@ export class CurrentHomeService {
   public currentHome: Home = {
     name: 'startHome',
     id: 'startId',
-    adminUserId: 'startUserId',
+    adminUsersId: ['startUserId'],
+    connectedUsers: [],
     features: [],
   };
 

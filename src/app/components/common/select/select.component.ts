@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Category } from '../../../interfaces/category';
 import { FormsModule } from '@angular/forms';
-import { log } from 'console';
+import { homeUser } from '../../../interfaces/home';
 
 @Component({
   selector: 'app-select',
@@ -19,10 +19,10 @@ import { log } from 'console';
   styleUrl: './select.component.scss',
 })
 export class SelectComponent implements AfterViewInit {
-  @Input() options: Category[] = [];
-  @Input() optionValue?: Category;
-  @Output() selectionChange = new EventEmitter<Category>();
-  protected selectedOption?: Category;
+  @Input() options: any[] = [];
+  @Input() optionValue?: any;
+  @Output() selectionChange = new EventEmitter<any>();
+  protected selectedOption?: any;
 
   ngAfterViewInit() {
     if (this.options.length > 0) this.setOption();
@@ -33,14 +33,12 @@ export class SelectComponent implements AfterViewInit {
       const i = this.options.findIndex(
         (option) => option.name === this.optionValue?.name
       );
-      console.log(i);
-
       if (i !== -1) this.selectedOption = this.options[i];
       else this.selectedOption = this.options[0];
     } else this.selectedOption = this.options[0];
   }
 
-  onSelectionChange(selected: Category) {
+  onSelectionChange(selected: any) {
     this.selectionChange.emit(selected);
   }
 }

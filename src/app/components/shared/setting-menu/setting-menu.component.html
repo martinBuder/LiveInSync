@@ -11,15 +11,15 @@
       (buttonClicked)="utilService.closeThis(closeWindow, 'settingMenuClose')"
     ></app-button>
   </div>
-  <div class="list-item cursor" (click)="homeService.openQRDialog = true">
+  <div class="list-item cursor" (click)="openDialog('share')">
     <div class="menu-text">{{ "setting.shareHome" | translate }}</div>
     <mat-icon>qr_code</mat-icon>
   </div>
-  <div class="list-item cursor" (click)="homeService.openNewHomeDialog = true">
+  <div class="list-item cursor" (click)="openDialog('add')">
     <div class="menu-text">{{ "setting.addHome" | translate }}</div>
     <mat-icon>add_home</mat-icon>
   </div>
-  <div class="list-item cursor" (click)="openHomeSetting()">
+  <div class="list-item cursor" (click)="openDialog('setting')">
     <div class="menu-text">{{ "setting.homeSetting" | translate }}</div>
     <mat-icon>settings</mat-icon>
   </div>

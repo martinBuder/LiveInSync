@@ -46,11 +46,16 @@
   },
   "dialogHeader": {
     "newHome": "Neuen Haushalt anlegen",
+    "shareHome": "Haushalt teilen",
+    "connectHome": "Haushalt verbinden",
+    "setting": "Einstellungen",
     "somethingChanged": "Änderungen vorhanden.",
     "successful": "Erfolgreich"
   },
   "dialogText": {
     "newHome": "Möchtest du einen neuen Haushalt erstellen, oder möchtest du dich mit einem bestehenden Haushalt verbinden.",
+    "shareHome": "Vollständiger Haushaltsname zur Eingabe: ",
+    "shareInstruction": "Deine Haushaltspartner kann unter dem Menüpunkt 'Haushalt hinzufügen - mit Haushalt verbinden' den vollständigen Haushaltsnamen eingeben, oder den QR-Code scannen um den Haushalt bei sich einzufügen. ",
     "somethingChanged": "Es gab Änderungen. Bist du sicher, dass du das Fenster schliessen möchtest.",
     "savedPassword": "Neues Passwort wurde erfolgreich gespeichert! Du kannst dich jetzt wieder einloggen.",
     "userRegisted": "Dein Nutzerkonto wurde erstellt. Du kannst dich jetzt einloggen."

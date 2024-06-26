@@ -10,10 +10,11 @@ export class HomeUtilService {
   public openCreateHomeDialog: boolean = false;
   public openConnectHomeDialog: boolean = false;
   public openShareHomeDialog: boolean = false;
+  public openSettingHomeDialog: boolean = false;
 
   constructor() {}
 
-  public newHomeFeatures = [
+  public homeFeatures = [
     {
       name: 'todo' as FeaturesEnum,
       selected: false,
@@ -31,6 +32,14 @@ export class HomeUtilService {
       selected: false,
     },
   ];
+
+  public returnHomeFeatures(): FeaturesEnum[] {
+    const featuresArray: FeaturesEnum[] = [];
+    this.homeFeatures.forEach((feature) => {
+      if (feature.selected === true) featuresArray.push(feature.name);
+    });
+    return featuresArray;
+  }
 
   public addHome(): void {
     this.openNewHomeDialog = false;

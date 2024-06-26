@@ -10,6 +10,7 @@ import { FeaturesEnum, Home } from '../../../../interfaces/home';
 import { UserProfileService } from '../../../../services/global/backend/userProfile.service';
 import { UtilService } from '../../../../services/utils/util.service';
 import { FirebaseService } from '../../../../services/global/backend/firebase.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-add-home',
@@ -19,6 +20,7 @@ import { FirebaseService } from '../../../../services/global/backend/firebase.se
     InputComponent,
     ButtonComponent,
     SelectAreaComponent,
+    MatIconModule,
   ],
   templateUrl: './add-home.component.html',
   styleUrl: './add-home.component.scss',
@@ -53,8 +55,14 @@ export class AddHomeComponent {
         this.formGroup.value.title +
         '~' +
         this.utilService.generateSimpleToken(8),
-      adminUserId: this.userProfilService.user?.id as string,
-      features: this.returnHomeFeatures(),
+      adminUsersId: [this.userProfilService.user?.id as string],
+      features: this.homeUtilService.returnHomeFeatures(),
+      connectedUsers: [
+        {
+          name: this.userProfilService.user?.name as string,
+          id: this.userProfilService.user?.id as string,
+        },
+      ],
     };
     await this.firebaseService.setItemToFirebase(
       'allHomes',
@@ -73,13 +81,5 @@ export class AddHomeComponent {
       this.userProfilService.user?.id as string,
       this.userProfilService.user
     );
-  }
-
-  private returnHomeFeatures(): FeaturesEnum[] {
-    const featuresArray: FeaturesEnum[] = [];
-    this.homeUtilService.newHomeFeatures.forEach((feature) => {
-      if (feature.selected === true) featuresArray.push(feature.name);
-    });
-    return featuresArray;
   }
 }

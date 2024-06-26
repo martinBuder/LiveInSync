@@ -15,6 +15,7 @@ export class InputComponent {
   @Input() groupedForm!: FormGroup;
   @Input() formField!: string;
   @Input() inputTitle!: string;
+  @Input() placeholderText?: string;
   @Input() withIcon: boolean = false;
   @Input() matIcon?: string;
   @Input() inputValue: string = '';
