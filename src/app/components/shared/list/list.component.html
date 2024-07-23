@@ -1,36 +1,43 @@
 <div class="header-wrapper space-between-cols">
   <h2 class="header">{{ listHeader }}</h2>
-  <ng-container *ngIf="categories && !isAddActivated && areAllEditFalse()">
+  <div class="one-line">
+    <ng-container *ngIf="!isAddActivated && areAllEditFalse()">
+      <div class="change-list-modus">
+        <p>{{ "label.changeTo" | translate }}</p>
+        <ng-container *ngIf="listModus === 'select'">
+          <app-button
+            [btnClass]="'icon-btn'"
+            [matIcon]="'edited'"
+            (buttonClicked)="listModus = 'edit'"
+          ></app-button>
+        </ng-container>
+        <ng-container *ngIf="listModus === 'edit'">
+          <app-button
+            [btnClass]="'icon-btn'"
+            [matIcon]="'checked'"
+            (buttonClicked)="listModus = 'select'"
+          ></app-button>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<ng-container *ngIf="categories && !isAddActivated && areAllEditFalse()">
+  <div class="one-line end-line">
     <app-select
       [options]="categories"
       (selectionChange)="onCategoryChange($event)"
     ></app-select>
-  </ng-container>
-  <ng-container *ngIf="!isAddActivated && areAllEditFalse()">
-    <app-button
-      [btnClass]="'icon-btn'"
-      [matIcon]="'add'"
-      (buttonClicked)="openAdd()"
-    ></app-button>
-    <div class="change-list-modus">
-      <p>{{ "label.changeTo" | translate }}</p>
-      <ng-container *ngIf="listModus === 'select'">
-        <app-button
-          [btnClass]="'icon-btn'"
-          [matIcon]="'edited'"
-          (buttonClicked)="listModus = 'edit'"
-        ></app-button>
-      </ng-container>
-      <ng-container *ngIf="listModus === 'edit'">
-        <app-button
-          [btnClass]="'icon-btn'"
-          [matIcon]="'checked'"
-          (buttonClicked)="listModus = 'select'"
-        ></app-button>
-      </ng-container>
-    </div>
-  </ng-container>
-</div>
+    <ng-container *ngIf="!isAddActivated && areAllEditFalse()">
+      <app-button
+        [btnClass]="'icon-btn'"
+        [matIcon]="'add'"
+        (buttonClicked)="openAdd()"
+      ></app-button>
+    </ng-container>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="isAddActivated">
   <app-editable
     style="background-color: var(--odd-back-color)"

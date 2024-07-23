@@ -46,6 +46,7 @@ export class SettingMenuComponent {
 
   protected logOut(): void {
     this.authService.fireLogOut();
+    this.utilService.navigateTo('');
   }
 
   protected openDialog(dialog: string): void {
