@@ -49,6 +49,7 @@
     "shareHome": "Haushalt teilen",
     "connectHome": "Haushalt verbinden",
     "setting": "Einstellungen",
+    "editCategories": "Kategorien bearbeiten",
     "somethingChanged": "Änderungen vorhanden.",
     "successful": "Erfolgreich"
   },
@@ -65,6 +66,7 @@
     "shareHome": "Haushalt teilen",
     "addHome": "Haushalt hinzufügen",
     "homeSetting": "Haushalt Einstellungen",
+    "categories": "Kategorien bearbeiten",
     "logout": "Ausloggen"
   },
   "errors": {

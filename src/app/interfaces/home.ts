@@ -1,3 +1,5 @@
+import { Category } from './category';
+
 export type FeaturesEnum = 'todo' | 'shopping' | 'calendar' | 'cleaning';
 
 export interface Home {
@@ -6,6 +8,8 @@ export interface Home {
   adminUsersId: string[];
   connectedUsers: homeUser[];
   features: FeaturesEnum[];
+  shopCategorie?: Category[];
+  calendarCategory?: Category[];
 }
 
 export interface homeUser {

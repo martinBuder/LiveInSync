@@ -11,6 +11,8 @@ import { HomeSettingComponent } from '../home-setting/home-setting.component';
 @Component({
   selector: 'app-get-home',
   standalone: true,
+  templateUrl: './get-home.component.html',
+  styleUrl: './get-home.component.scss',
   imports: [
     CommonModule,
     NewHomeComponent,
@@ -19,8 +21,6 @@ import { HomeSettingComponent } from '../home-setting/home-setting.component';
     ShareHomeComponent,
     HomeSettingComponent,
   ],
-  templateUrl: './get-home.component.html',
-  styleUrl: './get-home.component.scss',
 })
 export class GetHomeComponent implements AfterContentInit {
   constructor(
