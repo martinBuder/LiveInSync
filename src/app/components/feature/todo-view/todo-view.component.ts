@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../common/button/button.component';
 import { FeatureFormMapper } from '../../../mapper/featureForm.mapper';
+import { Category } from '../../../interfaces/category';
 
 @Component({
   selector: 'app-todo-view',
@@ -20,6 +21,7 @@ import { FeatureFormMapper } from '../../../mapper/featureForm.mapper';
 })
 export class TodoViewComponent {
   protected formGroup!: FormGroup;
+  protected todoCategories: Array<Category> = [{ name: 'all', color: 'white' }];
 
   constructor(formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group(FeatureFormMapper.todoForm);

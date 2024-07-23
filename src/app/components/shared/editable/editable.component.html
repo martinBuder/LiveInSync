@@ -14,7 +14,7 @@
   <ng-container *ngIf="categoriesArray">
     <app-select
       [options]="categoriesArray"
-      [optionValue]="item.category"
+      [optionValue]="item.category || 0"
       (selectionChange)="onCategoryChange($event)"
     ></app-select>
   </ng-container>
